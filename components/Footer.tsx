@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { ShirayukinoLogo } from "./Navbar";
 
 export function Footer() {
@@ -17,12 +18,12 @@ export function Footer() {
                   常闇の女王と秘密の隠れ家 Project
                 </p>
               </div>
-              <a
-                href="#gameplay"
+              <Link
+                href="/gameplay"
                 className="inline-flex h-12 w-fit items-center justify-center rounded-full bg-[#142d55] hover:bg-[#0c1e3a] dark:bg-[#1a355d] dark:hover:bg-[#224477] px-7 text-[11px] font-semibold uppercase tracking-[0.18em] text-white font-mono transition-all shadow-sm"
               >
                 Enter Secret Hideout
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -35,30 +36,30 @@ export function Footer() {
                   Project
                 </p>
                 <div className="mt-8 space-y-4">
-                  <a
-                    href="#gameplay"
+                  <Link
+                    href="/gameplay"
                     className="block text-[14px] font-medium leading-none tracking-[-0.02em] text-black dark:text-white transition hover:text-[#142d55] dark:hover:text-[#E5BA68]"
                   >
                     Story & JRPG
-                  </a>
-                  <a
-                    href="#world"
+                  </Link>
+                  <Link
+                    href="/#world"
                     className="block text-[14px] font-medium leading-none tracking-[-0.02em] text-black dark:text-white transition hover:text-[#142d55] dark:hover:text-[#E5BA68]"
                   >
                     World & Lore
-                  </a>
-                  <a
-                    href="#editions"
+                  </Link>
+                  <Link
+                    href="/editions"
                     className="block text-[14px] font-medium leading-none tracking-[-0.02em] text-black dark:text-white transition hover:text-[#142d55] dark:hover:text-[#E5BA68]"
                   >
                     Soundtrack Vault
-                  </a>
-                  <a
-                    href="#devlog"
+                  </Link>
+                  <Link
+                    href="/devlog"
                     className="block text-[14px] font-medium leading-none tracking-[-0.02em] text-black dark:text-white transition hover:text-[#142d55] dark:hover:text-[#E5BA68]"
                   >
                     Devlog Notes
-                  </a>
+                  </Link>
                 </div>
               </nav>
 
@@ -71,30 +72,30 @@ export function Footer() {
                   Editions
                 </p>
                 <div className="mt-8 space-y-4">
-                  <a
-                    href="#editions"
+                  <Link
+                    href="/editions"
                     className="block text-[14px] font-medium leading-none tracking-[-0.02em] text-black dark:text-white transition hover:text-[#142d55] dark:hover:text-[#E5BA68]"
                   >
                     Standard Digital
-                  </a>
-                  <a
-                    href="#editions"
+                  </Link>
+                  <Link
+                    href="/editions"
                     className="block text-[14px] font-medium leading-none tracking-[-0.02em] text-black dark:text-white transition hover:text-[#142d55] dark:hover:text-[#E5BA68]"
                   >
                     Deluxe Fan Pack
-                  </a>
-                  <a
-                    href="#editions"
+                  </Link>
+                  <Link
+                    href="/editions"
                     className="block text-[14px] font-medium leading-none tracking-[-0.02em] text-black dark:text-white transition hover:text-[#142d55] dark:hover:text-[#E5BA68]"
                   >
                     Soundtrack Disc
-                  </a>
-                  <a
-                    href="https://store.steampowered.com"
+                  </Link>
+                  <Link
+                    href="/community"
                     className="block text-[14px] font-medium leading-none tracking-[-0.02em] text-black dark:text-white transition hover:text-[#142d55] dark:hover:text-[#E5BA68]"
                   >
                     Steam Store
-                  </a>
+                  </Link>
                 </div>
               </nav>
 
@@ -107,30 +108,30 @@ export function Footer() {
                   Circle
                 </p>
                 <div className="mt-8 space-y-4">
-                  <a
-                    href="#community"
+                  <Link
+                    href="/community"
                     className="block text-[14px] font-medium leading-none tracking-[-0.02em] text-black dark:text-white transition hover:text-[#142d55] dark:hover:text-[#E5BA68]"
                   >
                     Discord Circle
-                  </a>
-                  <a
-                    href="#community"
+                  </Link>
+                  <Link
+                    href="/terms"
                     className="block text-[14px] font-medium leading-none tracking-[-0.02em] text-black dark:text-white transition hover:text-[#142d55] dark:hover:text-[#E5BA68]"
                   >
                     Fan Guidelines
-                  </a>
-                  <a
-                    href="#community"
+                  </Link>
+                  <Link
+                    href="/community"
                     className="block text-[14px] font-medium leading-none tracking-[-0.02em] text-black dark:text-white transition hover:text-[#142d55] dark:hover:text-[#E5BA68]"
                   >
                     Staff & Credits
-                  </a>
-                  <a
-                    href="#community"
+                  </Link>
+                  <Link
+                    href="/community"
                     className="block text-[14px] font-medium leading-none tracking-[-0.02em] text-black dark:text-white transition hover:text-[#142d55] dark:hover:text-[#E5BA68]"
                   >
                     Contact / Mail
-                  </a>
+                  </Link>
                 </div>
               </nav>
             </div>
@@ -143,19 +144,22 @@ export function Footer() {
             ShirayukinoComp is an independent creative circle and narrative RPG game studio. Characters, universe, and soundtrack are original works of the circle.
           </p>
           <div className="flex flex-col gap-3 lg:items-end">
-            <div className="flex flex-wrap gap-x-5 gap-y-2">
-              <a href="#gameplay" className="transition hover:text-black dark:hover:text-white">
+            <div className="flex flex-wrap items-center gap-x-5 gap-y-2 font-mono">
+              <Link href="/gameplay" className="transition hover:text-black dark:hover:text-white">
                 Gameplay Overview
-              </a>
-              <a href="#editions" className="transition hover:text-black dark:hover:text-white">
+              </Link>
+              <Link href="/editions" className="transition hover:text-black dark:hover:text-white">
                 Editions
-              </a>
-              <a href="/privacy" className="transition hover:text-black dark:hover:text-white">
+              </Link>
+              <Link href="/privacy" className="transition hover:text-black dark:hover:text-white">
                 Privacy Policy
-              </a>
-              <a href="/terms" className="transition hover:text-black dark:hover:text-white">
+              </Link>
+              <Link
+                href="/terms"
+                className="rounded-md border border-[#8f8b86] dark:border-[#7f93b0] px-2.5 py-0.5 text-black dark:text-white transition hover:border-black dark:hover:border-white"
+              >
                 Terms of Use
-              </a>
+              </Link>
             </div>
             <p>© 2026 ShirayukinoComp / 常闇の女王と秘密の隠れ家 Project. All rights reserved.</p>
           </div>

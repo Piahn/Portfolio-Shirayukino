@@ -26,26 +26,26 @@ export function ShirayukinoLogo({
 }
 
 const navLinks = [
-  { label: "Story & RPG", href: "/#gameplay" },
+  { label: "Story & RPG", href: "/gameplay" },
   { label: "World", href: "/#world" },
-  { label: "Editions", href: "/#editions" },
+  { label: "Editions", href: "/editions" },
   { label: "Devlog", href: "/devlog" },
   { label: "Community", href: "/community" },
 ];
 
 const mobileMenuPrimary = [
-  { label: "Story & RPG", href: "/#gameplay" },
+  { label: "Story & RPG", href: "/gameplay" },
   { label: "World", href: "/#world" },
-  { label: "Editions", href: "/#editions" },
+  { label: "Editions", href: "/editions" },
   { label: "Devlog", href: "/devlog" },
   { label: "Community", href: "/community" },
 ];
 
 const mobileMenuSecondary = [
-  { label: "Steam Page", href: "https://store.steampowered.com" },
+  { label: "Steam Hub", href: "/community" },
   { label: "Discord Circle", href: "/community" },
-  { label: "Soundtrack Vault", href: "/#editions" },
-  { label: "Home", href: "/" },
+  { label: "Soundtrack Vault", href: "/editions" },
+  { label: "Terms & Privacy", href: "/terms" },
 ];
 
 export function Navbar() {

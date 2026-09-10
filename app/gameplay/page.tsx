@@ -1,0 +1,185 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { HiArrowUpRight } from "react-icons/hi2";
+import {
+  IoArrowBackOutline,
+  IoLogoWhatsapp,
+  IoSparklesOutline,
+  IoFlashOutline,
+  IoCompassOutline,
+  IoFlaskOutline,
+  IoGitBranchOutline,
+} from "react-icons/io5";
+import { WHATSAPP_BOT_URL } from "@/components/constants";
+
+export const metadata: Metadata = {
+  title: "Gameplay Overview | ShirayukinoComp",
+  description:
+    "Explore the combat systems, visual novel branching narrative, and alchemy atelier mechanics of 『常闇の女王と秘密の隠れ家』 (Queen of Ever Darkness & the Secret Hideout).",
+};
+
+const GAMEPLAY_PILLARS = [
+  {
+    icon: IoFlashOutline,
+    tag: "COMBAT ENGINE",
+    title: "Timeline-Driven Tactical Battles",
+    description:
+      "A strategic turn-based battle system featuring a dynamic initiative timeline. Manage Action Points (AP), stagger enemy defenses by exploiting elemental affinities, and unleash devastating Celestial Relic Bursts with your four-member active party.",
+    features: [
+      "Dynamic Turn-Order Timeline with queue disruption tactics",
+      "Elemental Catalyst chains (Astral, Pyre, Glacial, Zephyr)",
+      "Stagger & Break system for massive critical damage windows",
+      "Over 40 unique character skills and cinematic group finishers",
+    ],
+  },
+  {
+    icon: IoGitBranchOutline,
+    tag: "STORY & VISUAL NOVEL",
+    title: "Branching Scenarios & Multiple Endings",
+    description:
+      "Experience high-stakes choices that determine the fate of the Queen of Ever Darkness and your comrades. Every decision subtly influences companion trust levels, unlocking divergent story chapters and 4 distinct canonical endings.",
+    features: [
+      "Over 18 major narrative crossroads affecting entire regions",
+      "Hero bond events and intimate hideout conversations",
+      "Richly illustrated story CGs with cinematic scene transitions",
+      "Integrated scenario log allowing replay of unlocked story branches",
+    ],
+  },
+  {
+    icon: IoFlaskOutline,
+    tag: "ALCHEMICAL CRAFTING",
+    title: "The Secret Hideout Atelier",
+    description:
+      "Beneath the ancient ruins lies your sanctuary. Gather celestial starlight motes, ancient fossils, and mineral catalysts from expeditions to brew potent combat tonics, forge relic accessories, and customize party gear.",
+    features: [
+      "Grid-based synthesis grid combining catalyst traits and elemental values",
+      "Hideout upgrades that unlock advanced potion recipes and passive buffs",
+      "Custom relic socketing allowing tailored character builds",
+      "Cozy hideout soundtrack and ambient character interactions",
+    ],
+  },
+  {
+    icon: IoCompassOutline,
+    tag: "WORLD & SKY VOYAGE",
+    title: "The Celestial Sea & Sky Whales",
+    description:
+      "Take to the skies aboard celestial galleons. Navigate above the clouds to discover mythical floating islands, ancient sky temples, and colossal celestial whales that drift peacefully through the starry atmosphere.",
+    features: [
+      "Expansive world map spanning cloud archipelagos and sunken ruins",
+      "Dynamic weather including starry auroras and celestial storms",
+      "Hidden dungeon labyrinths harboring ancient relic bosses",
+      "Rich environmental storytelling and localized mythologies",
+    ],
+  },
+];
+
+export default function GameplayOverviewPage() {
+  return (
+    <div className="w-full transition-colors duration-300">
+      {/* Top Header */}
+      <div className="px-[21px] pt-10 pb-12 sm:px-8 sm:pt-14 sm:pb-16 border-b border-[#e7e3df] dark:border-[#1a2840]">
+        <div className="mx-auto max-w-[1220px]">
+          {/* Breadcrumb */}
+          <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs font-mono text-[#8f8b86] dark:text-[#7f93b0] mb-6">
+            <Link href="/" className="hover:text-black dark:hover:text-white transition-colors flex items-center gap-1.5">
+              <IoArrowBackOutline size={13} />
+              <span>Home</span>
+            </Link>
+            <span>/</span>
+            <span className="text-[#142d55] dark:text-[#E5BA68] font-semibold">Gameplay Overview</span>
+          </nav>
+
+          <div className="max-w-3xl">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#edf3fc] dark:bg-[#111c30] border border-[#cfe0f8] dark:border-[#1f304f] mb-3 transition-colors">
+              <span className="w-2 h-2 rounded-full bg-[#142d55] dark:bg-[#E5BA68] animate-pulse" />
+              <span className="font-mono text-[10.5px] font-semibold tracking-[0.16em] uppercase text-[#142d55] dark:text-[#8ab4f8]">
+                SYSTEMS & MECHANICS
+              </span>
+            </div>
+            <h1 className="text-3xl sm:text-4xl lg:text-[2.9rem] leading-[1.05] font-semibold tracking-[-0.03em] text-black dark:text-white">
+              Tactical JRPG combat meets branching visual novel
+            </h1>
+            <p className="mt-4 text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
+              『常闇の女王と秘密の隠れ家』 fuses turn-based combat depth, cozy atelier crafting, and deep narrative exploration. Experience the opening chapter now on WhatsApp or prepare for the upcoming full Steam release.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* 4 Pillars Section */}
+      <div className="px-[21px] py-12 sm:px-8 sm:py-16">
+        <div className="mx-auto max-w-[1220px]">
+          <div className="grid gap-6 md:grid-cols-2">
+            {GAMEPLAY_PILLARS.map((pillar, idx) => {
+              const Icon = pillar.icon;
+              return (
+                <div
+                  key={idx}
+                  className="rounded-[22px] border border-[#e7e3df] dark:border-[#1a2840] bg-[#f8f5f2] dark:bg-[#0c1524] p-7 sm:p-9 flex flex-col justify-between transition-colors shadow-sm dark:shadow-[0_4px_24px_rgba(0,0,0,0.3)]"
+                >
+                  <div>
+                    <div className="flex items-center justify-between gap-3 mb-5">
+                      <div className="w-10 h-10 rounded-full bg-white dark:bg-[#15233c] border border-[#e7e3df] dark:border-[#1e3456] flex items-center justify-center text-xl text-[#142d55] dark:text-[#E5BA68] shadow-sm">
+                        <Icon />
+                      </div>
+                      <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[#142d55] dark:text-[#E5BA68] font-semibold px-2.5 py-0.5 rounded-full bg-white dark:bg-[#111c30] border border-[#e7e3df] dark:border-[#1e3456]">
+                        {pillar.tag}
+                      </span>
+                    </div>
+
+                    <h2 className="text-xl sm:text-2xl font-semibold text-black dark:text-white mb-3">
+                      {pillar.title}
+                    </h2>
+                    <p className="text-xs sm:text-[13.5px] leading-relaxed text-gray-600 dark:text-gray-300 mb-6">
+                      {pillar.description}
+                    </p>
+
+                    <div className="pt-4 border-t border-[#e2ddd7] dark:border-[#192b45] space-y-2">
+                      <p className="font-mono text-[10.5px] font-semibold uppercase tracking-[0.14em] text-[#142d55] dark:text-[#E5BA68]">
+                        ✦ Core Features
+                      </p>
+                      <ul className="space-y-1.5">
+                        {pillar.features.map((f, fIdx) => (
+                          <li key={fIdx} className="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-300">
+                            <span className="text-[#142d55] dark:text-[#E5BA68] mt-0.5">•</span>
+                            <span>{f}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* WhatsApp Interactive Prologue Banner */}
+          <div className="mt-14 rounded-[22px] bg-gradient-to-r from-[#142d55] to-[#0a172c] dark:from-[#0e1c33] dark:to-[#08101e] p-7 sm:p-9 text-white flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 border border-[#23457a] dark:border-[#1e3b68] shadow-md">
+            <div>
+              <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#cba052] dark:text-[#e5ba68] font-semibold flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#25D366] animate-pulse" />
+                ✦ PLAYABLE ON WHATSAPP TODAY
+              </span>
+              <h3 className="text-xl sm:text-2xl font-semibold mt-1">
+                Test the prologue battle decisions right on WhatsApp
+              </h3>
+              <p className="mt-1 text-xs sm:text-sm text-white/80 max-w-xl">
+                Experience the game's branching dialogue engine and unlock early secret items without downloading any client files.
+              </p>
+            </div>
+            <a
+              href={WHATSAPP_BOT_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white dark:bg-[#E5BA68] text-[#142d55] dark:text-[#08101e] text-xs font-mono font-semibold uppercase tracking-wider transition hover:bg-gray-100 dark:hover:bg-[#f0c878] shrink-0 shadow-sm group"
+            >
+              <IoLogoWhatsapp className="text-[#25D366] text-lg transition-transform group-hover:scale-110" />
+              <span>Launch Bot Prologue</span>
+              <HiArrowUpRight size={14} />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
