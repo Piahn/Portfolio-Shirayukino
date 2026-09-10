@@ -57,3 +57,27 @@ html.theme-transitioning article {
               color 180ms cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
+/* Hide scrollbars completely when navbar menu overlay is open */
+html.overflow-hidden,
+body.overflow-hidden {
+  overflow: hidden !important;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+html.overflow-hidden::-webkit-scrollbar,
+body.overflow-hidden::-webkit-scrollbar {
+  display: none !important;
+}
+
+/* Hide scrollbar utility for overlay containers */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+

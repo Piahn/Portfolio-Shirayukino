@@ -86,15 +86,18 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Prevent body scroll when menu overlay is open
+  // Prevent body & html scroll and hide scrollbars when menu overlay is open
   useEffect(() => {
     if (isMenuOpen) {
-      document.body.style.overflow = "hidden";
+      document.documentElement.classList.add("overflow-hidden");
+      document.body.classList.add("overflow-hidden");
     } else {
-      document.body.style.overflow = "";
+      document.documentElement.classList.remove("overflow-hidden");
+      document.body.classList.remove("overflow-hidden");
     }
     return () => {
-      document.body.style.overflow = "";
+      document.documentElement.classList.remove("overflow-hidden");
+      document.body.classList.remove("overflow-hidden");
     };
   }, [isMenuOpen]);
 
@@ -170,18 +173,28 @@ export function Navbar() {
       {/* Floating Controls - Aligned exactly with the 1200px architectural grid lines */}
       <div className="fixed top-3.5 sm:top-5 xl:top-6 inset-x-3 sm:inset-x-4 xl:inset-x-0 mx-auto max-w-[1200px] pointer-events-none z-50">
         <div className="relative w-full">
-          {/* Floating Round Button in Top-Right */}
+          {/* Floating Round Button & Controls in Top-Right */}
           <div
-            className={`absolute right-1 sm:right-3 xl:right-0 top-0 flex items-center transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+            className={`absolute right-1 sm:right-3 xl:right-0 top-0 flex items-center gap-2.5 sm:gap-3.5 transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
               isScrolled || isMenuOpen
                 ? "translate-y-0 opacity-100 pointer-events-auto scale-100 visible"
                 : "-translate-y-6 opacity-0 pointer-events-none scale-90 invisible"
             }`}
           >
+            {/* Theme Toggle Pill - perfectly aligned vertically with Close button when Menu is open */}
+            {isMenuOpen && (
+              <div className="pointer-events-auto flex items-center gap-2 pl-3 sm:pl-3.5 pr-1.5 py-1 sm:py-1.5 rounded-full bg-white/95 dark:bg-[#0c1424]/95 backdrop-blur-xl border border-gray-200/90 dark:border-[#1f304d] shadow-[0_4px_20px_rgba(0,0,0,0.06)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.4)] transition-all animate-in fade-in zoom-in-95 duration-200">
+                <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-wider text-gray-500 dark:text-gray-400 select-none">
+                  Theme
+                </span>
+                <ThemeToggle />
+              </div>
+            )}
+
             {/* The Iconic Round Circular Menu Button */}
             {/* On mobile & tablet (< 1280px): translate-x-0 stays safely inside screen bounds */}
-            {/* On desktop (xl: >=1280px): translate-x-1/2 centered directly on the 1200px grid line */}
-            <div className={`translate-x-0 xl:translate-x-1/2 ${isScrolled || isMenuOpen ? "pointer-events-auto" : "pointer-events-none"}`}>
+            {/* On desktop (xl: >=1280px): when closed, translate-x-1/2 centers on grid; when open, translate-x-0 keeps group neatly aligned */}
+            <div className={`translate-x-0 ${isMenuOpen ? "xl:translate-x-0" : "xl:translate-x-1/2"} ${isScrolled || isMenuOpen ? "pointer-events-auto" : "pointer-events-none"}`}>
               <button
                 type="button"
                 onClick={() => setIsMenuOpen((prev) => !prev)}
@@ -219,14 +232,10 @@ export function Navbar() {
         }`}
         aria-hidden={!isMenuOpen}
       >
-        <div className="flex h-full flex-col justify-between max-w-[1200px] mx-auto px-4 sm:px-8 md:px-12 py-6 sm:py-10 overflow-y-auto">
-          {/* Top of drawer with Logo and ThemeToggle (discreetly accessible inside drawer) */}
-          <div className="flex items-center justify-between pr-14 sm:pr-20">
+        <div className="flex h-full flex-col justify-between max-w-[1200px] mx-auto px-4 sm:px-8 md:px-12 py-6 sm:py-10 overflow-y-auto no-scrollbar">
+          {/* Top of drawer with Logo */}
+          <div className="flex items-center justify-between">
             <ShirayukinoLogo imgClassName="h-7 sm:h-8 md:h-9" />
-            <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-gray-100 dark:bg-[#0c1424] border border-gray-200 dark:border-[#1f304d]">
-              <span className="text-[11px] font-mono uppercase tracking-wider text-gray-500 dark:text-gray-400">Theme</span>
-              <ThemeToggle />
-            </div>
           </div>
 
           {/* Center Navigation Content - 2-Column Split on Desktop */}
