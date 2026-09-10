@@ -1,11 +1,21 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
+import { useForm } from "react-hook-form";
 import { HiArrowUpRight } from "react-icons/hi2";
-import { IoArrowBackOutline, IoLogoWhatsapp, IoSearchOutline } from "react-icons/io5";
+import {
+  IoArrowBackOutline,
+  IoLogoWhatsapp,
+  IoSearchOutline,
+  IoCloseCircleOutline,
+} from "react-icons/io5";
 import { DEVLOG_ARTICLES } from "@/components/devlogData";
 import { WHATSAPP_BOT_URL } from "@/components/constants";
+
+interface SearchFormInput {
+  search: string;
+}
 
 const CATEGORIES = [
   "All",
@@ -18,15 +28,53 @@ const CATEGORIES = [
 
 export default function DevlogArchivePage() {
   const [activeCategory, setActiveCategory] = useState<string>("All");
-  const [searchQuery, setSearchQuery] = useState<string>("");
+  const [debouncedQuery, setDebouncedQuery] = useState<string>("");
+  const [isDebouncing, setIsDebouncing] = useState<boolean>(false);
+
+  // Setup React Hook Form
+  const { register, watch, setValue, handleSubmit, reset } =
+    useForm<SearchFormInput>({
+      defaultValues: {
+        search: "",
+      },
+    });
+
+  const currentSearchValue = watch("search") ?? "";
+
+  // Debounce effect: triggers only when user stops typing (350ms delay)
+  useEffect(() => {
+    if (currentSearchValue !== debouncedQuery) {
+      setIsDebouncing(true);
+    }
+
+    const timer = setTimeout(() => {
+      setDebouncedQuery(currentSearchValue.trim());
+      setIsDebouncing(false);
+    }, 350);
+
+    return () => clearTimeout(timer);
+  }, [currentSearchValue, debouncedQuery]);
+
+  // Immediate search on Enter / Form Submit
+  const onFormSubmit = (data: SearchFormInput) => {
+    setDebouncedQuery(data.search.trim());
+    setIsDebouncing(false);
+  };
+
+  const handleClearSearch = () => {
+    setValue("search", "");
+    setDebouncedQuery("");
+    setIsDebouncing(false);
+  };
 
   const filteredArticles = DEVLOG_ARTICLES.filter((article) => {
     const matchesCategory =
       activeCategory === "All" || article.category === activeCategory;
     const matchesSearch =
-      article.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      article.summary.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      article.category.toLowerCase().includes(searchQuery.toLowerCase());
+      debouncedQuery === "" ||
+      article.title.toLowerCase().includes(debouncedQuery.toLowerCase()) ||
+      article.summary.toLowerCase().includes(debouncedQuery.toLowerCase()) ||
+      article.category.toLowerCase().includes(debouncedQuery.toLowerCase());
     return matchesCategory && matchesSearch;
   });
 
@@ -61,17 +109,41 @@ export default function DevlogArchivePage() {
               </p>
             </div>
 
-            {/* Quick Search */}
-            <div className="relative w-full md:w-72">
+            {/* Quick Search with React Hook Form & Debounce */}
+            <form
+              onSubmit={handleSubmit(onFormSubmit)}
+              className="relative w-full md:w-80"
+              role="search"
+            >
               <IoSearchOutline className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 text-base pointer-events-none" />
               <input
                 type="text"
                 placeholder="Search notes..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full h-11 pl-10 pr-4 rounded-full border border-[#e7e3df] dark:border-[#1e3456] bg-[#f8f5f2] dark:bg-[#0c1524] text-xs font-mono text-black dark:text-white placeholder:text-gray-400 focus:outline-none focus:border-[#142d55] dark:focus:border-[#E5BA68] transition-colors"
+                {...register("search")}
+                autoComplete="off"
+                className="w-full h-11 pl-10 pr-10 rounded-full border border-[#e7e3df] dark:border-[#1e3456] bg-[#f8f5f2] dark:bg-[#0c1524] text-xs font-mono text-black dark:text-white placeholder:text-gray-400 focus:outline-none focus:border-[#142d55] dark:focus:border-[#E5BA68] transition-colors"
               />
-            </div>
+
+              {/* Status indicator: Debouncing spinner or Clear icon */}
+              <div className="absolute right-3.5 top-1/2 -translate-y-1/2 flex items-center">
+                {isDebouncing ? (
+                  <span
+                    className="w-3.5 h-3.5 border-2 border-gray-300 dark:border-gray-600 border-t-[#142d55] dark:border-t-[#E5BA68] rounded-full animate-spin"
+                    title="Filtering..."
+                  />
+                ) : currentSearchValue ? (
+                  <button
+                    type="button"
+                    onClick={handleClearSearch}
+                    className="text-gray-400 hover:text-black dark:hover:text-white transition-colors cursor-pointer"
+                    title="Clear search"
+                    aria-label="Clear search input"
+                  >
+                    <IoCloseCircleOutline size={18} />
+                  </button>
+                ) : null}
+              </div>
+            </form>
           </div>
 
           {/* Category Filter Pills */}
@@ -96,6 +168,41 @@ export default function DevlogArchivePage() {
       {/* Articles Grid Section */}
       <div className="px-[21px] py-12 sm:px-8 sm:py-16">
         <div className="mx-auto max-w-[1220px]">
+          {/* Active search & filter pill bar */}
+          {(debouncedQuery !== "" || activeCategory !== "All") && (
+            <div className="mb-6 flex flex-wrap items-center justify-between gap-3 text-xs font-mono text-gray-500 dark:text-gray-400 pb-4 border-b border-[#e7e3df] dark:border-[#1a2840]">
+              <div className="flex items-center gap-2">
+                <span>
+                  Showing{" "}
+                  <strong className="text-black dark:text-white font-semibold">
+                    {filteredArticles.length}
+                  </strong>{" "}
+                  of {DEVLOG_ARTICLES.length} notes
+                </span>
+                {debouncedQuery !== "" && (
+                  <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#edf3fc] dark:bg-[#111c30] text-[#142d55] dark:text-[#E5BA68] font-semibold border border-[#cfe0f8] dark:border-[#1f304f]">
+                    &ldquo;{debouncedQuery}&rdquo;
+                  </span>
+                )}
+                {activeCategory !== "All" && (
+                  <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#f1eeea] dark:bg-[#111d33] text-black dark:text-white font-semibold">
+                    {activeCategory}
+                  </span>
+                )}
+              </div>
+              <button
+                type="button"
+                onClick={() => {
+                  handleClearSearch();
+                  setActiveCategory("All");
+                }}
+                className="text-xs font-semibold text-[#142d55] dark:text-[#E5BA68] hover:underline cursor-pointer"
+              >
+                Clear all filters ✕
+              </button>
+            </div>
+          )}
+
           {filteredArticles.length > 0 ? (
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {filteredArticles.map((article) => (
@@ -106,15 +213,15 @@ export default function DevlogArchivePage() {
                 >
                   <div>
                     <div className="flex items-center justify-between gap-2 font-mono text-[10.5px]">
-                      <span className="px-2.5 py-0.5 rounded-full bg-[#edf3fc] dark:bg-[#13233c] text-[#142d55] dark:text-[#a0c2f9] border border-[#cfe0f8] dark:border-[#203a63]">
+                      <span className="font-semibold text-[#142d55] dark:text-[#E5BA68] uppercase tracking-[0.14em]">
                         ✦ {article.category}
                       </span>
-                      <span className="text-gray-500 dark:text-gray-400">
+                      <span className="text-gray-400 dark:text-gray-500">
                         {article.date}
                       </span>
                     </div>
 
-                    <h2 className="mt-4 text-xl sm:text-[1.35rem] font-semibold leading-[1.18] tracking-[-0.02em] text-black dark:text-white group-hover:text-[#142d55] dark:group-hover:text-[#E5BA68] transition-colors">
+                    <h2 className="mt-4 text-xl sm:text-[22px] font-semibold leading-[1.2] tracking-[-0.02em] text-black dark:text-white group-hover:text-[#142d55] dark:group-hover:text-[#E5BA68] transition-colors">
                       {article.title}
                     </h2>
 
@@ -137,16 +244,17 @@ export default function DevlogArchivePage() {
           ) : (
             <div className="text-center py-20">
               <p className="text-lg font-medium text-gray-500 dark:text-gray-400">
-                No devlog notes found matching &ldquo;{searchQuery}&rdquo;.
+                No devlog notes found matching &ldquo;{debouncedQuery || currentSearchValue}&rdquo;.
               </p>
               <button
+                type="button"
                 onClick={() => {
-                  setSearchQuery("");
+                  handleClearSearch();
                   setActiveCategory("All");
                 }}
-                className="mt-4 text-xs font-mono font-semibold text-[#142d55] dark:text-[#E5BA68] underline"
+                className="mt-4 text-xs font-mono font-semibold text-[#142d55] dark:text-[#E5BA68] underline cursor-pointer"
               >
-                Reset filters
+                Reset search & filters
               </button>
             </div>
           )}
