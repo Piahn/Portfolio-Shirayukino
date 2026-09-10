@@ -214,23 +214,19 @@ export default function CommunityPage() {
                   }`}
                 >
                   <div>
-                    <div className="flex flex-wrap sm:flex-nowrap items-start justify-between gap-2.5 sm:gap-3 mb-4">
-                      <div className="flex items-start gap-2.5 sm:gap-3 min-w-0 flex-1">
-                        <div className="flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white dark:bg-[#15233c] border border-[#e7e3df] dark:border-[#1e3456] shadow-sm text-lg sm:text-xl text-[#142d55] dark:text-[#E5BA68] shrink-0 mt-0.5">
+                    {/* Top Meta Row: Icon + Category on Left, Badge on Right */}
+                    <div className="flex items-center justify-between gap-2.5 mb-3.5">
+                      <div className="flex items-center gap-2.5 min-w-0 flex-1">
+                        <div className="flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white dark:bg-[#15233c] border border-[#e7e3df] dark:border-[#1e3456] shadow-sm text-base sm:text-lg text-[#142d55] dark:text-[#E5BA68] shrink-0">
                           <Icon />
                         </div>
-                        <div className="min-w-0 flex-1">
-                          <p className="font-mono text-[9.5px] sm:text-[10px] uppercase tracking-[0.14em] text-gray-500 dark:text-gray-400 truncate">
-                            {channel.category}
-                          </p>
-                          <h3 className="text-base sm:text-lg md:text-xl font-semibold text-black dark:text-white break-words">
-                            {channel.title}
-                          </h3>
-                        </div>
+                        <p className="font-mono text-[10px] sm:text-[10.5px] uppercase tracking-[0.12em] text-gray-500 dark:text-gray-400 truncate">
+                          {channel.category}
+                        </p>
                       </div>
 
                       <span
-                        className={`shrink-0 self-start px-2.5 py-0.5 rounded-full text-[9.5px] sm:text-[10px] font-mono font-semibold uppercase tracking-wider ${
+                        className={`shrink-0 px-2.5 py-0.5 rounded-full text-[9.5px] sm:text-[10px] font-mono font-semibold uppercase tracking-wider ${
                           channel.isComingSoon
                             ? "bg-amber-100 text-amber-900 dark:bg-amber-950/60 dark:text-amber-300 border border-amber-300 dark:border-amber-800/60"
                             : "bg-white dark:bg-[#152540] border border-[#e7e3df] dark:border-[#1e3456] text-[#142d55] dark:text-[#E5BA68]"
@@ -240,7 +236,12 @@ export default function CommunityPage() {
                       </span>
                     </div>
 
-                    <p className="text-xs sm:text-[13.5px] leading-relaxed text-gray-600 dark:text-gray-300 mt-2.5 sm:mt-3 break-words">
+                    {/* Channel Title: Full Card Width, Natural Word Wrapping without awkward syllable cuts */}
+                    <h3 className="text-lg sm:text-xl font-semibold text-black dark:text-white leading-snug break-normal tracking-tight">
+                      {channel.title}
+                    </h3>
+
+                    <p className="text-xs sm:text-[13.5px] leading-relaxed text-gray-600 dark:text-gray-300 mt-3 break-normal">
                       {channel.description}
                     </p>
 
