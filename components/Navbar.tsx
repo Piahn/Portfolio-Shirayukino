@@ -140,54 +140,65 @@ export function Navbar() {
         </div>
       </header>
 
-      {/* 2. Floating Left Logo Capsule (Appears on Scroll, click to scroll back to top) */}
-      <div
-        className={`fixed top-4 sm:top-6 left-4 sm:left-8 z-50 transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-          isScrolled && !isMenuOpen
-            ? "translate-y-0 opacity-100 pointer-events-auto scale-100"
-            : "-translate-y-6 opacity-0 pointer-events-none scale-90"
-        }`}
-      >
-        <button
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="flex items-center gap-2 px-3.5 py-2 rounded-full bg-white/90 dark:bg-[#0c1424]/90 border border-[#e2ddd7] dark:border-[#223552] shadow-[0_8px_30px_rgba(0,0,0,0.12)] dark:shadow-[0_8px_30px_rgba(0,0,0,0.6)] backdrop-blur-2xl hover:scale-105 transition-transform"
-          aria-label="Back to top"
-        >
-          <ShirayukinoLogo imgClassName="h-6 sm:h-7" />
-        </button>
-      </div>
+      {/* 2 & 3. Floating Controls - Aligned exactly with the 1200px architectural grid lines */}
+      <div className="fixed top-4 sm:top-6 inset-x-3 sm:inset-x-4 mx-auto max-w-[1200px] pointer-events-none z-50">
+        <div className="relative w-full">
+          {/* Floating Left Logo Capsule (Inside left vertical grid line) */}
+          <div
+            className={`absolute left-1 sm:left-3 top-0 transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+              isScrolled && !isMenuOpen
+                ? "translate-y-0 opacity-100 pointer-events-auto scale-100"
+                : "-translate-y-6 opacity-0 pointer-events-none scale-90"
+            }`}
+          >
+            <button
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="flex items-center gap-2 px-3.5 py-2 rounded-full bg-white/90 dark:bg-[#0c1424]/90 border border-[#e2ddd7] dark:border-[#223552] shadow-[0_8px_30px_rgba(0,0,0,0.12)] dark:shadow-[0_8px_30px_rgba(0,0,0,0.6)] backdrop-blur-2xl hover:scale-105 transition-transform"
+              aria-label="Back to top"
+            >
+              <ShirayukinoLogo imgClassName="h-6 sm:h-7" />
+            </button>
+          </div>
 
-      {/* 3. Floating Round Button in Top-Right ("Bulet seperti contoh user") */}
-      <div
-        className={`fixed top-4 sm:top-6 right-4 sm:right-8 z-50 flex items-center gap-2.5 sm:gap-3 transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-          isScrolled || isMenuOpen
-            ? "translate-y-0 opacity-100 pointer-events-auto scale-100"
-            : "-translate-y-6 opacity-0 pointer-events-none scale-90"
-        }`}
-      >
-        {/* Theme Toggle beside the round button */}
-        {!isMenuOpen && <ThemeToggle />}
+          {/* Floating Round Button in Top-Right (Positioned directly on the straight vertical line) */}
+          <div
+            className={`absolute right-0 top-0 flex items-center transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+              isScrolled || isMenuOpen
+                ? "translate-y-0 opacity-100 pointer-events-auto scale-100"
+                : "-translate-y-6 opacity-0 pointer-events-none scale-90"
+            }`}
+          >
+            {/* Theme Toggle beside the round button */}
+            {!isMenuOpen && (
+              <div className="mr-2 sm:mr-3 pointer-events-auto">
+                <ThemeToggle />
+              </div>
+            )}
 
-        {/* The Iconic Round Circular Menu Button */}
-        <button
-          onClick={() => setIsMenuOpen((prev) => !prev)}
-          className={`group flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full transition-all duration-300 hover:scale-105 active:scale-95 shadow-[0_10px_35px_rgba(0,0,0,0.18)] dark:shadow-[0_12px_40px_rgba(0,0,0,0.7)] ${
-            isMenuOpen
-              ? "bg-neutral-900 text-white dark:bg-white dark:text-black border border-neutral-700 dark:border-gray-200"
-              : "bg-white text-black dark:bg-white dark:text-black border border-gray-200/80 dark:border-white/20"
-          }`}
-          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          aria-expanded={isMenuOpen}
-        >
-          {isMenuOpen ? (
-            <IoCloseOutline size={26} className="transition-transform duration-200 group-hover:rotate-90" />
-          ) : (
-            <div className="flex flex-col items-center justify-center gap-[5px] w-6 h-6">
-              <span className="block h-[2.2px] w-5 bg-black rounded-full transition-all duration-300 group-hover:w-6" />
-              <span className="block h-[2.2px] w-5 bg-black rounded-full transition-all duration-300 group-hover:w-4" />
+            {/* The Iconic Round Circular Menu Button centered right on the vertical straight line */}
+            <div className="translate-x-0 sm:translate-x-1/2 pointer-events-auto">
+              <button
+                onClick={() => setIsMenuOpen((prev) => !prev)}
+                className={`group flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full transition-all duration-300 hover:scale-105 active:scale-95 shadow-[0_10px_35px_rgba(0,0,0,0.18)] dark:shadow-[0_12px_40px_rgba(0,0,0,0.7)] ${
+                  isMenuOpen
+                    ? "bg-neutral-900 text-white dark:bg-white dark:text-black border border-neutral-700 dark:border-gray-200"
+                    : "bg-white text-black dark:bg-white dark:text-black border border-gray-200/80 dark:border-white/20"
+                }`}
+                aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+                aria-expanded={isMenuOpen}
+              >
+                {isMenuOpen ? (
+                  <IoCloseOutline size={26} className="transition-transform duration-200 group-hover:rotate-90" />
+                ) : (
+                  <div className="flex flex-col items-center justify-center gap-[5px] w-6 h-6">
+                    <span className="block h-[2.2px] w-5 bg-black rounded-full transition-all duration-300 group-hover:w-6" />
+                    <span className="block h-[2.2px] w-5 bg-black rounded-full transition-all duration-300 group-hover:w-4" />
+                  </div>
+                )}
+              </button>
             </div>
-          )}
-        </button>
+          </div>
+        </div>
       </div>
 
       {/* 4. Fullscreen Navigation Overlay (Opens when clicking the round button) */}
