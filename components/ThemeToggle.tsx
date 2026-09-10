@@ -19,7 +19,7 @@ export function ThemeToggle({ className = "" }: { className?: string }) {
     >
       {/* Sun Icon */}
       <span
-        className={`absolute transition-all duration-500 ease-out transform ${
+        className={`absolute transition-all duration-250 ease-[cubic-bezier(0.16,1,0.3,1)] transform ${
           isDark
             ? "rotate-90 scale-0 opacity-0"
             : "rotate-0 scale-100 opacity-100"
@@ -30,7 +30,7 @@ export function ThemeToggle({ className = "" }: { className?: string }) {
 
       {/* Moon Icon with Celestial Star Sparkle */}
       <span
-        className={`absolute transition-all duration-500 ease-out transform ${
+        className={`absolute transition-all duration-250 ease-[cubic-bezier(0.16,1,0.3,1)] transform ${
           isDark
             ? "rotate-0 scale-100 opacity-100"
             : "-rotate-90 scale-0 opacity-0"
