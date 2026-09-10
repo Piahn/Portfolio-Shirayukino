@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { IoMenuOutline, IoCloseOutline, IoLogoWhatsapp } from "react-icons/io5";
-import { HiArrowRight } from "react-icons/hi2";
+import { HiArrowRight, HiArrowUpRight } from "react-icons/hi2";
 import { ThemeToggle } from "./ThemeToggle";
 import { WHATSAPP_BOT_URL } from "./constants";
 
@@ -33,12 +33,37 @@ const navLinks = [
   { label: "Community", href: "/community" },
 ];
 
-const mobileMenuPrimary = [
-  { label: "Story & RPG", href: "/gameplay" },
-  { label: "World", href: "/#world" },
-  { label: "Editions", href: "/editions" },
-  { label: "Devlog", href: "/devlog" },
-  { label: "Community", href: "/community" },
+const drawerNavItems = [
+  {
+    num: "01",
+    label: "Story & RPG",
+    desc: "Tactical timeline battles & branching scenarios",
+    href: "/gameplay",
+  },
+  {
+    num: "02",
+    label: "World",
+    desc: "The Celestial Sea, sky whales & floating islands",
+    href: "/#world",
+  },
+  {
+    num: "03",
+    label: "Editions",
+    desc: "Release tiers, package matrix & patch roadmap",
+    href: "/editions",
+  },
+  {
+    num: "04",
+    label: "Devlog",
+    desc: "Scenario notes, 45-track OST vault & atelier insights",
+    href: "/devlog",
+  },
+  {
+    num: "05",
+    label: "Community",
+    desc: "Discord sanctuary, beta playtests & WhatsApp bot",
+    href: "/community",
+  },
 ];
 
 const mobileMenuSecondary = [
@@ -194,7 +219,7 @@ export function Navbar() {
         }`}
         aria-hidden={!isMenuOpen}
       >
-        <div className="flex h-full flex-col justify-between max-w-[1200px] mx-auto px-4 sm:px-12 py-6 sm:py-12 overflow-y-auto">
+        <div className="flex h-full flex-col justify-between max-w-[1200px] mx-auto px-4 sm:px-8 md:px-12 py-6 sm:py-10 overflow-y-auto">
           {/* Top of drawer with Logo and ThemeToggle (discreetly accessible inside drawer) */}
           <div className="flex items-center justify-between pr-14 sm:pr-20">
             <ShirayukinoLogo imgClassName="h-7 sm:h-8 md:h-9" />
@@ -204,38 +229,123 @@ export function Navbar() {
             </div>
           </div>
 
-          {/* Center Navigation Links */}
-          <div className="my-auto py-12">
-            <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-[#8f8b86] dark:text-[#7f93b0] mb-6">
-              Menu Navigation
-            </p>
-            <nav className="space-y-4 sm:space-y-6">
-              {mobileMenuPrimary.map((link, idx) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  onClick={closeMenu}
-                  className="group flex items-center gap-4 text-[2.2rem] sm:text-[3.2rem] font-bold text-black dark:text-white hover:text-[#142d55] dark:hover:text-[#68a5e5] transition-colors leading-tight"
-                >
-                  <span className="font-mono text-[13px] font-normal text-gray-400 group-hover:text-[#142d55] dark:group-hover:text-[#68a5e5] transition-colors">
-                    0{idx + 1}
-                  </span>
-                  <span>{link.label}</span>
-                </a>
-              ))}
-            </nav>
+          {/* Center Navigation Content - 2-Column Split on Desktop */}
+          <div className="my-auto py-6 sm:py-10">
+            <div className="grid lg:grid-cols-[1.1fr_0.9fr] lg:gap-14 xl:gap-20 items-center">
+              {/* Left Column: Primary Navigation */}
+              <div>
+                <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-[#8f8b86] dark:text-[#7f93b0] mb-5 sm:mb-7">
+                  Menu Navigation
+                </p>
+                <nav className="space-y-3 sm:space-y-4">
+                  {drawerNavItems.map((item) => (
+                    <Link
+                      key={item.label}
+                      href={item.href}
+                      onClick={closeMenu}
+                      className="group flex flex-col py-1 transition-all"
+                    >
+                      <div className="flex items-baseline gap-3.5 sm:gap-4">
+                        <span className="font-mono text-xs sm:text-sm font-normal text-gray-400 dark:text-gray-500 group-hover:text-[#142d55] dark:group-hover:text-[#E5BA68] transition-colors">
+                          {item.num}
+                        </span>
+                        <span className="text-2xl sm:text-3xl lg:text-[2.4rem] xl:text-[2.75rem] font-bold text-black dark:text-white group-hover:text-[#142d55] dark:group-hover:text-[#E5BA68] transition-all group-hover:translate-x-1.5 duration-200 leading-tight">
+                          {item.label}
+                        </span>
+                      </div>
+                      <span className="hidden sm:block ml-7 sm:ml-9 text-[11.5px] font-mono text-gray-500 dark:text-gray-400 group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors">
+                        {item.desc}
+                      </span>
+                    </Link>
+                  ))}
+                </nav>
 
-            <div className="mt-12 flex flex-wrap gap-x-8 gap-y-3 pt-8 border-t border-[#e7e3df] dark:border-[#1a2840]">
-              {mobileMenuSecondary.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  onClick={closeMenu}
-                  className="text-[15px] font-medium text-gray-700 dark:text-gray-300 hover:text-[#142d55] dark:hover:text-white transition-colors"
-                >
-                  {link.label}
-                </a>
-              ))}
+                <div className="mt-8 flex flex-wrap gap-x-6 gap-y-2.5 pt-6 border-t border-[#e7e3df] dark:border-[#1a2840] font-mono text-xs sm:text-sm">
+                  {mobileMenuSecondary.map((link) => (
+                    <Link
+                      key={link.label}
+                      href={link.href}
+                      onClick={closeMenu}
+                      className="text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors"
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+
+              {/* Right Column: Desktop Studio Showcase Card & Prologue Teaser (Fills empty desktop void) */}
+              <div className="hidden lg:flex flex-col gap-5">
+                {/* Project Showcase Card */}
+                <div className="rounded-[22px] border border-[#e7e3df] dark:border-[#1a2840] bg-[#f8f5f2] dark:bg-[#0c1524] overflow-hidden shadow-sm dark:shadow-[0_12px_40px_rgba(0,0,0,0.6)] transition-all">
+                  {/* Sanctuary Artwork Container */}
+                  <div className="relative h-48 xl:h-52 w-full overflow-hidden">
+                    <img
+                      src="/secret_hideout.jpg"
+                      alt="Secret Hideout Sanctuary"
+                      className="h-full w-full object-cover object-center transition-transform duration-700 hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#f8f5f2] dark:from-[#0c1524] via-transparent to-black/40" />
+                    <div className="absolute top-3.5 left-3.5 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-white font-mono text-[10px] uppercase tracking-wider">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#E5BA68] animate-pulse" />
+                      <span>Atelier Sanctuary</span>
+                    </div>
+                  </div>
+
+                  {/* Showcase Details */}
+                  <div className="p-6">
+                    <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-[#142d55] dark:text-[#E5BA68] font-semibold">
+                      常闇の女王と秘密の隠れ家
+                    </p>
+                    <h4 className="text-lg font-semibold text-black dark:text-white mt-1">
+                      Queen of Ever Darkness & the Secret Hideout
+                    </h4>
+                    <p className="text-xs text-gray-600 dark:text-gray-300 mt-2 leading-relaxed">
+                      A fantasy narrative JRPG uniting tactical timeline battles, branching visual novel choices, and an original 45-track orchestral score.
+                    </p>
+
+                    {/* Metadata Grid */}
+                    <div className="mt-4 pt-4 border-t border-[#e7e3df] dark:border-[#1a2840] grid grid-cols-3 gap-2 text-center font-mono text-[10.5px]">
+                      <div className="p-2 rounded-lg bg-white dark:bg-[#111c30] border border-[#e7e3df] dark:border-[#1e3456]">
+                        <p className="text-gray-400 text-[9px] uppercase">RELEASE</p>
+                        <p className="font-semibold text-black dark:text-white mt-0.5">Q4 2026</p>
+                      </div>
+                      <div className="p-2 rounded-lg bg-white dark:bg-[#111c30] border border-[#e7e3df] dark:border-[#1e3456]">
+                        <p className="text-gray-400 text-[9px] uppercase">STATUS</p>
+                        <p className="font-semibold text-emerald-600 dark:text-emerald-400 mt-0.5">v0.9.4 Beta</p>
+                      </div>
+                      <div className="p-2 rounded-lg bg-white dark:bg-[#111c30] border border-[#e7e3df] dark:border-[#1e3456]">
+                        <p className="text-gray-400 text-[9px] uppercase">SOUND</p>
+                        <p className="font-semibold text-[#142d55] dark:text-[#E5BA68] mt-0.5">45 Tracks</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Quick WhatsApp Interactive Prologue Banner */}
+                <div className="p-4.5 sm:p-5 rounded-[20px] bg-gradient-to-r from-[#142d55] to-[#0a172c] dark:from-[#0f1d33] dark:to-[#08101e] border border-[#23457a] dark:border-[#1e3b68] text-white flex items-center justify-between gap-4 shadow-sm">
+                  <div className="min-w-0">
+                    <p className="font-mono text-[9.5px] uppercase tracking-[0.16em] text-[#E5BA68] font-semibold flex items-center gap-1.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#25D366] animate-pulse" />
+                      <span>PROLOGUE QUEST ACTIVE</span>
+                    </p>
+                    <p className="text-xs text-white/90 mt-0.5 font-medium truncate">
+                      Play prologue choices now on WhatsApp
+                    </p>
+                  </div>
+                  <a
+                    href={WHATSAPP_BOT_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={closeMenu}
+                    className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-white dark:bg-[#E5BA68] text-[#142d55] dark:text-[#08101e] text-[10.5px] font-mono font-semibold uppercase tracking-wider hover:opacity-90 transition shrink-0"
+                  >
+                    <IoLogoWhatsapp className="text-[#25D366] text-sm" />
+                    <span>Play</span>
+                    <HiArrowUpRight size={12} />
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
 
