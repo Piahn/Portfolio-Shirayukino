@@ -1,5 +1,3 @@
-"use client";
-
 import { HiArrowUpRight } from "react-icons/hi2";
 import { IoPlayOutline, IoLogoWhatsapp } from "react-icons/io5";
 import { WHATSAPP_BOT_URL } from "./constants";

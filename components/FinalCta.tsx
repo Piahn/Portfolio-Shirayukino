@@ -1,61 +1,139 @@
-"use client";
+import Link from "next/link";
+import { HiArrowUpRight } from "react-icons/hi2";
+import {
+  IoLogoDiscord,
+  IoLogoWhatsapp,
+  IoGameControllerOutline,
+  IoSparklesOutline,
+} from "react-icons/io5";
+import { WHATSAPP_BOT_URL } from "./constants";
 
 export function FinalCta() {
   return (
-    <section id="community" data-section="community" className="w-full border-t border-[#e7e3df] dark:border-[#1a2840] transition-colors duration-300">
-      <div className="mx-auto max-w-[1440px] px-[21px] py-16 sm:px-6 lg:px-8">
-        <div className="grid gap-[13px] lg:grid-cols-[0.58fr_0.42fr]">
-          {/* Left Celestial Card */}
-          <div className="flex min-h-[390px] flex-col justify-between rounded-[21px] bg-gradient-to-br from-[#122b52] to-[#081326] dark:from-[#0f1e35] dark:to-[#070e1a] px-8 py-8 text-white sm:px-10 lg:px-12 lg:py-10 border border-[#23457a] dark:border-[#1c365d] shadow-sm dark:shadow-[0_8px_32px_rgba(0,0,0,0.5)] transition-all">
-            <div className="flex items-center justify-between gap-6">
-              <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-[#E5BA68]">
-                ✦ Secret Sanctuary
-              </p>
-              <span className="rounded-full border border-white/20 px-3 py-1 text-[10px] uppercase tracking-[0.14em] text-white/80 font-mono">
-                Circle Community
-              </span>
-            </div>
+    <section
+      id="community"
+      data-section="community"
+      className="w-full border-t border-[#e7e3df] dark:border-[#1a2840] transition-colors duration-300"
+    >
+      <div className="mx-auto max-w-[1220px] px-[21px] py-16 sm:px-6 lg:px-8">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10 pb-4 border-b border-[#e7e3df] dark:border-[#1a2840]">
+          <div>
+            <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-[#8f8b86] dark:text-[#7f93b0]">
+              Circle Sanctuary
+            </p>
+            <h2 className="text-[2rem] sm:text-[2.5rem] leading-[1.02] tracking-[-0.04em] text-black dark:text-white mt-1">
+              Step inside the secret hideout
+            </h2>
+          </div>
+          <Link
+            href="/community"
+            className="inline-flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider text-[#142d55] dark:text-[#E5BA68] hover:underline"
+          >
+            <span>View full community hub</span>
+            <HiArrowUpRight size={14} />
+          </Link>
+        </div>
+
+        <div className="grid gap-5 lg:grid-cols-[0.58fr_0.42fr]">
+          {/* Left Celestial Guild Card */}
+          <div className="flex min-h-[390px] flex-col justify-between rounded-[22px] bg-gradient-to-br from-[#122b52] to-[#081326] dark:from-[#0f1e35] dark:to-[#070e1a] p-8 text-white sm:p-10 border border-[#23457a] dark:border-[#1c365d] shadow-md transition-all">
             <div>
-              <h2 className="max-w-[610px] text-[38px] font-semibold leading-[0.94] tracking-[-0.07em] sm:text-[58px] lg:text-[66px]">
-                Step inside the secret hideout.
-              </h2>
-              <p className="mt-6 max-w-[435px] text-[14px] leading-[1.6] text-white/75">
-                Join our private Discord circle. Gain access to work-in-progress demo builds, unreleased OST demos, and vote on upcoming visual novel scenario branches.
+              <div className="flex items-center justify-between gap-4">
+                <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[#E5BA68] font-semibold flex items-center gap-1.5">
+                  <IoSparklesOutline />
+                  ✦ OFFICIAL ADVENTURER GUILD
+                </span>
+                <span className="rounded-full border border-white/20 px-3 py-1 text-[10px] uppercase tracking-[0.14em] text-white/80 font-mono">
+                  All Platforms
+                </span>
+              </div>
+
+              <h3 className="mt-6 text-[32px] sm:text-[42px] font-semibold leading-[1.02] tracking-[-0.04em]">
+                Connect, playtest & influence the story.
+              </h3>
+              <p className="mt-4 text-[13.5px] leading-[1.65] text-white/80 max-w-lg">
+                Join thousands of travelers in our private Discord circle and WhatsApp Bot Guild. Gain first access to closed playable builds, vote on scenario directions, and unlock secret in-game items.
               </p>
+            </div>
+
+            <div className="mt-8 pt-6 border-t border-white/10 flex flex-wrap items-center gap-3">
+              <Link
+                href="/community"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#E5BA68] hover:bg-[#f0c878] text-[#08101e] text-xs font-mono font-semibold uppercase tracking-wider transition-all shadow-sm group"
+              >
+                <span>Explore Community Hub</span>
+                <HiArrowUpRight size={14} />
+              </Link>
+              <a
+                href={WHATSAPP_BOT_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-white/10 hover:bg-white/20 text-white text-xs font-mono font-semibold uppercase tracking-wider transition-all border border-white/20"
+              >
+                <IoLogoWhatsapp className="text-[#25D366] text-base" />
+                <span>WhatsApp Guild</span>
+              </a>
             </div>
           </div>
 
-          {/* Right White Card with Border */}
-          <div className="flex min-h-[390px] flex-col justify-between rounded-[21px] border border-[#e7e3df] dark:border-[#1a2840] bg-white dark:bg-[#0c1524] px-8 py-8 sm:px-10 lg:py-10 transition-colors shadow-sm dark:shadow-[0_4px_24px_rgba(0,0,0,0.3)]">
+          {/* Right Fast Access Card */}
+          <div className="flex min-h-[390px] flex-col justify-between rounded-[22px] border border-[#e7e3df] dark:border-[#1a2840] bg-white dark:bg-[#0c1524] p-8 sm:p-10 transition-colors shadow-sm dark:shadow-[0_4px_24px_rgba(0,0,0,0.3)]">
             <div>
-              <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-[#8f8b86] dark:text-[#7f93b0] transition-colors">
-                Beta Access & Newsletter
+              <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-[#8f8b86] dark:text-[#7f93b0]">
+                Quick Channels
               </p>
-              <h3 className="mt-6 max-w-[320px] text-[26px] font-semibold leading-[1.05] tracking-[-0.045em] text-black dark:text-white sm:text-[30px] transition-colors">
-                Receive the latest chapter and music updates.
-              </h3>
+              <h4 className="mt-2 text-xl sm:text-2xl font-semibold text-black dark:text-white tracking-[-0.02em]">
+                Direct Community Links
+              </h4>
+              <p className="mt-2 text-xs sm:text-[13px] text-gray-600 dark:text-gray-300 leading-relaxed">
+                Choose your preferred portal to stay updated on production milestones and community rewards.
+              </p>
+
+              <div className="mt-6 space-y-3">
+                <a
+                  href="https://discord.gg"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-between p-3.5 rounded-xl border border-[#e7e3df] dark:border-[#1e3456] hover:bg-[#f8f5f2] dark:hover:bg-[#111d33] transition-colors group"
+                >
+                  <div className="flex items-center gap-3">
+                    <IoLogoDiscord className="text-xl text-[#5865F2]" />
+                    <div>
+                      <div className="text-xs font-semibold text-black dark:text-white">Discord Sanctuary</div>
+                      <div className="text-[11px] text-gray-500 font-mono">Dev AMA & Theorycrafting</div>
+                    </div>
+                  </div>
+                  <HiArrowUpRight size={14} className="text-gray-400 group-hover:text-black dark:group-hover:text-white transition-colors" />
+                </a>
+
+                <a
+                  href="https://store.steampowered.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-between p-3.5 rounded-xl border border-[#e7e3df] dark:border-[#1e3456] hover:bg-[#f8f5f2] dark:hover:bg-[#111d33] transition-colors group"
+                >
+                  <div className="flex items-center gap-3">
+                    <IoGameControllerOutline className="text-xl text-[#142d55] dark:text-[#E5BA68]" />
+                    <div>
+                      <div className="text-xs font-semibold text-black dark:text-white">Steam Community Hub</div>
+                      <div className="text-[11px] text-gray-500 font-mono">Wishlist & Beta Forums</div>
+                    </div>
+                  </div>
+                  <HiArrowUpRight size={14} className="text-gray-400 group-hover:text-black dark:group-hover:text-white transition-colors" />
+                </a>
+              </div>
             </div>
-            <form onSubmit={(e) => e.preventDefault()} className="mt-8 space-y-3">
-              <label className="sr-only" htmlFor="fan-email">
-                Your email address
-              </label>
-              <input
-                className="h-12 w-full rounded-full border border-[#e7e3df] dark:border-[#1a2840] bg-white dark:bg-[#08101e] px-5 text-[13px] text-black dark:text-white outline-none transition placeholder:text-[#8f8b86] dark:placeholder:text-[#64748b] focus:border-[#142d55] dark:focus:border-[#E5BA68]"
-                id="fan-email"
-                placeholder="Enter your email address"
-                type="email"
-                required
-              />
-              <button
-                className="inline-flex h-12 w-full items-center justify-center rounded-full bg-[#142d55] hover:bg-[#0c1e3a] dark:bg-[#1b345b] dark:hover:bg-[#254679] text-[11px] font-semibold uppercase tracking-[0.18em] text-white font-mono transition-all shadow-sm"
-                type="submit"
-              >
-                Join Discord & Beta Waitlist
-              </button>
-            </form>
+
+            <div className="mt-6 pt-4 border-t border-[#e7e3df] dark:border-[#1a2840] flex items-center justify-between text-[11px] font-mono text-gray-500 dark:text-gray-400">
+              <span>✦ Milestone Rewards Active</span>
+              <Link href="/community" className="text-[#142d55] dark:text-[#E5BA68] font-semibold hover:underline">
+                View Roadmap →
+              </Link>
+            </div>
           </div>
         </div>
       </div>
     </section>
   );
 }
+
