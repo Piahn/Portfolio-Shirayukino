@@ -64,21 +64,49 @@ export function WhySection() {
             </ul>
           </div>
 
-          {/* Right Column with Image */}
+          {/* Right Column with Visual Art */}
           <div className="lg:w-1/2">
-            <div className="relative overflow-hidden rounded-[1.5rem] aspect-[4/5] sm:aspect-[5/6] lg:aspect-auto lg:h-full lg:min-h-[600px] bg-gradient-to-br from-[#122b52] to-[#081326] dark:from-[#0d182b] dark:to-[#050b14] flex items-center justify-center p-8 border border-[#2b4c80] dark:border-[#1e3b68] shadow-sm dark:shadow-[0_8px_32px_rgba(0,0,0,0.5)] transition-all">
-              <div className="text-center max-w-[420px] text-white">
-                <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-white/10 border border-white/20 flex items-center justify-center">
-                  <span className="text-2xl text-[#E5BA68]">✦</span>
+            <div className="group relative overflow-hidden rounded-[1.5rem] aspect-[4/5] sm:aspect-[5/6] lg:aspect-auto lg:h-full lg:min-h-[600px] flex flex-col justify-end p-6 sm:p-9 border border-[#2b4c80] dark:border-[#1e3b68] shadow-md dark:shadow-[0_12px_40px_rgba(0,0,0,0.6)] transition-all">
+              {/* Background Key Visual Artwork */}
+              <img
+                src="/secret_hideout.jpg"
+                alt="常闇の女王と秘密の隠れ家 - Secret Hideout & Celestial Sea"
+                className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105 select-none"
+              />
+
+              {/* Multi-layered cinematic gradient overlays */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#060c17]/95 via-[#060c17]/45 to-black/25 pointer-events-none" />
+
+              {/* Floating Top Badge */}
+              <div className="absolute top-6 left-6 sm:top-8 sm:left-8 z-10">
+                <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-white text-[10.5px] font-mono uppercase tracking-[0.14em]">
+                  <span className="w-2 h-2 rounded-full bg-[#E5BA68] animate-pulse" />
+                  <span>KEY VISUAL • ATELIER SANCTUARY</span>
+                </span>
+              </div>
+
+              {/* Bottom Content Card with Glassmorphism */}
+              <div className="relative z-10 rounded-2xl bg-black/50 backdrop-blur-md p-6 sm:p-7 border border-white/15 text-white transition-colors">
+                <div className="flex items-center gap-3 mb-2.5">
+                  <div className="w-8 h-8 rounded-full bg-[#E5BA68]/20 border border-[#E5BA68]/50 flex items-center justify-center shrink-0">
+                    <span className="text-sm text-[#E5BA68]">✦</span>
+                  </div>
+                  <h4 className="text-xl sm:text-2xl font-serif italic text-white tracking-wide">
+                    常闇の女王と秘密の隠れ家
+                  </h4>
                 </div>
-                <h4 className="text-2xl sm:text-3xl font-serif italic text-white mb-3">
-                  常闇の女王と秘密の隠れ家
-                </h4>
-                <p className="text-sm font-mono text-gray-300 leading-relaxed">
-                  "Beyond the clouds where whales drift in the celestial sea, an ancient sanctuary awaits the brave."
+
+                <p className="text-xs sm:text-[13px] font-mono text-gray-200 leading-relaxed italic">
+                  &ldquo;Beyond the clouds where whales drift in the celestial sea, an ancient sanctuary awaits the brave.&rdquo;
                 </p>
-                <div className="mt-8 inline-flex items-center gap-3 px-5 py-2 rounded-full border border-[#E5BA68]/40 bg-[#E5BA68]/10 text-xs font-mono text-[#E5BA68]">
-                  <span>Atelier & Tactical Battle Demo</span>
+
+                <div className="mt-5 pt-4 border-t border-white/10 flex flex-wrap items-center justify-between gap-3">
+                  <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#E5BA68]/50 bg-[#E5BA68]/15 text-[10.5px] font-mono text-[#E5BA68] font-semibold">
+                    <span>Atelier & Tactical Battle Demo</span>
+                  </div>
+                  <span className="text-[11px] font-mono text-gray-300">
+                    ShirayukinoComp Studio
+                  </span>
                 </div>
               </div>
             </div>

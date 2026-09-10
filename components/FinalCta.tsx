@@ -106,21 +106,20 @@ export function FinalCta() {
                   <HiArrowUpRight size={14} className="text-gray-400 group-hover:text-black dark:group-hover:text-white transition-colors" />
                 </a>
 
-                <a
-                  href="https://store.steampowered.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-between p-3.5 rounded-xl border border-[#e7e3df] dark:border-[#1e3456] hover:bg-[#f8f5f2] dark:hover:bg-[#111d33] transition-colors group"
-                >
+                <div className="flex items-center justify-between p-3.5 rounded-xl border border-[#e7e3df] dark:border-[#1e3456] bg-[#f8f5f2]/60 dark:bg-[#111d33]/50">
                   <div className="flex items-center gap-3">
                     <IoGameControllerOutline className="text-xl text-[#142d55] dark:text-[#E5BA68]" />
                     <div>
-                      <div className="text-xs font-semibold text-black dark:text-white">Steam Community Hub</div>
-                      <div className="text-[11px] text-gray-500 font-mono">Wishlist & Beta Forums</div>
+                      <div className="flex items-center gap-2">
+                        <span className="text-xs font-semibold text-black dark:text-white">Steam Community Hub</span>
+                        <span className="text-[9px] font-mono font-semibold uppercase px-1.5 py-0.5 rounded bg-amber-100 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300 border border-amber-300/60 dark:border-amber-800/60">
+                          Coming Soon
+                        </span>
+                      </div>
+                      <div className="text-[11px] text-gray-500 font-mono">In Preparation for PC Launch</div>
                     </div>
                   </div>
-                  <HiArrowUpRight size={14} className="text-gray-400 group-hover:text-black dark:group-hover:text-white transition-colors" />
-                </a>
+                </div>
               </div>
             </div>
 

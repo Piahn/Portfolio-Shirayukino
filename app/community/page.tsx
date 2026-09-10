@@ -60,18 +60,19 @@ const COMMUNITY_CHANNELS = [
     id: "steam",
     title: "Steam Community & Discussions",
     category: "PC Hub & Playtests",
-    badge: "Wishlist Open",
+    badge: "Coming Soon",
     icon: IoGameControllerOutline,
     description:
-      "Join the official Steam hub to wishlist 『常闇の女王と秘密の隠れ家』, participate in Steam community forums, and post technical hardware feedback.",
+      "The official Steam store page and community discussions are currently in preparation for the PC release. Play the interactive prologue now on WhatsApp while Steam hub verification is underway.",
     highlights: [
-      "Official patch release notes and changelogs",
+      "Steam store page & community hub in final preparation",
       "Hardware benchmark and Steam Deck compatibility threads",
       "Community gameplay guides and boss fight strategies",
       "Steam community badges and trading card previews",
     ],
-    actionLabel: "Visit Steam Hub",
-    actionUrl: "https://store.steampowered.com",
+    actionLabel: "Coming Soon",
+    actionUrl: "#",
+    isComingSoon: true,
     featured: false,
   },
   {
@@ -228,7 +229,13 @@ export default function CommunityPage() {
                         </div>
                       </div>
 
-                      <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-semibold uppercase tracking-wider bg-white dark:bg-[#152540] border border-[#e7e3df] dark:border-[#1e3456] text-[#142d55] dark:text-[#E5BA68]">
+                      <span
+                        className={`px-2.5 py-0.5 rounded-full text-[10px] font-mono font-semibold uppercase tracking-wider ${
+                          channel.isComingSoon
+                            ? "bg-amber-100 text-amber-900 dark:bg-amber-950/60 dark:text-amber-300 border border-amber-300 dark:border-amber-800/60"
+                            : "bg-white dark:bg-[#152540] border border-[#e7e3df] dark:border-[#1e3456] text-[#142d55] dark:text-[#E5BA68]"
+                        }`}
+                      >
                         {channel.badge}
                       </span>
                     </div>
@@ -253,19 +260,29 @@ export default function CommunityPage() {
                   </div>
 
                   <div className="mt-7 pt-4">
-                    <a
-                      href={channel.actionUrl}
-                      target={channel.actionUrl.startsWith("http") ? "_blank" : undefined}
-                      rel={channel.actionUrl.startsWith("http") ? "noopener noreferrer" : undefined}
-                      className={`inline-flex w-full items-center justify-center gap-2 py-3 px-5 rounded-full font-mono text-xs font-semibold uppercase tracking-wider transition-all cursor-pointer ${
-                        channel.featured
-                          ? "bg-[#142d55] hover:bg-[#0c1e3a] text-white dark:bg-[#E5BA68] dark:hover:bg-[#f0c878] dark:text-[#08101e] shadow-sm"
-                          : "bg-white hover:bg-gray-100 text-[#142d55] dark:bg-[#121f36] dark:hover:bg-[#182b4a] dark:text-white border border-[#e7e3df] dark:border-[#1e3456]"
-                      }`}
-                    >
-                      <span>{channel.actionLabel}</span>
-                      <HiArrowUpRight size={14} />
-                    </a>
+                    {channel.isComingSoon ? (
+                      <button
+                        type="button"
+                        disabled
+                        className="inline-flex w-full items-center justify-center gap-2 py-3 px-5 rounded-full font-mono text-xs font-semibold uppercase tracking-wider bg-gray-100 dark:bg-[#111d33] text-gray-400 dark:text-gray-500 border border-[#e2ddd7] dark:border-[#1e3456] cursor-not-allowed opacity-80"
+                      >
+                        <span>Coming Soon</span>
+                      </button>
+                    ) : (
+                      <a
+                        href={channel.actionUrl}
+                        target={channel.actionUrl.startsWith("http") ? "_blank" : undefined}
+                        rel={channel.actionUrl.startsWith("http") ? "noopener noreferrer" : undefined}
+                        className={`inline-flex w-full items-center justify-center gap-2 py-3 px-5 rounded-full font-mono text-xs font-semibold uppercase tracking-wider transition-all cursor-pointer ${
+                          channel.featured
+                            ? "bg-[#142d55] hover:bg-[#0c1e3a] text-white dark:bg-[#E5BA68] dark:hover:bg-[#f0c878] dark:text-[#08101e] shadow-sm"
+                            : "bg-white hover:bg-gray-100 text-[#142d55] dark:bg-[#121f36] dark:hover:bg-[#182b4a] dark:text-white border border-[#e7e3df] dark:border-[#1e3456]"
+                        }`}
+                      >
+                        <span>{channel.actionLabel}</span>
+                        <HiArrowUpRight size={14} />
+                      </a>
+                    )}
                   </div>
                 </div>
               );
