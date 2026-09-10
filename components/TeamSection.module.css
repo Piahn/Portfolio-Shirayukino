@@ -1,0 +1,53 @@
+.teamSection {
+  padding: var(--space-3xl) 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.teamGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-lg);
+}
+
+@media (min-width: 768px) {
+  .teamGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.teamCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-xl) var(--space-md);
+  text-align: center;
+}
+
+.teamAvatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: var(--color-bg-muted);
+  border: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--color-fg-tertiary);
+}
+
+.teamName {
+  font-family: var(--font-heading), Georgia, serif;
+  font-size: 1.125rem;
+  font-weight: 400;
+  color: var(--color-fg);
+}
+
+.teamRole {
+  font-size: 13px;
+  color: var(--color-fg-secondary);
+  margin-top: -8px;
+}

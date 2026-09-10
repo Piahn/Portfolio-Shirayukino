@@ -1,0 +1,64 @@
+.processSection {
+  padding: var(--space-3xl) 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.processGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-2xl);
+}
+
+@media (min-width: 768px) {
+  .processGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-xl) var(--space-3xl);
+  }
+}
+
+.processItem {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.processNumber {
+  font-family: var(--font-heading), Georgia, serif;
+  font-size: clamp(3rem, 6vw, 4.5rem);
+  font-weight: 400;
+  color: var(--color-border);
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.processTitle {
+  font-family: var(--font-heading), Georgia, serif;
+  font-size: clamp(1.25rem, 2.5vw, 1.625rem);
+  font-weight: 400;
+  line-height: 1.25;
+  color: var(--color-fg);
+}
+
+.processDescription {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--color-fg-secondary);
+}
+
+.processCtaWrap {
+  margin-top: var(--space-xl);
+}
+
+.processCta {
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--color-fg);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: opacity var(--transition-fast);
+}
+
+.processCta:hover {
+  opacity: 0.7;
+}

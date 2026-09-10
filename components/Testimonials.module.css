@@ -1,0 +1,73 @@
+.testimonials {
+  padding: var(--space-3xl) 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.testimonialsTitle {
+  font-family: var(--font-heading), Georgia, serif;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 400;
+  color: var(--color-fg);
+  margin-bottom: var(--space-2xl);
+}
+
+.testimonialsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+}
+
+@media (min-width: 768px) {
+  .testimonialsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.testimonialCard {
+  padding: var(--space-lg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  transition: border-color var(--transition-base);
+}
+
+.testimonialCard:hover {
+  border-color: var(--color-border-strong);
+}
+
+.testimonialQuote {
+  font-family: var(--font-heading), Georgia, serif;
+  font-size: 15px;
+  font-style: italic;
+  line-height: 1.7;
+  color: var(--color-fg);
+  flex: 1;
+}
+
+.testimonialQuote::before {
+  content: "\201C";
+}
+
+.testimonialQuote::after {
+  content: "\201D";
+}
+
+.testimonialAuthor {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.testimonialName {
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-fg);
+}
+
+.testimonialRole {
+  font-size: 13px;
+  color: var(--color-fg-secondary);
+}
