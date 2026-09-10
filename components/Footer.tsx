@@ -9,7 +9,7 @@ export function Footer() {
           <div className="border-[#e7e3df] dark:border-[#1a2840] lg:pr-[15px] transition-colors">
             <div className="flex min-h-[335px] flex-col justify-between rounded-[21px] bg-[#f1ece8] dark:bg-[#0c1524] border border-transparent dark:border-[#1a2840] px-8 py-8 sm:px-10 transition-colors shadow-sm dark:shadow-[0_4px_24px_rgba(0,0,0,0.3)]">
               <div>
-                <ShirayukinoLogo />
+                <ShirayukinoLogo imgClassName="h-10 sm:h-12" />
                 <p className="mt-8 max-w-[365px] text-[24px] font-medium leading-[1.05] tracking-[-0.055em] text-black dark:text-white sm:text-[28px] transition-colors">
                   Where celestial wonder meets narrative RPG exploration.
                 </p>

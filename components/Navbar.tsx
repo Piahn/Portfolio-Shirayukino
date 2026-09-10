@@ -6,43 +6,20 @@ import { IoMenuOutline, IoCloseOutline } from "react-icons/io5";
 import { HiArrowRight } from "react-icons/hi2";
 import { ThemeToggle } from "./ThemeToggle";
 
-export function ShirayukinoLogo({ className = "" }: { className?: string }) {
+export function ShirayukinoLogo({
+  className = "",
+  imgClassName = "h-8 sm:h-9",
+}: {
+  className?: string;
+  imgClassName?: string;
+}) {
   return (
-    <div className={`flex items-center gap-2.5 ${className}`}>
-      {/* Celestial Whale & Star Emblem */}
-      <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#122b52] to-[#081326] flex items-center justify-center shrink-0 shadow-sm border border-[#2b4c80] dark:border-[#3b64a6]">
-        <svg
-          viewBox="0 0 32 32"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-5 h-5 text-white"
-        >
-          {/* Whale flukes silhouette */}
-          <path
-            d="M16 19C16 19 14.2 13 8 11C6.5 10.5 4.5 11.2 4 12C4 12 5.5 15.5 11 16.5C13.5 17 15 18.5 16 20C17 18.5 18.5 17 21 16.5C26.5 15.5 28 12 28 12C27.5 11.2 25.5 10.5 24 11C17.8 13 16 19 16 19Z"
-            fill="url(#whaleGrad)"
-          />
-          {/* 4-point celestial star sparkle */}
-          <path
-            d="M16 4L17.2 8.8L22 10L17.2 11.2L16 16L14.8 11.2L10 10L14.8 8.8L16 4Z"
-            fill="#E5BA68"
-          />
-          <defs>
-            <linearGradient id="whaleGrad" x1="4" y1="11" x2="28" y2="20" gradientUnits="userSpaceOnUse">
-              <stop stopColor="#68A5E5" />
-              <stop offset="1" stopColor="#FFFFFF" />
-            </linearGradient>
-          </defs>
-        </svg>
-      </div>
-      <div className="flex items-baseline gap-1.5 whitespace-nowrap shrink-0">
-        <span className="text-[17px] sm:text-[18px] font-bold tracking-tight text-black dark:text-white transition-colors">
-          Shirayukino
-        </span>
-        <span className="font-mono text-[9px] font-semibold uppercase tracking-wider text-[#142d55] dark:text-[#8ab4f8] bg-[#edf3fc] dark:bg-[#14233a] border border-[#cfe0f8] dark:border-[#233d66] px-1 py-0.2 rounded transition-colors">
-          Comp
-        </span>
-      </div>
+    <div className={`flex items-center shrink-0 ${className}`}>
+      <img
+        src="/shirayukino.png"
+        alt="ShirayukinoComp"
+        className={`${imgClassName} w-auto object-contain transition-transform duration-300 group-hover:scale-105 select-none drop-shadow-sm dark:drop-shadow-[0_2px_10px_rgba(255,255,255,0.18)]`}
+      />
     </div>
   );
 }
