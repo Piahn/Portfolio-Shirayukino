@@ -2,9 +2,10 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { IoMenuOutline, IoCloseOutline } from "react-icons/io5";
+import { IoMenuOutline, IoCloseOutline, IoLogoWhatsapp } from "react-icons/io5";
 import { HiArrowRight } from "react-icons/hi2";
 import { ThemeToggle } from "./ThemeToggle";
+import { WHATSAPP_BOT_URL } from "./constants";
 
 export function ShirayukinoLogo({
   className = "",
@@ -117,10 +118,13 @@ export function Navbar() {
             Wishlist Steam
           </a>
           <a
-            href="#gameplay"
-            className="hidden sm:inline-flex items-center font-medium rounded-full px-4 sm:px-5 py-[7px] sm:py-2 text-[13px] sm:text-[14px] text-gray-700 dark:text-gray-200 border border-gray-200 dark:border-[#223553] hover:bg-gray-50 dark:hover:bg-[#121c2d] transition-all whitespace-nowrap"
+            href={WHATSAPP_BOT_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden sm:inline-flex items-center gap-1.5 font-medium rounded-full px-4 sm:px-5 py-[7px] sm:py-2 text-[12px] sm:text-[13px] text-gray-800 dark:text-gray-100 bg-[#edf3fc] hover:bg-[#dfeaf8] dark:bg-[#111d33] dark:hover:bg-[#182845] border border-[#cfe0f8] dark:border-[#223859] transition-all whitespace-nowrap shadow-sm font-mono"
           >
-            Play Demo
+            <IoLogoWhatsapp className="text-[#25D366] text-base" />
+            <span>Play on WhatsApp</span>
           </a>
 
           {/* Mobile / Tablet Hamburger Button when at top */}
@@ -237,11 +241,15 @@ export function Navbar() {
               常闇の女王と秘密の隠れ家 Project © 2026 ShirayukinoComp
             </p>
             <a
-              href="#gameplay"
+              href={WHATSAPP_BOT_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={closeMenu}
-              className="inline-flex items-center gap-2.5 px-8 py-4 bg-[#142d55] dark:bg-[#1a3763] text-white text-[11px] font-semibold tracking-[0.2em] uppercase rounded-full hover:bg-[#0c1e3a] transition-all shadow-md"
+              className="inline-flex items-center gap-2.5 px-8 py-4 bg-[#142d55] hover:bg-[#0c1e3a] dark:bg-[#1a3763] dark:hover:bg-[#254679] text-white text-[11px] font-semibold tracking-[0.2em] uppercase rounded-full transition-all shadow-md font-mono"
             >
-              ENTER SECRET HIDEOUT <HiArrowRight size={14} />
+              <IoLogoWhatsapp className="text-[#25D366] text-lg" />
+              <span>START PROLOGUE ON WHATSAPP</span>
+              <HiArrowRight size={14} />
             </a>
           </div>
         </div>

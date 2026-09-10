@@ -1,7 +1,8 @@
 "use client";
 
 import { HiArrowUpRight } from "react-icons/hi2";
-import { IoPlayOutline } from "react-icons/io5";
+import { IoPlayOutline, IoLogoWhatsapp } from "react-icons/io5";
+import { WHATSAPP_BOT_URL } from "./constants";
 
 export function HeroSection() {
   return (
@@ -11,10 +12,10 @@ export function HeroSection() {
           {/* Left Column */}
           <div className="flex flex-col lg:w-[50%]">
             <div className="flex-1 pt-12 pb-16 pr-0 sm:pt-16 sm:pb-24 lg:pt-[120px] lg:pb-[130px] lg:pr-14">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#edf3fc] dark:bg-[#111c30] border border-[#cfe0f8] dark:border-[#1f304f] mb-6 transition-colors">
-                <span className="w-2 h-2 rounded-full bg-[#142d55] dark:bg-[#8ab4f8] animate-pulse" />
-                <span className="font-mono text-[10px] font-semibold tracking-[0.16em] uppercase text-[#142d55] dark:text-[#8ab4f8]">
-                  STORY JRPG & VISUAL NOVEL
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#edf3fc] dark:bg-[#111c30] border border-[#cfe0f8] dark:border-[#1f304f] mb-6 transition-colors">
+                <span className="w-2 h-2 rounded-full bg-[#25D366] animate-pulse" />
+                <span className="font-mono text-[10px] sm:text-[10.5px] font-semibold tracking-[0.14em] uppercase text-[#142d55] dark:text-[#8ab4f8]">
+                  INTERACTIVE PROLOGUE ON WHATSAPP • LIVE NOW
                 </span>
               </div>
               <h1 className="text-[2.2rem] sm:text-[2.7rem] lg:text-[3rem] leading-[1.08] font-medium text-black dark:text-white tracking-[-0.02em] transition-colors">
@@ -23,12 +24,15 @@ export function HeroSection() {
                   Queen of Ever Darkness & the Secret Hideout
                 </span>
               </h1>
-              <div className="flex items-center gap-5 sm:gap-6 mt-9 sm:mt-11 font-mono tracking-tight">
+              <div className="flex flex-wrap items-center gap-4 sm:gap-6 mt-8 sm:mt-11 font-mono tracking-tight">
                 <a
-                  href="#editions"
-                  className="inline-flex items-center gap-2.5 px-7 py-3.5 bg-[#142d55] hover:bg-[#0c1e3a] dark:bg-[#203f6f] dark:hover:bg-[#284e88] text-white text-[11px] font-semibold uppercase rounded-full transition-all shadow-sm"
+                  href={WHATSAPP_BOT_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2.5 px-6 sm:px-7 py-3.5 bg-[#142d55] hover:bg-[#0c1e3a] dark:bg-[#203f6f] dark:hover:bg-[#284e88] text-white text-[11px] font-semibold uppercase rounded-full transition-all shadow-md group"
                 >
-                  PLAY RPG DEMO
+                  <IoLogoWhatsapp className="text-[#25D366] text-lg transition-transform group-hover:scale-110" />
+                  <span>PLAY PROLOGUE (WHATSAPP)</span>
                   <HiArrowUpRight size={14} />
                 </a>
                 <a
@@ -46,7 +50,7 @@ export function HeroSection() {
             {/* Bottom Left Grid Row */}
             <div className="border-t border-[#e7e3df] dark:border-[#1a2840] min-h-[110px] flex flex-col justify-center py-6 pr-0 lg:pr-14 transition-colors">
               <p className="text-[14px] sm:text-[15px] leading-[1.6] text-gray-700 dark:text-gray-300 transition-colors">
-                A narrative-rich fantasy JRPG and visual novel by ShirayukinoComp. Explore ancient ruins, master turn-based tactical combat, synthesize celestial relics, and discover the forgotten truth of the queen.
+                Rasakan kisah awal fantasi celestial dan visual novel oleh ShirayukinoComp secara interaktif via WhatsApp Bot sebelum versi penuh rilis di PC/Steam. Tentukan pilihan alur cerita, kumpulkan relic rahasia, dan buka jalan takdir sang Ratu.
               </p>
             </div>
           </div>
@@ -78,25 +82,25 @@ export function HeroSection() {
               <div className="grid grid-cols-3 gap-3 sm:gap-4">
                 <div>
                   <p className="text-[11px] sm:text-[13px] text-gray-500 dark:text-gray-400 font-normal leading-snug mb-1.5 transition-colors">
-                    Gameplay Style
+                    Current Version
                   </p>
-                  <p className="text-base sm:text-lg lg:text-[1.35rem] font-medium font-mono text-black dark:text-white tracking-tight transition-colors">
-                    Story & RPG
+                  <p className="text-base sm:text-lg lg:text-[1.25rem] font-medium font-mono text-black dark:text-white tracking-tight transition-colors">
+                    WhatsApp Bot
                   </p>
                 </div>
                 <div>
                   <p className="text-[11px] sm:text-[13px] text-gray-500 dark:text-gray-400 font-normal leading-snug mb-1.5 transition-colors">
                     Original Score
                   </p>
-                  <p className="text-base sm:text-lg lg:text-[1.35rem] font-medium font-mono text-black dark:text-white tracking-tight transition-colors">
+                  <p className="text-base sm:text-lg lg:text-[1.25rem] font-medium font-mono text-black dark:text-white tracking-tight transition-colors">
                     45+ Tracks
                   </p>
                 </div>
                 <div>
                   <p className="text-[11px] sm:text-[13px] text-gray-500 dark:text-gray-400 font-normal leading-snug mb-1.5 transition-colors">
-                    Release Target
+                    Full Game Target
                   </p>
-                  <p className="text-base sm:text-lg lg:text-[1.35rem] font-medium font-mono text-black dark:text-white tracking-tight transition-colors">
+                  <p className="text-base sm:text-lg lg:text-[1.25rem] font-medium font-mono text-black dark:text-white tracking-tight transition-colors">
                     Steam / PC
                   </p>
                 </div>

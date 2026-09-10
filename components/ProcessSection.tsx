@@ -1,3 +1,6 @@
+import { IoLogoWhatsapp } from "react-icons/io5";
+import { WHATSAPP_BOT_URL } from "./constants";
+
 const steps = [
   {
     number: "1",
@@ -58,10 +61,13 @@ export function ProcessSection() {
           </div>
           <div className="mt-10">
             <a
-              href="#editions"
-              className="inline-flex items-center justify-center rounded-full bg-[#142d55] hover:bg-[#0c1e3a] dark:bg-[#1a3763] dark:hover:bg-[#234882] px-6 py-3 text-sm font-semibold uppercase tracking-tight font-mono text-white transition-all shadow-sm"
+              href={WHATSAPP_BOT_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2.5 justify-center rounded-full bg-[#142d55] hover:bg-[#0c1e3a] dark:bg-[#1a3763] dark:hover:bg-[#234882] px-7 py-3.5 text-sm font-semibold uppercase tracking-tight font-mono text-white transition-all shadow-md group"
             >
-              Experience the gameplay demo →
+              <IoLogoWhatsapp className="text-[#25D366] text-lg transition-transform group-hover:scale-110" />
+              <span>Mainkan Prologue di WhatsApp Sekarang →</span>
             </a>
           </div>
         </div>
