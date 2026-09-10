@@ -75,12 +75,12 @@ const GAMEPLAY_PILLARS = [
 
 export default function GameplayOverviewPage() {
   return (
-    <div className="w-full transition-colors duration-300">
+    <div className="w-full max-w-full overflow-x-hidden transition-colors duration-300">
       {/* Top Header */}
-      <div className="px-[21px] pt-10 pb-12 sm:px-8 sm:pt-14 sm:pb-16 border-b border-[#e7e3df] dark:border-[#1a2840]">
+      <div className="px-4 py-8 sm:px-6 sm:py-12 md:px-8 md:py-14 border-b border-[#e7e3df] dark:border-[#1a2840]">
         <div className="mx-auto max-w-[1220px]">
           {/* Breadcrumb */}
-          <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs font-mono text-[#8f8b86] dark:text-[#7f93b0] mb-6">
+          <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-2 text-xs font-mono text-[#8f8b86] dark:text-[#7f93b0] mb-5 sm:mb-6">
             <Link href="/" className="hover:text-black dark:hover:text-white transition-colors flex items-center gap-1.5">
               <IoArrowBackOutline size={13} />
               <span>Home</span>
@@ -90,16 +90,16 @@ export default function GameplayOverviewPage() {
           </nav>
 
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#edf3fc] dark:bg-[#111c30] border border-[#cfe0f8] dark:border-[#1f304f] mb-3 transition-colors">
-              <span className="w-2 h-2 rounded-full bg-[#142d55] dark:bg-[#E5BA68] animate-pulse" />
-              <span className="font-mono text-[10.5px] font-semibold tracking-[0.16em] uppercase text-[#142d55] dark:text-[#8ab4f8]">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#edf3fc] dark:bg-[#111c30] border border-[#cfe0f8] dark:border-[#1f304f] mb-3 transition-colors max-w-full">
+              <span className="w-2 h-2 rounded-full bg-[#142d55] dark:bg-[#E5BA68] animate-pulse shrink-0" />
+              <span className="font-mono text-[10px] sm:text-[10.5px] font-semibold tracking-[0.14em] sm:tracking-[0.16em] uppercase text-[#142d55] dark:text-[#8ab4f8] truncate">
                 SYSTEMS & MECHANICS
               </span>
             </div>
-            <h1 className="text-3xl sm:text-4xl lg:text-[2.9rem] leading-[1.05] font-semibold tracking-[-0.03em] text-black dark:text-white">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.9rem] leading-[1.1] font-semibold tracking-[-0.03em] text-black dark:text-white break-words">
               Tactical JRPG combat meets branching visual novel
             </h1>
-            <p className="mt-4 text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
+            <p className="mt-3 sm:mt-4 text-xs sm:text-sm md:text-base text-gray-600 dark:text-gray-300 leading-relaxed break-words">
               『常闇の女王と秘密の隠れ家』 fuses turn-based combat depth, cozy atelier crafting, and deep narrative exploration. Experience the opening chapter now on WhatsApp or prepare for the upcoming full Steam release.
             </p>
           </div>
@@ -107,15 +107,15 @@ export default function GameplayOverviewPage() {
       </div>
 
       {/* 4 Pillars Section */}
-      <div className="px-[21px] py-12 sm:px-8 sm:py-16">
+      <div className="px-4 py-8 sm:px-6 sm:py-12 md:px-8 md:py-16">
         <div className="mx-auto max-w-[1220px]">
-          <div className="grid gap-6 md:grid-cols-2">
+          <div className="grid gap-5 sm:gap-6 md:grid-cols-2">
             {GAMEPLAY_PILLARS.map((pillar, idx) => {
               const Icon = pillar.icon;
               return (
                 <div
                   key={idx}
-                  className="rounded-[22px] border border-[#e7e3df] dark:border-[#1a2840] bg-[#f8f5f2] dark:bg-[#0c1524] p-7 sm:p-9 flex flex-col justify-between transition-colors shadow-sm dark:shadow-[0_4px_24px_rgba(0,0,0,0.3)]"
+                  className="rounded-[20px] sm:rounded-[22px] border border-[#e7e3df] dark:border-[#1a2840] bg-[#f8f5f2] dark:bg-[#0c1524] p-5 sm:p-7 md:p-8 flex flex-col justify-between transition-colors shadow-sm dark:shadow-[0_4px_24px_rgba(0,0,0,0.3)] min-w-0 max-w-full overflow-hidden"
                 >
                   <div>
                     <div className="flex items-center justify-between gap-3 mb-5">
@@ -154,16 +154,16 @@ export default function GameplayOverviewPage() {
           </div>
 
           {/* WhatsApp Interactive Prologue Banner */}
-          <div className="mt-14 rounded-[22px] bg-gradient-to-r from-[#142d55] to-[#0a172c] dark:from-[#0e1c33] dark:to-[#08101e] p-7 sm:p-9 text-white flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 border border-[#23457a] dark:border-[#1e3b68] shadow-md">
-            <div>
-              <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#cba052] dark:text-[#e5ba68] font-semibold flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#25D366] animate-pulse" />
-                ✦ PLAYABLE ON WHATSAPP TODAY
+          <div className="mt-12 sm:mt-14 rounded-[20px] sm:rounded-[22px] bg-gradient-to-r from-[#142d55] to-[#0a172c] dark:from-[#0e1c33] dark:to-[#08101e] p-5 sm:p-7 md:p-9 text-white flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 sm:gap-6 border border-[#23457a] dark:border-[#1e3b68] shadow-md min-w-0 max-w-full overflow-hidden">
+            <div className="min-w-0 flex-1">
+              <span className="font-mono text-[10px] tracking-[0.16em] sm:tracking-[0.2em] uppercase text-[#cba052] dark:text-[#e5ba68] font-semibold flex items-center gap-1.5 truncate">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#25D366] animate-pulse shrink-0" />
+                <span>✦ PLAYABLE ON WHATSAPP TODAY</span>
               </span>
-              <h3 className="text-xl sm:text-2xl font-semibold mt-1">
+              <h3 className="text-lg sm:text-xl md:text-2xl font-semibold mt-1.5 break-words">
                 Test the prologue battle decisions right on WhatsApp
               </h3>
-              <p className="mt-1 text-xs sm:text-sm text-white/80 max-w-xl">
+              <p className="mt-1 text-xs sm:text-sm text-white/80 max-w-xl break-words">
                 Experience the game's branching dialogue engine and unlock early secret items without downloading any client files.
               </p>
             </div>
@@ -171,11 +171,11 @@ export default function GameplayOverviewPage() {
               href={WHATSAPP_BOT_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white dark:bg-[#E5BA68] text-[#142d55] dark:text-[#08101e] text-xs font-mono font-semibold uppercase tracking-wider transition hover:bg-gray-100 dark:hover:bg-[#f0c878] shrink-0 shadow-sm group"
+              className="inline-flex items-center gap-2 px-5 py-2.5 sm:px-6 sm:py-3 rounded-full bg-white dark:bg-[#E5BA68] text-[#142d55] dark:text-[#08101e] text-xs font-mono font-semibold uppercase tracking-wider transition hover:bg-gray-100 dark:hover:bg-[#f0c878] shrink-0 shadow-sm group"
             >
               <IoLogoWhatsapp className="text-[#25D366] text-lg transition-transform group-hover:scale-110" />
               <span>Launch Bot Prologue</span>
-              <HiArrowUpRight size={14} />
+              <HiArrowUpRight size={14} className="shrink-0" />
             </a>
           </div>
         </div>

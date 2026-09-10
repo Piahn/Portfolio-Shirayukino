@@ -157,12 +157,12 @@ const VERSION_UPDATES = [
 
 export default function EditionsPage() {
   return (
-    <div className="w-full transition-colors duration-300">
+    <div className="w-full max-w-full overflow-x-hidden transition-colors duration-300">
       {/* Top Header */}
-      <div className="px-[21px] pt-10 pb-12 sm:px-8 sm:pt-14 sm:pb-16 border-b border-[#e7e3df] dark:border-[#1a2840]">
+      <div className="px-4 py-8 sm:px-6 sm:py-12 md:px-8 md:py-14 border-b border-[#e7e3df] dark:border-[#1a2840]">
         <div className="mx-auto max-w-[1220px]">
           {/* Breadcrumb */}
-          <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs font-mono text-[#8f8b86] dark:text-[#7f93b0] mb-6">
+          <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-2 text-xs font-mono text-[#8f8b86] dark:text-[#7f93b0] mb-5 sm:mb-6">
             <Link href="/" className="hover:text-black dark:hover:text-white transition-colors flex items-center gap-1.5">
               <IoArrowBackOutline size={13} />
               <span>Home</span>
@@ -171,33 +171,33 @@ export default function EditionsPage() {
             <span className="text-[#142d55] dark:text-[#E5BA68] font-semibold">Editions & Versi Pembaruan</span>
           </nav>
 
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-5 sm:gap-6">
             <div className="max-w-3xl">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#edf3fc] dark:bg-[#111c30] border border-[#cfe0f8] dark:border-[#1f304f] mb-3 transition-colors">
-                <IoCubeOutline className="text-sm text-[#142d55] dark:text-[#E5BA68]" />
-                <span className="font-mono text-[10.5px] font-semibold tracking-[0.16em] uppercase text-[#142d55] dark:text-[#8ab4f8]">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#edf3fc] dark:bg-[#111c30] border border-[#cfe0f8] dark:border-[#1f304f] mb-3 transition-colors max-w-full">
+                <IoCubeOutline className="text-sm text-[#142d55] dark:text-[#E5BA68] shrink-0" />
+                <span className="font-mono text-[10px] sm:text-[10.5px] font-semibold tracking-[0.14em] sm:tracking-[0.16em] uppercase text-[#142d55] dark:text-[#8ab4f8] truncate">
                   RELEASE TIERS & VERSI PEMBARUAN
                 </span>
               </div>
-              <h1 className="text-3xl sm:text-4xl lg:text-[2.9rem] leading-[1.05] font-semibold tracking-[-0.03em] text-black dark:text-white">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.9rem] leading-[1.1] font-semibold tracking-[-0.03em] text-black dark:text-white break-words">
                 Release Editions & Version Roadmap
               </h1>
-              <p className="mt-4 text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
+              <p className="mt-3 sm:mt-4 text-xs sm:text-sm md:text-base text-gray-600 dark:text-gray-300 leading-relaxed break-words">
                 Temukan paket edisi rilis resmi dan log versi pembaruan (patch notes) untuk 『常闇の女王と秘密の隠れ家』. Nikmati petualangan orisinal kami, soundtrack vault, hingga pembaruan sistem berkala.
               </p>
             </div>
 
             {/* Quick Filter / Jump Pills */}
-            <div className="flex items-center gap-2 font-mono text-xs shrink-0">
+            <div className="flex flex-wrap items-center gap-2 font-mono text-xs shrink-0">
               <a
                 href="#packages"
-                className="px-4 py-2 rounded-full bg-white dark:bg-[#111c30] border border-[#e7e3df] dark:border-[#1e3456] text-black dark:text-white hover:border-[#142d55] dark:hover:border-[#E5BA68] transition-colors"
+                className="px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white dark:bg-[#111c30] border border-[#e7e3df] dark:border-[#1e3456] text-black dark:text-white hover:border-[#142d55] dark:hover:border-[#E5BA68] transition-colors"
               >
                 📦 Edisi Rilis
               </a>
               <a
                 href="#changelog"
-                className="px-4 py-2 rounded-full bg-white dark:bg-[#111c30] border border-[#e7e3df] dark:border-[#1e3456] text-black dark:text-white hover:border-[#142d55] dark:hover:border-[#E5BA68] transition-colors"
+                className="px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white dark:bg-[#111c30] border border-[#e7e3df] dark:border-[#1e3456] text-black dark:text-white hover:border-[#142d55] dark:hover:border-[#E5BA68] transition-colors"
               >
                 ⏱️ Versi Pembaruan
               </a>
@@ -207,13 +207,13 @@ export default function EditionsPage() {
       </div>
 
       {/* Editions Cards Grid */}
-      <div id="packages" className="px-[21px] py-12 sm:px-8 sm:py-16">
+      <div id="packages" className="px-4 py-8 sm:px-6 sm:py-12 md:px-8 md:py-16">
         <div className="mx-auto max-w-[1220px]">
-          <div className="grid gap-6 lg:grid-cols-3">
+          <div className="grid gap-5 sm:gap-6 lg:grid-cols-3">
             {EDITIONS.map((ed) => (
               <div
                 key={ed.id}
-                className={`flex flex-col justify-between rounded-[22px] border p-7 sm:p-8 transition-all duration-300 ${
+                className={`flex flex-col justify-between rounded-[20px] sm:rounded-[22px] border p-5 sm:p-7 md:p-8 transition-all duration-300 min-w-0 max-w-full overflow-hidden ${
                   ed.featured
                     ? "border-[#142d55] dark:border-[#E5BA68] bg-gradient-to-b from-[#f8faff] to-[#edf3fc] dark:from-[#0f1d33] dark:to-[#08101e] shadow-lg dark:shadow-[0_12px_40px_rgba(0,0,0,0.5)] lg:-translate-y-2"
                     : "border-[#e7e3df] dark:border-[#1a2840] bg-[#f8f5f2] dark:bg-[#0c1524] shadow-sm"

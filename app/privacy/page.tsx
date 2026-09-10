@@ -48,12 +48,12 @@ const PRIVACY_SECTIONS = [
 
 export default function PrivacyPage() {
   return (
-    <div className="w-full transition-colors duration-300">
+    <div className="w-full max-w-full overflow-x-hidden transition-colors duration-300">
       {/* Top Header */}
-      <div className="px-[21px] pt-10 pb-12 sm:px-8 sm:pt-14 sm:pb-16 border-b border-[#e7e3df] dark:border-[#1a2840]">
+      <div className="px-4 py-8 sm:px-6 sm:py-12 md:px-8 md:py-14 border-b border-[#e7e3df] dark:border-[#1a2840]">
         <div className="mx-auto max-w-[880px]">
           {/* Breadcrumb */}
-          <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs font-mono text-[#8f8b86] dark:text-[#7f93b0] mb-6">
+          <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-2 text-xs font-mono text-[#8f8b86] dark:text-[#7f93b0] mb-5 sm:mb-6">
             <Link href="/" className="hover:text-black dark:hover:text-white transition-colors flex items-center gap-1.5">
               <IoArrowBackOutline size={13} />
               <span>Home</span>
@@ -62,24 +62,24 @@ export default function PrivacyPage() {
             <span className="text-[#142d55] dark:text-[#E5BA68] font-semibold">Privacy Policy</span>
           </nav>
 
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#edf3fc] dark:bg-[#111c30] border border-[#cfe0f8] dark:border-[#1f304f] mb-3 transition-colors">
-            <IoLockClosedOutline className="text-sm text-[#142d55] dark:text-[#E5BA68]" />
-            <span className="font-mono text-[10.5px] font-semibold tracking-[0.16em] uppercase text-[#142d55] dark:text-[#8ab4f8]">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#edf3fc] dark:bg-[#111c30] border border-[#cfe0f8] dark:border-[#1f304f] mb-3 transition-colors max-w-full">
+            <IoLockClosedOutline className="text-sm text-[#142d55] dark:text-[#E5BA68] shrink-0" />
+            <span className="font-mono text-[10px] sm:text-[10.5px] font-semibold tracking-[0.14em] sm:tracking-[0.16em] uppercase text-[#142d55] dark:text-[#8ab4f8] truncate">
               USER DATA & PRIVACY
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-[2.75rem] leading-[1.05] font-semibold tracking-[-0.03em] text-black dark:text-white">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.75rem] leading-[1.1] font-semibold tracking-[-0.03em] text-black dark:text-white break-words">
             Privacy Policy & Data Transparency
           </h1>
-          <p className="mt-3 text-xs sm:text-sm font-mono text-gray-500 dark:text-gray-400">
+          <p className="mt-2.5 sm:mt-3 text-xs sm:text-sm font-mono text-gray-500 dark:text-gray-400">
             Last Updated: September 2026 • ShirayukinoComp Creative Circle
           </p>
         </div>
       </div>
 
       {/* Main Content Body */}
-      <div className="px-[21px] py-12 sm:px-8 sm:py-16">
-        <div className="mx-auto max-w-[880px] space-y-10">
+      <div className="px-4 py-8 sm:px-6 sm:py-12 md:px-8 md:py-16">
+        <div className="mx-auto max-w-[880px] space-y-6 sm:space-y-10">
           {PRIVACY_SECTIONS.map((sec, idx) => (
             <section
               key={idx}
