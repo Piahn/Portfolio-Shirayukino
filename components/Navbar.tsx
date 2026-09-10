@@ -130,9 +130,9 @@ export function Navbar() {
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             aria-expanded={isMenuOpen}
           >
-            <div className="flex flex-col items-center justify-center gap-[5px] w-5 h-5">
-              <span className="block h-[2.2px] w-5 bg-current rounded-full" />
-              <span className="block h-[2.2px] w-5 bg-current rounded-full" />
+            <div className="flex flex-col items-center justify-center gap-[4.5px] w-5 h-5 pointer-events-none">
+              <span className="block h-[2.2px] w-[18px] bg-black dark:bg-white rounded-full" />
+              <span className="block h-[2.2px] w-[14px] bg-black dark:bg-white rounded-full" />
             </div>
           </button>
         </div>
@@ -165,14 +165,14 @@ export function Navbar() {
               >
                 {isMenuOpen ? (
                   <>
-                    <IoCloseOutline size={24} className="sm:hidden transition-transform duration-200 group-hover:rotate-90" />
-                    <IoCloseOutline size={28} className="hidden sm:block xl:hidden transition-transform duration-200 group-hover:rotate-90" />
-                    <IoCloseOutline size={32} className="hidden xl:block transition-transform duration-200 group-hover:rotate-90" />
+                    <IoCloseOutline size={24} className="sm:hidden transition-transform duration-200 group-hover:rotate-90 text-black dark:text-white" />
+                    <IoCloseOutline size={28} className="hidden sm:block xl:hidden transition-transform duration-200 group-hover:rotate-90 text-black dark:text-white" />
+                    <IoCloseOutline size={32} className="hidden xl:block transition-transform duration-200 group-hover:rotate-90 text-black dark:text-white" />
                   </>
                 ) : (
-                  <div className="flex flex-col items-center justify-center gap-[4px] sm:gap-[5px] xl:gap-[6px] w-6 h-6 sm:w-6.5 sm:h-6.5 xl:w-7 xl:h-7">
-                    <span className="block h-[2.2px] sm:h-[2.5px] xl:h-[2.8px] w-4.5 sm:w-5.5 xl:w-6 bg-current rounded-full transition-all duration-300 group-hover:w-6" />
-                    <span className="block h-[2.2px] sm:h-[2.5px] xl:h-[2.8px] w-4.5 sm:w-5.5 xl:w-6 bg-current rounded-full transition-all duration-300 group-hover:w-5" />
+                  <div className="flex flex-col items-center justify-center gap-[4px] sm:gap-[5px] xl:gap-[6px] pointer-events-none">
+                    <span className="block h-[2.2px] sm:h-[2.6px] xl:h-[3px] w-[18px] sm:w-[22px] xl:w-[26px] bg-black dark:bg-white rounded-full transition-all duration-300 group-hover:w-[26px]" />
+                    <span className="block h-[2.2px] sm:h-[2.6px] xl:h-[3px] w-[14px] sm:w-[17px] xl:w-[21px] bg-black dark:bg-white rounded-full transition-all duration-300 group-hover:w-[21px]" />
                   </div>
                 )}
               </button>
