@@ -49,20 +49,20 @@ const mobileMenuSecondary = [
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 60);
+      setIsScrolled(window.scrollY > 80);
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Prevent body scroll when mobile menu is open
+  // Prevent body scroll when menu overlay is open
   useEffect(() => {
-    if (isMobileOpen) {
+    if (isMenuOpen) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "";
@@ -70,13 +70,13 @@ export function Navbar() {
     return () => {
       document.body.style.overflow = "";
     };
-  }, [isMobileOpen]);
+  }, [isMenuOpen]);
 
-  const closeMobile = () => setIsMobileOpen(false);
+  const closeMenu = () => setIsMenuOpen(false);
 
   return (
     <>
-      {/* 1. Static Top Header (Scrolls naturally with content, line never follows) */}
+      {/* 1. Static Top Header (Normal state when at top, scrolls away with content) */}
       <header
         className="w-full h-[90px] sm:h-[92px] bg-white dark:bg-[#070b12] px-[21px] flex items-center justify-between border-b border-[#e7e3df] dark:border-[#1a2840] transition-colors duration-300"
         role="banner"
@@ -125,136 +125,114 @@ export function Navbar() {
             Play Demo
           </a>
 
-          {/* Mobile / Tablet Hamburger Button */}
+          {/* Mobile / Tablet Hamburger Button when at top */}
           <button
-            onClick={() => setIsMobileOpen((prev) => !prev)}
-            className={`lg:hidden flex items-center justify-center w-9 h-9 rounded-full border border-[#e8e3dd] dark:border-[#1f304d] transition-colors shrink-0 ${
-              isMobileOpen
-                ? "bg-[#f3f0ec] dark:bg-[#121d2f] hover:bg-[#ebe6df]"
-                : "hover:bg-gray-100 dark:hover:bg-[#101a2b] text-black dark:text-white"
-            }`}
-            aria-label={isMobileOpen ? "Close menu" : "Open menu"}
-            aria-expanded={isMobileOpen}
+            onClick={() => setIsMenuOpen((prev) => !prev)}
+            className="lg:hidden flex items-center justify-center w-10 h-10 rounded-full border border-[#e8e3dd] dark:border-[#1f304d] hover:bg-gray-100 dark:hover:bg-[#101a2b] text-black dark:text-white transition-colors shrink-0"
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isMenuOpen}
           >
-            {isMobileOpen ? (
-              <IoCloseOutline size={22} />
-            ) : (
-              <IoMenuOutline size={20} />
-            )}
+            <div className="flex flex-col items-center justify-center gap-1.5 w-5 h-5">
+              <span className="block h-[2px] w-4.5 bg-current rounded-full" />
+              <span className="block h-[2px] w-4.5 bg-current rounded-full" />
+            </div>
           </button>
         </div>
       </header>
 
-      {/* 2. Floating Rounded Pill Navbar (Appears on Scroll, Compact & Capsule Shaped) */}
-      <nav
-        className={`fixed top-3 sm:top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-          isScrolled && !isMobileOpen
-            ? "translate-y-0 opacity-100 pointer-events-auto scale-100"
-            : "-translate-y-16 opacity-0 pointer-events-none scale-95"
-        }`}
-        aria-label="Floating navigation"
-      >
-        <div className="flex items-center justify-between gap-3 sm:gap-5 rounded-full border border-[#e2ddd7] dark:border-[#223552] bg-white/90 dark:bg-[#0c1424]/90 px-3.5 sm:px-5 py-2 shadow-[0_14px_40px_rgba(0,0,0,0.12)] dark:shadow-[0_16px_45px_rgba(0,0,0,0.6)] backdrop-blur-2xl">
-          {/* Logo in Pill */}
-          <Link
-            href="/"
-            className="flex items-center shrink-0 group focus:outline-none"
-            aria-label="ShirayukinoComp Home"
-          >
-            <ShirayukinoLogo imgClassName="h-6 sm:h-7" />
-          </Link>
-
-          {/* Desktop Links in Pill */}
-          <div className="hidden lg:flex items-center gap-4 xl:gap-6 shrink-0 pl-1">
-            {navLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                className="text-[13px] font-mono text-[#52525b] dark:text-[#94a3b8] hover:text-black dark:hover:text-white transition-colors whitespace-nowrap"
-              >
-                {link.label}
-              </a>
-            ))}
-          </div>
-
-          {/* Right Actions in Pill */}
-          <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
-            <ThemeToggle />
-
-            <a
-              href="#gameplay"
-              className="inline-flex items-center px-3.5 sm:px-4 py-1.5 text-[12px] sm:text-[13px] font-medium rounded-full bg-[#142d55] hover:bg-[#0c1e3a] dark:bg-[#203f6f] dark:hover:bg-[#284e88] text-white transition-all shadow-sm whitespace-nowrap"
-            >
-              Play Demo
-            </a>
-
-            {/* Mobile / Tablet Hamburger in Pill */}
-            <button
-              onClick={() => setIsMobileOpen((prev) => !prev)}
-              className="lg:hidden flex items-center justify-center w-8 h-8 rounded-full border border-[#e8e3dd] dark:border-[#1f304d] hover:bg-gray-100 dark:hover:bg-[#101a2b] text-black dark:text-white transition-colors shrink-0"
-              aria-label={isMobileOpen ? "Close menu" : "Open menu"}
-              aria-expanded={isMobileOpen}
-            >
-              {isMobileOpen ? (
-                <IoCloseOutline size={20} />
-              ) : (
-                <IoMenuOutline size={18} />
-              )}
-            </button>
-          </div>
-        </div>
-      </nav>
-
-      {/* 3. Mobile Full-Screen Overlay Menu */}
+      {/* 2. Floating Left Logo Capsule (Appears on Scroll, click to scroll back to top) */}
       <div
-        className={`fixed inset-x-0 top-0 bottom-0 z-50 mx-auto w-full max-w-[1200px] lg:hidden ${
-          isMobileOpen ? "pointer-events-auto" : "pointer-events-none"
+        className={`fixed top-4 sm:top-6 left-4 sm:left-8 z-50 transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+          isScrolled && !isMenuOpen
+            ? "translate-y-0 opacity-100 pointer-events-auto scale-100"
+            : "-translate-y-6 opacity-0 pointer-events-none scale-90"
         }`}
-        aria-hidden={!isMobileOpen}
       >
-        <div
-          className={`flex h-full origin-top flex-col justify-between overflow-y-auto bg-white dark:bg-[#070b12] px-[21px] transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
-            isMobileOpen
-              ? "translate-y-0 scale-y-100 opacity-100"
-              : "-translate-y-4 scale-y-[0.98] opacity-0"
-          }`}
+        <button
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          className="flex items-center gap-2 px-3.5 py-2 rounded-full bg-white/90 dark:bg-[#0c1424]/90 border border-[#e2ddd7] dark:border-[#223552] shadow-[0_8px_30px_rgba(0,0,0,0.12)] dark:shadow-[0_8px_30px_rgba(0,0,0,0.6)] backdrop-blur-2xl hover:scale-105 transition-transform"
+          aria-label="Back to top"
         >
-          <div className="pt-6">
-            {/* Header inside overlay with close button */}
-            <div className="flex items-center justify-between pb-8 border-b border-[#e7e3df] dark:border-[#1a2840]">
-              <ShirayukinoLogo imgClassName="h-7" />
-              <div className="flex items-center gap-2.5">
-                <ThemeToggle />
-                <button
-                  onClick={closeMobile}
-                  className="flex items-center justify-center w-9 h-9 rounded-full border border-[#e8e3dd] dark:border-[#1f304d] text-black dark:text-white hover:bg-gray-100 dark:hover:bg-[#101a2b] transition-colors"
-                  aria-label="Close menu"
-                >
-                  <IoCloseOutline size={22} />
-                </button>
-              </div>
-            </div>
+          <ShirayukinoLogo imgClassName="h-6 sm:h-7" />
+        </button>
+      </div>
 
-            {/* Links */}
-            <nav className="mt-8 space-y-3 sm:space-y-4">
-              {mobileMenuPrimary.map((link) => (
+      {/* 3. Floating Round Button in Top-Right ("Bulet seperti contoh user") */}
+      <div
+        className={`fixed top-4 sm:top-6 right-4 sm:right-8 z-50 flex items-center gap-2.5 sm:gap-3 transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+          isScrolled || isMenuOpen
+            ? "translate-y-0 opacity-100 pointer-events-auto scale-100"
+            : "-translate-y-6 opacity-0 pointer-events-none scale-90"
+        }`}
+      >
+        {/* Theme Toggle beside the round button */}
+        {!isMenuOpen && <ThemeToggle />}
+
+        {/* The Iconic Round Circular Menu Button */}
+        <button
+          onClick={() => setIsMenuOpen((prev) => !prev)}
+          className={`group flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full transition-all duration-300 hover:scale-105 active:scale-95 shadow-[0_10px_35px_rgba(0,0,0,0.18)] dark:shadow-[0_12px_40px_rgba(0,0,0,0.7)] ${
+            isMenuOpen
+              ? "bg-neutral-900 text-white dark:bg-white dark:text-black border border-neutral-700 dark:border-gray-200"
+              : "bg-white text-black dark:bg-white dark:text-black border border-gray-200/80 dark:border-white/20"
+          }`}
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={isMenuOpen}
+        >
+          {isMenuOpen ? (
+            <IoCloseOutline size={26} className="transition-transform duration-200 group-hover:rotate-90" />
+          ) : (
+            <div className="flex flex-col items-center justify-center gap-[5px] w-6 h-6">
+              <span className="block h-[2.2px] w-5 bg-black rounded-full transition-all duration-300 group-hover:w-6" />
+              <span className="block h-[2.2px] w-5 bg-black rounded-full transition-all duration-300 group-hover:w-4" />
+            </div>
+          )}
+        </button>
+      </div>
+
+      {/* 4. Fullscreen Navigation Overlay (Opens when clicking the round button) */}
+      <div
+        className={`fixed inset-0 z-40 bg-white/95 dark:bg-[#070b12]/95 backdrop-blur-3xl transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+          isMenuOpen
+            ? "opacity-100 pointer-events-auto"
+            : "opacity-0 pointer-events-none"
+        }`}
+        aria-hidden={!isMenuOpen}
+      >
+        <div className="flex h-full flex-col justify-between max-w-[1200px] mx-auto px-6 sm:px-12 py-8 sm:py-12 overflow-y-auto">
+          {/* Top of drawer */}
+          <div className="flex items-center justify-between">
+            <ShirayukinoLogo imgClassName="h-8 sm:h-9" />
+          </div>
+
+          {/* Center Navigation Links */}
+          <div className="my-auto py-12">
+            <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-[#8f8b86] dark:text-[#7f93b0] mb-6">
+              Menu Navigation
+            </p>
+            <nav className="space-y-4 sm:space-y-6">
+              {mobileMenuPrimary.map((link, idx) => (
                 <a
                   key={link.label}
                   href={link.href}
-                  onClick={closeMobile}
-                  className="block text-[2rem] sm:text-[2.6rem] font-bold text-black dark:text-white hover:text-[#142d55] dark:hover:text-[#60a5fa] transition-colors leading-tight"
+                  onClick={closeMenu}
+                  className="group flex items-center gap-4 text-[2.2rem] sm:text-[3.2rem] font-bold text-black dark:text-white hover:text-[#142d55] dark:hover:text-[#68a5e5] transition-colors leading-tight"
                 >
-                  {link.label}
+                  <span className="font-mono text-[13px] font-normal text-gray-400 group-hover:text-[#142d55] dark:group-hover:text-[#68a5e5] transition-colors">
+                    0{idx + 1}
+                  </span>
+                  <span>{link.label}</span>
                 </a>
               ))}
             </nav>
-            <div className="mt-10 space-y-2.5">
+
+            <div className="mt-12 flex flex-wrap gap-x-8 gap-y-3 pt-8 border-t border-[#e7e3df] dark:border-[#1a2840]">
               {mobileMenuSecondary.map((link) => (
                 <a
                   key={link.label}
                   href={link.href}
-                  onClick={closeMobile}
-                  className="block text-[15px] font-medium text-gray-800 dark:text-gray-300 hover:text-[#142d55] dark:hover:text-white transition-colors"
+                  onClick={closeMenu}
+                  className="text-[15px] font-medium text-gray-700 dark:text-gray-300 hover:text-[#142d55] dark:hover:text-white transition-colors"
                 >
                   {link.label}
                 </a>
@@ -262,11 +240,15 @@ export function Navbar() {
             </div>
           </div>
 
-          <div className="mt-8 pb-8">
+          {/* Bottom Action in Drawer */}
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-[#e7e3df] dark:border-[#1a2840]">
+            <p className="font-mono text-[12px] text-gray-500 dark:text-gray-400">
+              常闇の女王と秘密の隠れ家 Project © 2026 ShirayukinoComp
+            </p>
             <a
               href="#gameplay"
-              onClick={closeMobile}
-              className="flex items-center justify-center gap-2.5 w-full py-4 bg-[#142d55] dark:bg-[#1a3763] text-white text-[11px] font-semibold tracking-[0.2em] uppercase rounded-full hover:bg-[#0c1e3a] transition-colors"
+              onClick={closeMenu}
+              className="inline-flex items-center gap-2.5 px-8 py-4 bg-[#142d55] dark:bg-[#1a3763] text-white text-[11px] font-semibold tracking-[0.2em] uppercase rounded-full hover:bg-[#0c1e3a] transition-all shadow-md"
             >
               ENTER SECRET HIDEOUT <HiArrowRight size={14} />
             </a>
