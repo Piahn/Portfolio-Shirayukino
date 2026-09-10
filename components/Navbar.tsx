@@ -26,19 +26,19 @@ export function ShirayukinoLogo({
 }
 
 const navLinks = [
-  { label: "Story & RPG", href: "#gameplay" },
-  { label: "World", href: "#world" },
-  { label: "Editions", href: "#editions" },
-  { label: "Devlog", href: "#devlog" },
-  { label: "Community", href: "#community" },
+  { label: "Story & RPG", href: "/#gameplay" },
+  { label: "World", href: "/#world" },
+  { label: "Editions", href: "/#editions" },
+  { label: "Devlog", href: "/devlog" },
+  { label: "Community", href: "/#community" },
 ];
 
 const mobileMenuPrimary = [
-  { label: "Story & RPG", href: "#gameplay" },
-  { label: "World", href: "#world" },
-  { label: "Editions", href: "#editions" },
-  { label: "Devlog", href: "#devlog" },
-  { label: "Community", href: "#community" },
+  { label: "Story & RPG", href: "/#gameplay" },
+  { label: "World", href: "/#world" },
+  { label: "Editions", href: "/#editions" },
+  { label: "Devlog", href: "/devlog" },
+  { label: "Community", href: "/#community" },
 ];
 
 const mobileMenuSecondary = [
