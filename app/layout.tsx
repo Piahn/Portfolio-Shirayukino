@@ -25,15 +25,136 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "ShirayukinoComp | 常闇の女王と秘密の隠れ家 - Story RPG & Studio",
+  metadataBase: new URL("https://shirayukinocomp.com"),
+  title: {
+    default: "ShirayukinoComp | 常闇の女王と秘密の隠れ家 - Story RPG & Studio",
+    template: "%s | ShirayukinoComp",
+  },
   description:
-    "Official website of ShirayukinoComp. Discover our flagship story RPG & visual novel project '常闇の女王と秘密の隠れ家', tactical combat, original soundtrack, devlogs, and creative works.",
+    "Official website of ShirayukinoComp (シラユキノコンプ). Discover our flagship story RPG & visual novel project '常闇の女王と秘密の隠れ家' (The Queen of Eternal Darkness and the Secret Hideout), tactical combat timeline, 45-track orchestral soundtrack vault, circle devlogs, and community sanctuary.",
+  keywords: [
+    "ShirayukinoComp",
+    "シラユキノコンプ",
+    "常闇の女王と秘密の隠れ家",
+    "JRPG",
+    "Story RPG",
+    "Visual Novel",
+    "Indie Game Studio",
+    "Tactical Timeline Battles",
+    "Celestial Sea",
+    "Soundtrack Vault",
+    "Anime Fantasy RPG",
+    "Turn-based RPG",
+  ],
+  authors: [{ name: "ShirayukinoComp Creative Circle" }],
+  creator: "ShirayukinoComp",
+  publisher: "ShirayukinoComp",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon-16.png", sizes: "16x16", type: "image/png" },
+      { url: "/icon-32.png", sizes: "32x32", type: "image/png" },
+      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
   openGraph: {
+    type: "website",
+    locale: "ja_JP",
+    alternateLocale: ["en_US", "id_ID"],
+    url: "https://shirayukinocomp.com",
+    siteName: "ShirayukinoComp",
+    title: "ShirayukinoComp | 常闇の女王と秘密の隠れ家 - Story RPG & Studio",
+    description:
+      "A narrative-rich JRPG combining visual novel storytelling, tactical timeline battles, 45-track celestial soundtrack, and breathtaking fantasy worldbuilding.",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "ShirayukinoComp - 常闇の女王と秘密の隠れ家 Official Key Art",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
     title: "ShirayukinoComp | 常闇の女王と秘密の隠れ家",
     description:
-      "A narrative-rich JRPG combining visual novel storytelling, tactical exploration, and celestial fantasy worldbuilding.",
-    type: "website",
+      "A narrative-rich JRPG combining visual novel storytelling, tactical timeline battles, and celestial fantasy worldbuilding.",
+    images: ["/og-image.jpg"],
+    creator: "@shirayukinocomp",
   },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  alternates: {
+    canonical: "/",
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://shirayukinocomp.com/#organization",
+      name: "ShirayukinoComp",
+      alternateName: "シラユキノコンプ",
+      url: "https://shirayukinocomp.com",
+      logo: "https://shirayukinocomp.com/shirayukino.png",
+      sameAs: [
+        "https://discord.gg/shirayukinocomp",
+        "https://store.steampowered.com",
+        "https://twitter.com/shirayukinocomp",
+      ],
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://shirayukinocomp.com/#website",
+      url: "https://shirayukinocomp.com",
+      name: "ShirayukinoComp Official Studio",
+      publisher: {
+        "@id": "https://shirayukinocomp.com/#organization",
+      },
+    },
+    {
+      "@type": "VideoGame",
+      "@id": "https://shirayukinocomp.com/#game",
+      name: "常闇の女王と秘密の隠れ家",
+      alternateName: [
+        "The Queen of Eternal Darkness and the Secret Hideout",
+        "Tokoyami no Joou to Himitsu no Kakurega",
+      ],
+      description:
+        "A narrative-rich JRPG combining visual novel branching storytelling, tactical timeline initiative battles, and celestial alchemy worldbuilding.",
+      genre: ["Story RPG", "Visual Novel", "Tactical Turn-Based RPG"],
+      gamePlatform: ["PC", "Steam", "Steam Deck"],
+      applicationCategory: "Game",
+      operatingSystem: "Windows, SteamOS",
+      inLanguage: ["ja", "en", "id"],
+      publisher: {
+        "@id": "https://shirayukinocomp.com/#organization",
+      },
+      image: "https://shirayukinocomp.com/og-image.jpg",
+    },
+  ],
 };
 
 export default function RootLayout({
@@ -48,6 +169,11 @@ export default function RootLayout({
       className={`${inter.variable} ${playfair.variable} ${geistMono.variable}`}
     >
       <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/icon-32.png" type="image/png" sizes="32x32" />
+        <link rel="icon" href="/icon-192.png" type="image/png" sizes="192x192" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+        <meta name="theme-color" content="#070b12" />
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -61,6 +187,10 @@ export default function RootLayout({
               } catch (_) {}
             `,
           }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
       <body className="min-h-screen bg-white dark:bg-[#070b12] px-3 sm:px-4 font-sans antialiased text-black dark:text-[#e6edf8] transition-colors duration-300">
