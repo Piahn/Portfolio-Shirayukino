@@ -69,19 +69,19 @@ export function WhySection() {
             <div className="group relative overflow-hidden rounded-[1.5rem] aspect-[4/5] sm:aspect-[5/6] lg:aspect-auto lg:h-full lg:min-h-[600px] flex flex-col justify-end p-6 sm:p-9 border border-[#2b4c80] dark:border-[#1e3b68] shadow-md dark:shadow-[0_12px_40px_rgba(0,0,0,0.6)] transition-all">
               {/* Background Key Visual Artwork */}
               <img
-                src="/secret_hideout.jpg"
-                alt="常闇の女王と秘密の隠れ家 - Secret Hideout & Celestial Sea"
+                src="/celestial_whale.jpg"
+                alt="常闇の女王と秘密の隠れ家 - Celestial Whale & Sky Sanctuary"
                 className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105 select-none"
               />
 
               {/* Multi-layered cinematic gradient overlays */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#060c17]/95 via-[#060c17]/45 to-black/25 pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#060c17]/95 via-[#060c17]/40 to-black/15 pointer-events-none" />
 
               {/* Floating Top Badge */}
               <div className="absolute top-6 left-6 sm:top-8 sm:left-8 z-10">
                 <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-white text-[10.5px] font-mono uppercase tracking-[0.14em]">
                   <span className="w-2 h-2 rounded-full bg-[#E5BA68] animate-pulse" />
-                  <span>KEY VISUAL • ATELIER SANCTUARY</span>
+                  <span>KEY VISUAL • CELESTIAL SEA & WHALE</span>
                 </span>
               </div>
 
