@@ -164,7 +164,7 @@ export function Navbar() {
             <div className="translate-x-0 sm:translate-x-1/2 pointer-events-auto">
               <button
                 onClick={() => setIsMenuOpen((prev) => !prev)}
-                className={`group flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full transition-all duration-300 hover:scale-105 active:scale-95 shadow-[0_10px_35px_rgba(0,0,0,0.18)] dark:shadow-[0_12px_40px_rgba(0,0,0,0.7)] ${
+                className={`group flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 md:w-[68px] md:h-[68px] rounded-full transition-all duration-300 hover:scale-105 active:scale-95 shadow-[0_12px_40px_rgba(0,0,0,0.18)] dark:shadow-[0_14px_45px_rgba(0,0,0,0.75)] ${
                   isMenuOpen
                     ? "bg-neutral-900 text-white dark:bg-white dark:text-black border border-neutral-700 dark:border-gray-200"
                     : "bg-white text-black dark:bg-white dark:text-black border border-gray-200/80 dark:border-white/20"
@@ -173,11 +173,11 @@ export function Navbar() {
                 aria-expanded={isMenuOpen}
               >
                 {isMenuOpen ? (
-                  <IoCloseOutline size={26} className="transition-transform duration-200 group-hover:rotate-90" />
+                  <IoCloseOutline size={30} className="transition-transform duration-200 group-hover:rotate-90" />
                 ) : (
-                  <div className="flex flex-col items-center justify-center gap-[5px] w-6 h-6">
-                    <span className="block h-[2.2px] w-5 bg-black rounded-full transition-all duration-300 group-hover:w-6" />
-                    <span className="block h-[2.2px] w-5 bg-black rounded-full transition-all duration-300 group-hover:w-4" />
+                  <div className="flex flex-col items-center justify-center gap-[6px] w-7 h-7">
+                    <span className="block h-[2.8px] w-6 bg-black rounded-full transition-all duration-300 group-hover:w-7" />
+                    <span className="block h-[2.8px] w-6 bg-black rounded-full transition-all duration-300 group-hover:w-5" />
                   </div>
                 )}
               </button>
