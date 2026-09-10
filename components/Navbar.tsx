@@ -155,11 +155,7 @@ export function Navbar() {
             <div className="translate-x-0 xl:translate-x-1/2 pointer-events-auto">
               <button
                 onClick={() => setIsMenuOpen((prev) => !prev)}
-                className={`group flex items-center justify-center w-11 h-11 sm:w-14 sm:h-14 md:w-16 md:h-16 xl:w-[68px] xl:h-[68px] rounded-full transition-all duration-300 hover:scale-105 active:scale-95 shadow-[0_8px_30px_rgba(0,0,0,0.12)] dark:shadow-[0_12px_40px_rgba(0,0,0,0.85)] ${
-                  isMenuOpen
-                    ? "bg-neutral-900 text-white dark:bg-[#121f36] dark:text-white border border-neutral-700 dark:border-[#223859]"
-                    : "bg-white text-black dark:bg-[#0c1524] dark:text-white border border-gray-200/90 dark:border-[#1f304d] hover:bg-gray-50 dark:hover:bg-[#101c30]"
-                }`}
+                className="group flex items-center justify-center w-11 h-11 sm:w-14 sm:h-14 md:w-16 md:h-16 xl:w-[68px] xl:h-[68px] rounded-full transition-all duration-300 hover:scale-105 active:scale-95 shadow-[0_8px_30px_rgba(0,0,0,0.1)] dark:shadow-[0_12px_40px_rgba(0,0,0,0.85)] bg-white dark:bg-[#0c1524] text-black dark:text-white border border-gray-200/90 dark:border-[#1f304d] hover:bg-gray-50 dark:hover:bg-[#101c30]"
                 aria-label={isMenuOpen ? "Close menu" : "Open menu"}
                 aria-expanded={isMenuOpen}
               >
