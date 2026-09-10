@@ -110,7 +110,9 @@ export function Navbar() {
 
         {/* Right: Theme Toggle + Wishlist + Play Demo Button */}
         <div className="flex items-center gap-2 sm:gap-3 shrink-0">
-          <ThemeToggle />
+          <div className="lg:hidden">
+            <ThemeToggle />
+          </div>
 
           <a
             href="#editions"
@@ -168,9 +170,9 @@ export function Navbar() {
                 : "-translate-y-6 opacity-0 pointer-events-none scale-90"
             }`}
           >
-            {/* Theme Toggle beside the round button */}
+            {/* Theme Toggle beside the round button - hidden on desktop mode */}
             {!isMenuOpen && (
-              <div className="mr-2 sm:mr-3 pointer-events-auto">
+              <div className="lg:hidden mr-2 sm:mr-3 pointer-events-auto">
                 <ThemeToggle />
               </div>
             )}
@@ -211,9 +213,12 @@ export function Navbar() {
         aria-hidden={!isMenuOpen}
       >
         <div className="flex h-full flex-col justify-between max-w-[1200px] mx-auto px-6 sm:px-12 py-8 sm:py-12 overflow-y-auto">
-          {/* Top of drawer */}
+          {/* Top of drawer with Logo and ThemeToggle */}
           <div className="flex items-center justify-between">
             <ShirayukinoLogo imgClassName="h-8 sm:h-9" />
+            <div className="flex items-center gap-3">
+              <ThemeToggle />
+            </div>
           </div>
 
           {/* Center Navigation Links */}
