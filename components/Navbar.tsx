@@ -78,17 +78,17 @@ export function Navbar() {
     <>
       {/* 1. Static Top Header (Normal state when at top, scrolls away with content) */}
       <header
-        className="w-full h-[90px] sm:h-[92px] bg-white dark:bg-[#070b12] px-[21px] flex items-center justify-between border-b border-[#e7e3df] dark:border-[#1a2840] transition-colors duration-300"
+        className="w-full h-[68px] sm:h-[90px] bg-white dark:bg-[#070b12] px-3 sm:px-4 md:px-[21px] flex items-center justify-between border-b border-[#e7e3df] dark:border-[#1a2840] transition-colors duration-300"
         role="banner"
       >
         {/* Left: Logo & Desktop Links */}
-        <div className="flex items-center gap-5 sm:gap-6 shrink-0">
+        <div className="flex items-center gap-4 sm:gap-6 shrink-0">
           <Link
             href="/"
             className="flex items-center shrink-0 group focus:outline-none"
             aria-label="ShirayukinoComp Home"
           >
-            <ShirayukinoLogo imgClassName="h-8 sm:h-9" />
+            <ShirayukinoLogo imgClassName="h-7 sm:h-8 md:h-9" />
           </Link>
 
           {/* Desktop Nav Links */}
@@ -122,7 +122,7 @@ export function Navbar() {
           </a>
           <a
             href="#gameplay"
-            className="inline-flex items-center font-medium rounded-full px-4 sm:px-5 py-[7px] sm:py-2 text-[13px] sm:text-[14px] text-gray-700 dark:text-gray-200 border border-gray-200 dark:border-[#223553] hover:bg-gray-50 dark:hover:bg-[#121c2d] transition-all whitespace-nowrap"
+            className="hidden sm:inline-flex items-center font-medium rounded-full px-4 sm:px-5 py-[7px] sm:py-2 text-[13px] sm:text-[14px] text-gray-700 dark:text-gray-200 border border-gray-200 dark:border-[#223553] hover:bg-gray-50 dark:hover:bg-[#121c2d] transition-all whitespace-nowrap"
           >
             Play Demo
           </a>
@@ -130,24 +130,24 @@ export function Navbar() {
           {/* Mobile / Tablet Hamburger Button when at top */}
           <button
             onClick={() => setIsMenuOpen((prev) => !prev)}
-            className="lg:hidden flex items-center justify-center w-10 h-10 rounded-full border border-[#e8e3dd] dark:border-[#1f304d] hover:bg-gray-100 dark:hover:bg-[#101a2b] text-black dark:text-white transition-colors shrink-0"
+            className="lg:hidden flex items-center justify-center w-10 h-10 rounded-full border border-[#e8e3dd] dark:border-[#1f304d] hover:bg-gray-100 dark:hover:bg-[#101a2b] text-black dark:text-white transition-colors shrink-0 shadow-sm"
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             aria-expanded={isMenuOpen}
           >
-            <div className="flex flex-col items-center justify-center gap-1.5 w-5 h-5">
-              <span className="block h-[2px] w-4.5 bg-current rounded-full" />
-              <span className="block h-[2px] w-4.5 bg-current rounded-full" />
+            <div className="flex flex-col items-center justify-center gap-[5px] w-5 h-5">
+              <span className="block h-[2.2px] w-5 bg-current rounded-full" />
+              <span className="block h-[2.2px] w-5 bg-current rounded-full" />
             </div>
           </button>
         </div>
       </header>
 
       {/* Floating Controls - Aligned exactly with the 1200px architectural grid lines */}
-      <div className="fixed top-4 sm:top-6 inset-x-3 sm:inset-x-4 mx-auto max-w-[1200px] pointer-events-none z-50">
+      <div className="fixed top-3.5 sm:top-6 inset-x-3 sm:inset-x-4 mx-auto max-w-[1200px] pointer-events-none z-50">
         <div className="relative w-full">
           {/* Floating Round Button in Top-Right (Positioned directly on the straight vertical line) */}
           <div
-            className={`absolute right-0 top-0 flex items-center transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+            className={`absolute right-1 sm:right-0 top-0 flex items-center transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
               isScrolled || isMenuOpen
                 ? "translate-y-0 opacity-100 pointer-events-auto scale-100"
                 : "-translate-y-6 opacity-0 pointer-events-none scale-90"
@@ -164,7 +164,7 @@ export function Navbar() {
             <div className="translate-x-0 sm:translate-x-1/2 pointer-events-auto">
               <button
                 onClick={() => setIsMenuOpen((prev) => !prev)}
-                className={`group flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 md:w-[68px] md:h-[68px] rounded-full transition-all duration-300 hover:scale-105 active:scale-95 shadow-[0_12px_40px_rgba(0,0,0,0.18)] dark:shadow-[0_14px_45px_rgba(0,0,0,0.75)] ${
+                className={`group flex items-center justify-center w-11 h-11 sm:w-16 sm:h-16 md:w-[68px] md:h-[68px] rounded-full transition-all duration-300 hover:scale-105 active:scale-95 shadow-[0_8px_30px_rgba(0,0,0,0.14)] dark:shadow-[0_12px_40px_rgba(0,0,0,0.7)] ${
                   isMenuOpen
                     ? "bg-neutral-900 text-white dark:bg-white dark:text-black border border-neutral-700 dark:border-gray-200"
                     : "bg-white text-black dark:bg-white dark:text-black border border-gray-200/80 dark:border-white/20"
@@ -173,11 +173,14 @@ export function Navbar() {
                 aria-expanded={isMenuOpen}
               >
                 {isMenuOpen ? (
-                  <IoCloseOutline size={30} className="transition-transform duration-200 group-hover:rotate-90" />
+                  <>
+                    <IoCloseOutline size={24} className="sm:hidden transition-transform duration-200 group-hover:rotate-90" />
+                    <IoCloseOutline size={32} className="hidden sm:block transition-transform duration-200 group-hover:rotate-90" />
+                  </>
                 ) : (
-                  <div className="flex flex-col items-center justify-center gap-[6px] w-7 h-7">
-                    <span className="block h-[2.8px] w-6 bg-black rounded-full transition-all duration-300 group-hover:w-7" />
-                    <span className="block h-[2.8px] w-6 bg-black rounded-full transition-all duration-300 group-hover:w-5" />
+                  <div className="flex flex-col items-center justify-center gap-[4px] sm:gap-[6px] w-6 h-6 sm:w-7 sm:h-7">
+                    <span className="block h-[2.2px] sm:h-[2.8px] w-4.5 sm:w-6 bg-black rounded-full transition-all duration-300 group-hover:w-6" />
+                    <span className="block h-[2.2px] sm:h-[2.8px] w-4.5 sm:w-6 bg-black rounded-full transition-all duration-300 group-hover:w-5" />
                   </div>
                 )}
               </button>
@@ -195,10 +198,10 @@ export function Navbar() {
         }`}
         aria-hidden={!isMenuOpen}
       >
-        <div className="flex h-full flex-col justify-between max-w-[1200px] mx-auto px-6 sm:px-12 py-8 sm:py-12 overflow-y-auto">
+        <div className="flex h-full flex-col justify-between max-w-[1200px] mx-auto px-4 sm:px-12 py-6 sm:py-12 overflow-y-auto">
           {/* Top of drawer with Logo and ThemeToggle */}
-          <div className="flex items-center justify-between">
-            <ShirayukinoLogo imgClassName="h-8 sm:h-9" />
+          <div className="flex items-center justify-between pr-14 sm:pr-20">
+            <ShirayukinoLogo imgClassName="h-7 sm:h-8 md:h-9" />
             <div className="flex items-center gap-3">
               <ThemeToggle />
             </div>
