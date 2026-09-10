@@ -142,26 +142,9 @@ export function Navbar() {
         </div>
       </header>
 
-      {/* 2 & 3. Floating Controls - Aligned exactly with the 1200px architectural grid lines */}
+      {/* Floating Controls - Aligned exactly with the 1200px architectural grid lines */}
       <div className="fixed top-4 sm:top-6 inset-x-3 sm:inset-x-4 mx-auto max-w-[1200px] pointer-events-none z-50">
         <div className="relative w-full">
-          {/* Floating Left Logo Capsule (Inside left vertical grid line) */}
-          <div
-            className={`absolute left-1 sm:left-3 top-0 transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-              isScrolled && !isMenuOpen
-                ? "translate-y-0 opacity-100 pointer-events-auto scale-100"
-                : "-translate-y-6 opacity-0 pointer-events-none scale-90"
-            }`}
-          >
-            <button
-              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              className="flex items-center gap-2 px-3.5 py-2 rounded-full bg-white/90 dark:bg-[#0c1424]/90 border border-[#e2ddd7] dark:border-[#223552] shadow-[0_8px_30px_rgba(0,0,0,0.12)] dark:shadow-[0_8px_30px_rgba(0,0,0,0.6)] backdrop-blur-2xl hover:scale-105 transition-transform"
-              aria-label="Back to top"
-            >
-              <ShirayukinoLogo imgClassName="h-6 sm:h-7" />
-            </button>
-          </div>
-
           {/* Floating Round Button in Top-Right (Positioned directly on the straight vertical line) */}
           <div
             className={`absolute right-0 top-0 flex items-center transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
