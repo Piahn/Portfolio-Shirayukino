@@ -3,8 +3,6 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import {
-  IoMenuOutline,
-  IoCloseOutline,
   IoLogoWhatsapp,
   IoPersonOutline,
   IoSparklesOutline,
@@ -190,14 +188,27 @@ export function Navbar() {
 
           {/* Mobile / Tablet Hamburger Button when at top */}
           <button
+            type="button"
             onClick={() => setIsMenuOpen((prev) => !prev)}
             className="lg:hidden flex items-center justify-center w-10 h-10 rounded-full bg-white dark:bg-[#0c1524] border border-[#e8e3dd] dark:border-[#1f304d] hover:bg-gray-100 dark:hover:bg-[#101a2b] text-black dark:text-white transition-colors shrink-0 shadow-sm"
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             aria-expanded={isMenuOpen}
           >
-            <div className="flex flex-col items-center justify-center gap-[4.5px] w-5 h-5 pointer-events-none">
-              <span className="block h-[2.2px] w-[18px] bg-black dark:bg-white rounded-full" />
-              <span className="block h-[2.2px] w-[14px] bg-black dark:bg-white rounded-full" />
+            <div className="relative flex items-center justify-center w-6 h-6 pointer-events-none">
+              <span
+                className={`absolute block h-[2.2px] bg-black dark:bg-white rounded-full transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                  isMenuOpen
+                    ? "w-[18px] rotate-45 translate-y-0"
+                    : "w-[18px] -translate-y-[3.5px]"
+                }`}
+              />
+              <span
+                className={`absolute block h-[2.2px] bg-black dark:bg-white rounded-full transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                  isMenuOpen
+                    ? "w-[18px] -rotate-45 translate-y-0"
+                    : "w-[13px] translate-y-[3.5px]"
+                }`}
+              />
             </div>
           </button>
         </div>
@@ -224,7 +235,7 @@ export function Navbar() {
               </div>
             )}
 
-            {/* The Iconic Round Circular Menu Button */}
+            {/* The Iconic Round Circular Menu Button with Smooth Morphing Bars to X */}
             {/* On mobile & tablet (< 1280px): translate-x-0 stays safely inside screen bounds */}
             {/* On desktop (xl: >=1280px): when closed, translate-x-1/2 centers on grid; when open, translate-x-0 keeps group neatly aligned */}
             <div className={`translate-x-0 ${isMenuOpen ? "xl:translate-x-0" : "xl:translate-x-1/2"} ${isScrolled || isMenuOpen ? "pointer-events-auto" : "pointer-events-none"}`}>
@@ -238,18 +249,22 @@ export function Navbar() {
                 aria-label={isMenuOpen ? "Close menu" : "Open menu"}
                 aria-expanded={isMenuOpen}
               >
-                {isMenuOpen ? (
-                  <>
-                    <IoCloseOutline size={24} className="sm:hidden transition-transform duration-200 group-hover:rotate-90 text-black dark:text-white" />
-                    <IoCloseOutline size={28} className="hidden sm:block xl:hidden transition-transform duration-200 group-hover:rotate-90 text-black dark:text-white" />
-                    <IoCloseOutline size={32} className="hidden xl:block transition-transform duration-200 group-hover:rotate-90 text-black dark:text-white" />
-                  </>
-                ) : (
-                  <div className="flex flex-col items-center justify-center gap-[4px] sm:gap-[5px] xl:gap-[6px] pointer-events-none">
-                    <span className="block h-[2.2px] sm:h-[2.6px] xl:h-[3px] w-[18px] sm:w-[22px] xl:w-[26px] bg-black dark:bg-white rounded-full transition-all duration-300 group-hover:w-[26px]" />
-                    <span className="block h-[2.2px] sm:h-[2.6px] xl:h-[3px] w-[14px] sm:w-[17px] xl:w-[21px] bg-black dark:bg-white rounded-full transition-all duration-300 group-hover:w-[21px]" />
-                  </div>
-                )}
+                <div className="relative flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 xl:w-9 xl:h-9 pointer-events-none">
+                  <span
+                    className={`absolute block bg-black dark:bg-white rounded-full transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                      isMenuOpen
+                        ? "w-[20px] sm:w-[24px] xl:w-[28px] h-[2.2px] sm:h-[2.6px] xl:h-[3px] rotate-45 translate-y-0"
+                        : "w-[18px] sm:w-[22px] xl:w-[26px] h-[2.2px] sm:h-[2.6px] xl:h-[3px] -translate-y-[3.5px] sm:-translate-y-[4px] xl:-translate-y-[5px]"
+                    }`}
+                  />
+                  <span
+                    className={`absolute block bg-black dark:bg-white rounded-full transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                      isMenuOpen
+                        ? "w-[20px] sm:w-[24px] xl:w-[28px] h-[2.2px] sm:h-[2.6px] xl:h-[3px] -rotate-45 translate-y-0"
+                        : "w-[13px] sm:w-[16px] xl:w-[20px] h-[2.2px] sm:h-[2.6px] xl:h-[3px] translate-y-[3.5px] sm:translate-y-[4px] xl:translate-y-[5px] group-hover:w-[18px] sm:group-hover:w-[22px] xl:group-hover:w-[26px]"
+                    }`}
+                  />
+                </div>
               </button>
             </div>
           </div>
