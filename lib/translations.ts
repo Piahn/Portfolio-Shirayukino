@@ -14,7 +14,7 @@ export const translations = {
     },
     stats: [
       { label: "Alur Cerita", value: "Bercabang" },
-      { label: "Karakter Petualang", value: "8 Pahlawan" },
+      { label: "Class Karakter", value: "10 Class" },
       { label: "Musik Orisinal", value: "45+ Trek" },
       { label: "Durasi Cerita", value: "35+ Jam" },
     ],
@@ -231,7 +231,7 @@ export const translations = {
     },
     stats: [
       { label: "Story Pathways", value: "Branching" },
-      { label: "Playable Party", value: "8 Heroes" },
+      { label: "Character Classes", value: "10 Classes" },
       { label: "Original Score", value: "45+ Tracks" },
       { label: "Campaign Scope", value: "35+ Hours" },
     ],
