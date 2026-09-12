@@ -229,7 +229,7 @@ export function Navbar() {
           >
             {/* Theme & Language Controls Pill - perfectly aligned vertically with Close button when Menu is open */}
             {isMenuOpen && (
-              <div className="pointer-events-auto flex items-center gap-2 pl-2.5 sm:pl-3 pr-1.5 py-1 sm:py-1.5 rounded-full bg-white/95 dark:bg-[#0c1424]/95 backdrop-blur-xl border border-gray-200/90 dark:border-[#1f304d] shadow-[0_4px_20px_rgba(0,0,0,0.06)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.4)] transition-all animate-in fade-in zoom-in-95 duration-200 xl:translate-x-[34px]">
+              <div className="pointer-events-auto flex items-center gap-2 pl-2.5 sm:pl-3 pr-1.5 py-1 sm:py-1.5 rounded-full bg-white/95 dark:bg-[#0c1424]/95 backdrop-blur-xl border border-gray-200/90 dark:border-[#1f304d] shadow-[0_4px_20px_rgba(0,0,0,0.06)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.4)] transition-all animate-in fade-in zoom-in-95 duration-200">
                 <LanguageToggle />
                 <span className="w-[1px] h-3.5 bg-gray-200 dark:bg-[#1f304d]" />
                 <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-wider text-gray-500 dark:text-gray-400 select-none">
@@ -240,8 +240,9 @@ export function Navbar() {
             )}
 
             {/* The Iconic Round Circular Menu Button with Smooth Morphing Bars to X */}
-            {/* Position is permanently locked on the 1200px architectural line (xl:translate-x-1/2) both when closed and open */}
-            <div className={`translate-x-0 xl:translate-x-1/2 ${isScrolled || isMenuOpen ? "pointer-events-auto" : "pointer-events-none"}`}>
+            {/* When closed: xl:translate-x-1/2 centers on the 1200px architectural line (Gambar 1) */}
+            {/* When open: xl:translate-x-0 adjusts neatly inside the boundary so it never exceeds the line (Gambar 2) */}
+            <div className={`translate-x-0 ${isMenuOpen ? "xl:translate-x-0" : "xl:translate-x-1/2"} transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${isScrolled || isMenuOpen ? "pointer-events-auto" : "pointer-events-none"}`}>
               <button
                 type="button"
                 onClick={() => setIsMenuOpen((prev) => !prev)}
