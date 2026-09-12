@@ -19,7 +19,13 @@ declare global {
   }
 }
 
-export function LanguageToggle({ className = "" }: { className?: string }) {
+export function LanguageToggle({
+  className = "",
+  variant = "pill",
+}: {
+  className?: string;
+  variant?: "pill" | "inline";
+}) {
   const [currentLang, setCurrentLang] = useState<Lang>("id");
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -105,13 +111,20 @@ export function LanguageToggle({ className = "" }: { className?: string }) {
     }
   }, []);
 
+  const isInline = variant === "inline";
+
   return (
     <div
-      className={`inline-flex items-center rounded-full bg-[#f1eeea] dark:bg-[#0c1524] p-1 border border-[#e7e3df] dark:border-[#1e3456] transition-colors shadow-sm ${className}`}
+      translate="no"
+      className={`notranslate ${
+        isInline
+          ? `inline-flex items-center gap-1.5 ${className}`
+          : `inline-flex items-center rounded-full bg-[#f1eeea] dark:bg-[#0c1524] p-1 border border-[#e7e3df] dark:border-[#1e3456] transition-colors shadow-sm ${className}`
+      }`}
       role="group"
       aria-label="Language Selector"
     >
-      <div className="flex items-center pl-1.5 pr-1 text-gray-400 dark:text-gray-500">
+      <div className={`flex items-center ${isInline ? "px-1 text-gray-400 dark:text-gray-400" : "pl-1.5 pr-1 text-gray-400 dark:text-gray-500"}`}>
         <IoGlobeOutline size={13} className="text-[#142d55] dark:text-[#E5BA68]" />
       </div>
 
@@ -119,16 +132,19 @@ export function LanguageToggle({ className = "" }: { className?: string }) {
         {/* Indonesian Button */}
         <button
           type="button"
+          translate="no"
           onClick={() => triggerGoogleTranslate("id")}
-          className={`px-2 py-0.5 rounded-full transition-all duration-200 uppercase tracking-wider ${
+          className={`px-2 py-0.5 rounded-full transition-all duration-200 uppercase tracking-wider notranslate ${
             currentLang === "id"
-              ? "bg-white dark:bg-[#15233c] text-black dark:text-[#E5BA68] shadow-xs border border-gray-200/80 dark:border-[#223b63]"
-              : "text-gray-400 dark:text-gray-400 hover:text-black dark:hover:text-white"
+              ? isInline
+                ? "bg-white dark:bg-[#1a2840] text-black dark:text-[#E5BA68] shadow-xs border border-gray-200/70 dark:border-[#283d5f]"
+                : "bg-white dark:bg-[#15233c] text-black dark:text-[#E5BA68] shadow-xs border border-gray-200/80 dark:border-[#223b63]"
+              : "text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white"
           }`}
           aria-pressed={currentLang === "id"}
           title="Bahasa Indonesia"
         >
-          ID
+          <span translate="no" className="notranslate">ID</span>
         </button>
 
         <span className="text-gray-300 dark:text-gray-600 text-[10px] select-none">/</span>
@@ -136,16 +152,19 @@ export function LanguageToggle({ className = "" }: { className?: string }) {
         {/* English Button */}
         <button
           type="button"
+          translate="no"
           onClick={() => triggerGoogleTranslate("en")}
-          className={`px-2 py-0.5 rounded-full transition-all duration-200 uppercase tracking-wider ${
+          className={`px-2 py-0.5 rounded-full transition-all duration-200 uppercase tracking-wider notranslate ${
             currentLang === "en"
-              ? "bg-white dark:bg-[#15233c] text-black dark:text-[#E5BA68] shadow-xs border border-gray-200/80 dark:border-[#223b63]"
-              : "text-gray-400 dark:text-gray-400 hover:text-black dark:hover:text-white"
+              ? isInline
+                ? "bg-white dark:bg-[#1a2840] text-black dark:text-[#E5BA68] shadow-xs border border-gray-200/70 dark:border-[#283d5f]"
+                : "bg-white dark:bg-[#15233c] text-black dark:text-[#E5BA68] shadow-xs border border-gray-200/80 dark:border-[#223b63]"
+              : "text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white"
           }`}
           aria-pressed={currentLang === "en"}
           title="English"
         >
-          EN
+          <span translate="no" className="notranslate">EN</span>
         </button>
       </div>
     </div>

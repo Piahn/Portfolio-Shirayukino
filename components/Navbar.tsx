@@ -117,14 +117,16 @@ export function Navbar() {
     <>
       {/* 1. Static Top Header (Normal state when at top, scrolls away with content) */}
       <header
-        className="w-full h-[68px] sm:h-[90px] bg-white dark:bg-[#070b12] px-3 sm:px-4 md:px-[21px] flex items-center justify-between border-b border-[#e7e3df] dark:border-[#1a2840] transition-colors duration-300"
+        translate="no"
+        className="notranslate w-full h-[68px] sm:h-[90px] bg-white dark:bg-[#070b12] px-3 sm:px-4 md:px-[21px] flex items-center justify-between border-b border-[#e7e3df] dark:border-[#1a2840] transition-colors duration-300"
         role="banner"
       >
         {/* Left: Logo & Desktop Links */}
         <div className="flex items-center gap-4 sm:gap-6 shrink-0">
           <Link
             href="/"
-            className="flex items-center shrink-0 group focus:outline-none"
+            translate="no"
+            className="notranslate flex items-center shrink-0 group focus:outline-none"
             aria-label="ShirayukinoComp Home"
           >
             <ShirayukinoLogo imgClassName="h-7 sm:h-8 md:h-9" />
@@ -132,14 +134,16 @@ export function Navbar() {
 
           {/* Desktop Nav Links */}
           <nav
-            className="hidden lg:flex items-center rounded-full shrink-0 bg-[#f1eeea] dark:bg-[#111a2b] px-1.5 py-[3px] gap-1 border border-transparent dark:border-[#1d2c46]"
+            translate="no"
+            className="notranslate hidden lg:flex items-center rounded-full shrink-0 bg-[#f1eeea] dark:bg-[#111a2b] px-1.5 py-[3px] gap-1 border border-transparent dark:border-[#1d2c46]"
             aria-label="Desktop navigation"
           >
             {navLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
-                className="px-3.5 py-[6px] text-[13px] font-mono text-[#444] dark:text-[#94a3b8] hover:text-black dark:hover:text-white rounded-full hover:bg-white dark:hover:bg-[#1a2840] transition-all whitespace-nowrap"
+                translate="no"
+                className="notranslate px-3.5 py-[6px] text-[13px] font-mono text-[#444] dark:text-[#94a3b8] hover:text-black dark:hover:text-white rounded-full hover:bg-white dark:hover:bg-[#1a2840] transition-all whitespace-nowrap"
               >
                 {link.label}
               </a>
@@ -147,22 +151,13 @@ export function Navbar() {
           </nav>
         </div>
 
-        {/* Right: Language + Wishlist + Portal + Play Demo Button + Mobile Menu Button */}
-        <div className="flex items-center gap-1.5 sm:gap-2.5 md:gap-3 shrink-0">
-          {/* Language Switcher (Desktop & Tablet) */}
-          <LanguageToggle className="hidden md:inline-flex" />
-
-          <a
-            href="#editions"
-            className="hidden xl:inline-flex text-[13px] font-mono text-[#444] dark:text-[#94a3b8] hover:text-[#142d55] dark:hover:text-white px-3 py-1.5 transition-colors whitespace-nowrap"
-          >
-            Wishlist Steam
-          </a>
-
+        {/* Right: Portal + Play Demo Button + Mobile Menu Button */}
+        <div translate="no" className="notranslate flex items-center gap-2 sm:gap-3 shrink-0">
           {/* Desktop & Tablet Portal Pill Link */}
           <a
             href={DASHBOARD_URL}
-            className="hidden sm:inline-flex items-center gap-1.5 font-medium rounded-full px-3.5 sm:px-4 py-[7px] sm:py-2 text-[12px] sm:text-[13px] text-gray-800 dark:text-gray-100 bg-white hover:bg-gray-100 dark:bg-[#0c1524] dark:hover:bg-[#15233c] border border-[#e7e3df] dark:border-[#1e3456] transition-all whitespace-nowrap shadow-sm font-mono group"
+            translate="no"
+            className="notranslate hidden sm:inline-flex items-center gap-1.5 font-medium rounded-full px-3.5 sm:px-4 py-[7px] sm:py-2 text-[12px] sm:text-[13px] text-gray-800 dark:text-gray-100 bg-white hover:bg-gray-100 dark:bg-[#0c1524] dark:hover:bg-[#15233c] border border-[#e7e3df] dark:border-[#1e3456] transition-all whitespace-nowrap shadow-sm font-mono group"
             aria-label="Portal Dashboard"
             title="Portal Dashboard"
           >
@@ -174,19 +169,18 @@ export function Navbar() {
             href={WHATSAPP_BOT_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden sm:inline-flex items-center gap-1.5 font-medium rounded-full px-4 sm:px-5 py-[7px] sm:py-2 text-[12px] sm:text-[13px] text-gray-800 dark:text-gray-100 bg-[#edf3fc] hover:bg-[#dfeaf8] dark:bg-[#111d33] dark:hover:bg-[#182845] border border-[#cfe0f8] dark:border-[#223859] transition-all whitespace-nowrap shadow-sm font-mono"
+            translate="no"
+            className="notranslate hidden sm:inline-flex items-center gap-1.5 font-medium rounded-full px-4 sm:px-5 py-[7px] sm:py-2 text-[12px] sm:text-[13px] text-gray-800 dark:text-gray-100 bg-[#edf3fc] hover:bg-[#dfeaf8] dark:bg-[#111d33] dark:hover:bg-[#182845] border border-[#cfe0f8] dark:border-[#223859] transition-all whitespace-nowrap shadow-sm font-mono"
           >
             <IoLogoWhatsapp className="text-[#25D366] text-base" />
             <span>Play on WhatsApp</span>
           </a>
 
-          {/* Mobile Language Switcher (compact on mobile < md) */}
-          <LanguageToggle className="md:hidden scale-90 sm:scale-100 origin-right" />
-
           {/* Mobile Portal Icon Link (shown only on mobile < 640px) */}
           <a
             href={DASHBOARD_URL}
-            className="sm:hidden flex items-center justify-center w-10 h-10 rounded-full bg-white dark:bg-[#0c1524] border border-[#e8e3dd] dark:border-[#1f304d] hover:bg-gray-100 dark:hover:bg-[#101a2b] text-[#142d55] dark:text-[#E5BA68] transition-colors shrink-0 shadow-sm"
+            translate="no"
+            className="notranslate sm:hidden flex items-center justify-center w-10 h-10 rounded-full bg-white dark:bg-[#0c1524] border border-[#e8e3dd] dark:border-[#1f304d] hover:bg-gray-100 dark:hover:bg-[#101a2b] text-[#142d55] dark:text-[#E5BA68] transition-colors shrink-0 shadow-sm"
             aria-label="Portal Dashboard"
             title="Portal Dashboard"
           >
@@ -196,8 +190,9 @@ export function Navbar() {
           {/* Mobile / Tablet Hamburger Button when at top */}
           <button
             type="button"
+            translate="no"
             onClick={() => setIsMenuOpen((prev) => !prev)}
-            className="lg:hidden flex items-center justify-center w-10 h-10 rounded-full bg-white dark:bg-[#0c1524] border border-[#e8e3dd] dark:border-[#1f304d] hover:bg-gray-100 dark:hover:bg-[#101a2b] text-black dark:text-white transition-colors shrink-0 shadow-sm"
+            className="notranslate lg:hidden flex items-center justify-center w-10 h-10 rounded-full bg-white dark:bg-[#0c1524] border border-[#e8e3dd] dark:border-[#1f304d] hover:bg-gray-100 dark:hover:bg-[#101a2b] text-black dark:text-white transition-colors shrink-0 shadow-sm"
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             aria-expanded={isMenuOpen}
           >
@@ -282,7 +277,8 @@ export function Navbar() {
 
       {/* 4. Fullscreen Navigation Overlay (Opens when clicking the round button) */}
       <div
-        className={`fixed inset-0 z-40 bg-white/95 dark:bg-[#070b12]/95 backdrop-blur-3xl transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+        translate="no"
+        className={`notranslate fixed inset-0 z-40 bg-white/95 dark:bg-[#070b12]/95 backdrop-blur-3xl transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
           isMenuOpen
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"

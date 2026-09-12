@@ -117,4 +117,8 @@ body {
   z-index: -9999;
 }
 
+font[style*="vertical-align: inherit"] {
+  vertical-align: inherit !important;
+}
+
 
