@@ -1,8 +1,15 @@
+"use client";
+
 import { HiArrowUpRight } from "react-icons/hi2";
 import { IoPlayOutline, IoLogoWhatsapp } from "react-icons/io5";
 import { WHATSAPP_BOT_URL } from "./constants";
+import { useLanguage } from "./LanguageContext";
+import { translations } from "@/lib/translations";
 
 export function HeroSection() {
+  const { lang } = useLanguage();
+  const t = translations[lang].hero;
+
   return (
     <section id="gameplay" data-section="gameplay" className="w-full border-t border-[#e7e3df] dark:border-[#1a2840] transition-colors duration-300">
       <div>
@@ -30,14 +37,14 @@ export function HeroSection() {
                   className="inline-flex items-center gap-2.5 px-6 sm:px-7 py-3.5 bg-[#142d55] hover:bg-[#0c1e3a] dark:bg-[#203f6f] dark:hover:bg-[#284e88] text-white text-[11px] font-semibold uppercase rounded-full transition-all shadow-md group"
                 >
                   <IoLogoWhatsapp className="text-[#25D366] text-lg transition-transform group-hover:scale-110" />
-                  <span>PLAY PROLOGUE (WHATSAPP)</span>
+                  <span>{t.ctaWhatsapp}</span>
                   <HiArrowUpRight size={14} />
                 </a>
                 <a
                   href="#world"
                   className="inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.18em] uppercase text-black hover:text-[#142d55] dark:text-gray-200 dark:hover:text-[#a0c2f9] transition-colors"
                 >
-                  TRAILER & LORE
+                  {t.ctaLore}
                   <span className="flex items-center justify-center w-[22px] h-[22px] rounded-full border-[1.5px] border-current bg-[#142d55] dark:bg-[#203f6f]">
                     <IoPlayOutline size={9} className="text-white fill-current ml-0.5" />
                   </span>
@@ -48,7 +55,7 @@ export function HeroSection() {
             {/* Bottom Left Grid Row */}
             <div className="border-t border-[#e7e3df] dark:border-[#1a2840] min-h-[110px] flex flex-col justify-center py-6 pr-0 lg:pr-14 transition-colors">
               <p className="text-[14px] sm:text-[15px] leading-[1.6] text-gray-700 dark:text-gray-300 transition-colors">
-                Rasakan kisah awal fantasi celestial dan visual novel oleh ShirayukinoComp secara interaktif via WhatsApp Bot sebelum versi penuh rilis di PC/Steam. Tentukan pilihan alur cerita, kumpulkan relic rahasia, dan jelajahi misteri Laut Bintang.
+                {t.desc}
               </p>
             </div>
           </div>
@@ -71,11 +78,12 @@ export function HeroSection() {
                   className="w-full h-auto object-contain hidden dark:block drop-shadow-[0_12px_45px_rgba(229,186,104,0.3)] transition-transform duration-500 hover:scale-[1.02]"
                 />
                 <div className="mt-6 inline-flex items-center gap-2 text-[11px] font-mono text-[#62728a] dark:text-[#8c9eb8] tracking-wider uppercase transition-colors">
-                  <span>✦ Visual Novel</span>
-                  <span>•</span>
-                  <span>Tactical JRPG</span>
-                  <span>•</span>
-                  <span>Original OST</span>
+                  {t.tags.map((tag, idx) => (
+                    <span key={tag}>
+                      {idx > 0 && <span className="mr-2">•</span>}
+                      {idx === 0 ? `✦ ${tag}` : tag}
+                    </span>
+                  ))}
                 </div>
               </div>
             </div>
@@ -85,26 +93,26 @@ export function HeroSection() {
               <div className="grid grid-cols-3 gap-3 sm:gap-4">
                 <div>
                   <p className="text-[11px] sm:text-[13px] text-gray-500 dark:text-gray-400 font-normal leading-snug mb-1.5 transition-colors">
-                    Current Version
+                    {t.currentVersionLabel}
                   </p>
                   <p className="text-base sm:text-lg lg:text-[1.25rem] font-medium font-mono text-black dark:text-white tracking-tight transition-colors">
-                    WhatsApp Bot
+                    {t.currentVersionVal}
                   </p>
                 </div>
                 <div>
                   <p className="text-[11px] sm:text-[13px] text-gray-500 dark:text-gray-400 font-normal leading-snug mb-1.5 transition-colors">
-                    Original Score
+                    {t.originalScoreLabel}
                   </p>
                   <p className="text-base sm:text-lg lg:text-[1.25rem] font-medium font-mono text-black dark:text-white tracking-tight transition-colors">
-                    45+ Tracks
+                    {t.originalScoreVal}
                   </p>
                 </div>
                 <div>
                   <p className="text-[11px] sm:text-[13px] text-gray-500 dark:text-gray-400 font-normal leading-snug mb-1.5 transition-colors">
-                    Full Game Target
+                    {t.fullGameTargetLabel}
                   </p>
                   <p className="text-base sm:text-lg lg:text-[1.25rem] font-medium font-mono text-black dark:text-white tracking-tight transition-colors">
-                    Steam / PC
+                    {t.fullGameTargetVal}
                   </p>
                 </div>
               </div>

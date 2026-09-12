@@ -1,8 +1,15 @@
+"use client";
+
 import { HiArrowUpRight } from "react-icons/hi2";
 import { IoLogoWhatsapp } from "react-icons/io5";
 import { WHATSAPP_BOT_URL } from "./constants";
+import { useLanguage } from "./LanguageContext";
+import { translations } from "@/lib/translations";
 
 export function CtaBanner() {
+  const { lang } = useLanguage();
+  const t = translations[lang].ctaBanner;
+
   return (
     <section className="w-full border-t border-[#e7e3df] dark:border-[#1a2840] transition-colors duration-300">
       <div className="px-[21px] py-8 sm:px-6 sm:py-10 lg:px-8">
@@ -10,10 +17,10 @@ export function CtaBanner() {
           <div>
             <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#cba052] dark:text-[#e5ba68] font-semibold flex items-center gap-1.5">
               <span className="w-1.5 h-1.5 rounded-full bg-[#25D366] animate-pulse" />
-              ✦ INTERACTIVE PROLOGUE QUEST AVAILABLE
+              ✦ {t.badge}
             </span>
             <p className="mt-1.5 max-w-[680px] text-[15px] leading-[1.4] tracking-[-0.01em] sm:text-[18px] text-white">
-              Coba 3 chapter pertama secara interaktif lewat WhatsApp Bot resmi kami. Dapatkan kode rahasia untuk klaim item eksklusif saat game rilis!
+              {t.title}
             </p>
           </div>
           <a
@@ -23,7 +30,7 @@ export function CtaBanner() {
             rel="noopener noreferrer"
           >
             <IoLogoWhatsapp className="text-[#25D366] text-base transition-transform group-hover:scale-110" />
-            <span>MULAI QUEST DI WHATSAPP</span>
+            <span>{t.btn}</span>
             <HiArrowUpRight size={13} />
           </a>
         </div>

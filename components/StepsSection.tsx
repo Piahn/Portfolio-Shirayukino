@@ -1,67 +1,38 @@
+"use client";
+
 import {
   IoBookOutline,
   IoBrushOutline,
   IoMusicalNotesOutline,
   IoGameControllerOutline,
 } from "react-icons/io5";
+import { useLanguage } from "./LanguageContext";
+import { translations } from "@/lib/translations";
 
-const steps = [
-  {
-    number: "01",
-    title: "Scenario Writing & Celestial Mythology",
-    description:
-      "Crafting multi-layered narrative branches, character lore documents, and the forgotten chronicles of the Sovereign of Starlight and the Celestial Sea.",
-    icon: IoBookOutline,
-    tag: "Script & Lore",
-    badge: "4 Story Branches",
-    highlights: ["Multi-Route", "Character Arcs", "Secret Lore"],
-  },
-  {
-    number: "02",
-    title: "Visual Design & Animation Sprites",
-    description:
-      "Creating full-body character portraits, animated battle sprite sheets, celestial UI elements, and scenic backdrop paintings.",
-    icon: IoBrushOutline,
-    tag: "Art & Sprites",
-    badge: "120+ Assets & CGs",
-    highlights: ["Event CGs", "Battle Sprites", "Celestial UI"],
-  },
-  {
-    number: "03",
-    title: "Original Orchestral Score & Voice Direction",
-    description:
-      "Composing 45+ original symphonic pieces with live acoustic instrumentation, ambient soundscapes, and character battle cries.",
-    icon: IoMusicalNotesOutline,
-    tag: "Orchestral Score",
-    badge: "45+ Tracks (FLAC)",
-    highlights: ["Live Acoustic", "Full FLAC", "Battle Themes"],
-  },
-  {
-    number: "04",
-    title: "Engine Implementation & Playtesting",
-    description:
-      "Balancing turn-based combat dynamics, ensuring full 60fps Steam Deck optimization, and verifying multi-language subtitle tracks.",
-    icon: IoGameControllerOutline,
-    tag: "Tactical Engine",
-    badge: "Steam Deck 60FPS",
-    highlights: ["Turn-Based", "Steam Verified", "Gamepad"],
-  },
+const stepIcons = [
+  IoBookOutline,
+  IoBrushOutline,
+  IoMusicalNotesOutline,
+  IoGameControllerOutline,
 ];
 
 export function StepsSection() {
+  const { lang } = useLanguage();
+  const t = translations[lang].steps;
+
   return (
     <section className="w-full border-t border-[#e7e3df] dark:border-[#1a2840] transition-colors duration-300">
       <div className="px-[21px] py-16 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-[1220px]">
           <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-[#8c8680] dark:text-[#7f93b0] mb-2 transition-colors">
-            Circle Pipeline
+            {t.tag}
           </p>
           <h2 className="text-[2rem] sm:text-[2.5rem] leading-[1.02] tracking-[-0.04em] text-black dark:text-white transition-colors">
-            How we bring the world to life
+            {t.title}
           </h2>
           <div className="mt-10 divide-y divide-[#e7e3df] dark:divide-[#1a2840] rounded-[21px] border border-[#e7e3df] dark:border-[#1a2840] bg-[#fbfaf8] dark:bg-[#0c1524] transition-colors shadow-sm dark:shadow-[0_4px_24px_rgba(0,0,0,0.3)]">
-            {steps.map((step) => {
-              const Icon = step.icon;
+            {t.steps.map((step, idx) => {
+              const Icon = stepIcons[idx] || IoBookOutline;
 
               return (
                 <div

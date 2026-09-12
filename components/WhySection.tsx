@@ -1,29 +1,13 @@
-import { IoCheckmarkOutline } from "react-icons/io5";
+"use client";
 
-const items = [
-  {
-    title: "Deep Multi-Route Narrative",
-    description:
-      "Every dialogue choice echoes through the storyline. Experience branching outcomes, intimate character bonds, and uncover the ancient mysteries of the Azure Sanctuary and the Celestial Sea.",
-  },
-  {
-    title: "Tactical Party Combat",
-    description:
-      "Master strategic turn-based battles featuring elemental catalysts, party formation bonuses, and celestial awakening ultimate arts.",
-  },
-  {
-    title: "Relic Synthesis & The Sanctuary",
-    description:
-      "Gather rare star crystals and botanical flora across the wilderness to synthesize enchanted gear, battle remedies, and sanctuary enhancements.",
-  },
-  {
-    title: "Handcrafted Audio-Visual Harmony",
-    description:
-      "Immerse yourself in lush hand-painted background art and over 45 original orchestral tracks recorded with live acoustic instruments.",
-  },
-];
+import { IoCheckmarkOutline } from "react-icons/io5";
+import { useLanguage } from "./LanguageContext";
+import { translations } from "@/lib/translations";
 
 export function WhySection() {
+  const { lang } = useLanguage();
+  const t = translations[lang].why;
+
   return (
     <section id="world" data-section="world" className="w-full border-t border-[#e7e3df] dark:border-[#1a2840] transition-colors duration-300">
       <div className="mx-auto max-w-[1440px] px-[21px] py-16 sm:px-6 lg:px-8">
@@ -32,18 +16,18 @@ export function WhySection() {
           <div className="lg:w-1/2 lg:pr-6">
             <div className="pb-10 sm:pb-12 border-b border-[#e7e3df] dark:border-[#1a2840] transition-colors">
               <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-[#8f8b86] dark:text-[#7f93b0] mb-2 transition-colors">
-                Gameplay & World
+                {t.tag}
               </p>
               <h2 className="text-[1.75rem] sm:text-[2.25rem] lg:text-[2.5rem] font-bold leading-[1.15] tracking-[-0.02em] text-black dark:text-white max-w-[480px] transition-colors">
-                A story JRPG crafted with wonder and tactical depth
+                {t.title}
               </h2>
             </div>
             <ul className="flex flex-col">
-              {items.map((item, index) => (
+              {t.items.map((item, index) => (
                 <li
                   key={item.title}
                   className={`flex gap-4 py-6 sm:py-7 ${
-                    index < items.length - 1 ? "border-b border-[#e7e3df] dark:border-[#1a2840]" : ""
+                    index < t.items.length - 1 ? "border-b border-[#e7e3df] dark:border-[#1a2840]" : ""
                   }`}
                 >
                   <div className="shrink-0 mt-0.5">

@@ -1,68 +1,139 @@
-import { IoCheckmarkOutline } from "react-icons/io5";
+"use client";
 
-const plans = [
-  {
-    name: "Standard Supporter",
-    tagline: "Dukungan Dasar & Demo",
-    description: "Tier awal bulanan untuk mendukung circle kami. Akses update build alpha dan kanal diskusi privat.",
-    currency: "Rp",
-    price: "3k",
-    period: "/bulan",
-    customNote: null,
-    featured: false,
-    features: [
-      "Akses Story Prologue & Demo Build",
-      "Peran Khusus Discord Circle Backer",
-      "Monthly Devlog & Concept Art Sneak Peek",
-      "Prioritas Akses Closed Beta",
-      "Dukungan Langsung via WhatsApp",
-    ],
-    cta: "Dukung 3k / bln",
-    href: "https://wa.me/?text=Halo%20ShirayukinoComp%2C%20saya%20ingin%20berlangganan%20paket%20Standard%20Supporter%20(Rp%203k/bulan)",
-  },
-  {
-    name: "Deluxe Sanctuary Pack",
-    tagline: "Paket Petualang Terfavorit",
-    description: "Paket bulanan terpopuler dengan reward lengkap, soundtrack FLAC 45 lagu, dan artbook digital.",
-    currency: "Rp",
-    price: "7k",
-    period: "/bulan",
-    customNote: null,
-    featured: true,
-    features: [
-      "Semua benefit Standard Supporter",
-      "Full Game Access (Visual Novel + JRPG)",
-      "45-Track Original Soundtrack (FLAC/MP3)",
-      "Digital Artbook 120 Halaman HD",
-      "Skin Sanctuary & Kostum Eksklusif",
-      "Hak Voting Scenario Branching",
-    ],
-    cta: "Dukung 7k / bln",
-    href: "https://wa.me/?text=Halo%20ShirayukinoComp%2C%20saya%20ingin%20berlangganan%20paket%20Deluxe%20Sanctuary%20(Rp%207k/bulan)",
-  },
-  {
-    name: "Collector's Sound Vault",
-    tagline: "Dukungan Kustom untuk Penggemar",
-    description: "Untuk patron setia yang ingin berkontribusi lebih besar dengan nominal kustom fleksibel mulai dari 15k.",
-    currency: "Rp",
-    price: "15k",
-    period: "/bulan",
-    customNote: "(custom)",
-    featured: false,
-    features: [
-      "Semua benefit Deluxe Sanctuary Pack",
-      "Nominal Kustom (mulai Rp 15.000 / bln)",
-      "Nama Tercantum di Special Thanks Credits",
-      "Director's Audio Commentary Track",
-      "Secret Lore & Mythology Document PDF",
-      "Sesi Diskusi Eksklusif Bersama Creator",
-    ],
-    cta: "Dukung 15k+ (Kustom)",
-    href: "https://wa.me/?text=Halo%20ShirayukinoComp%2C%20saya%20ingin%20berlangganan%20paket%20Collector%20Vault%20(Rp%2015k%20custom/bulan)",
-  },
-];
+import { IoCheckmarkOutline } from "react-icons/io5";
+import { useLanguage } from "./LanguageContext";
+import { translations } from "@/lib/translations";
+
+const plansData = {
+  id: [
+    {
+      name: "Standard Supporter",
+      tagline: "Dukungan Dasar & Demo",
+      description: "Tier awal bulanan untuk mendukung circle kami. Akses update build alpha dan kanal diskusi privat.",
+      currency: "Rp",
+      price: "3k",
+      period: "/bulan",
+      customNote: null,
+      featured: false,
+      features: [
+        "Akses Story Prologue & Demo Build",
+        "Peran Khusus Discord Circle Backer",
+        "Monthly Devlog & Concept Art Sneak Peek",
+        "Prioritas Akses Closed Beta",
+        "Dukungan Langsung via WhatsApp",
+      ],
+      cta: "Dukung 3k / bln",
+      href: "https://wa.me/?text=Halo%20ShirayukinoComp%2C%20saya%20ingin%20berlangganan%20paket%20Standard%20Supporter%20(Rp%203k/bulan)",
+    },
+    {
+      name: "Deluxe Sanctuary Pack",
+      tagline: "Paket Petualang Terfavorit",
+      description: "Paket bulanan terpopuler dengan reward lengkap, soundtrack FLAC 45 lagu, dan artbook digital.",
+      currency: "Rp",
+      price: "7k",
+      period: "/bulan",
+      customNote: null,
+      featured: true,
+      features: [
+        "Semua benefit Standard Supporter",
+        "Full Game Access (Visual Novel + JRPG)",
+        "45-Track Original Soundtrack (FLAC/MP3)",
+        "Digital Artbook 120 Halaman HD",
+        "Skin Sanctuary & Kostum Eksklusif",
+        "Hak Voting Scenario Branching",
+      ],
+      cta: "Dukung 7k / bln",
+      href: "https://wa.me/?text=Halo%20ShirayukinoComp%2C%20saya%20ingin%20berlangganan%20paket%20Deluxe%20Sanctuary%20(Rp%207k/bulan)",
+    },
+    {
+      name: "Collector's Sound Vault",
+      tagline: "Dukungan Kustom untuk Penggemar",
+      description: "Untuk patron setia yang ingin berkontribusi lebih besar dengan nominal kustom fleksibel mulai dari 15k.",
+      currency: "Rp",
+      price: "15k",
+      period: "/bulan",
+      customNote: "(kustom)",
+      featured: false,
+      features: [
+        "Semua benefit Deluxe Sanctuary Pack",
+        "Nominal Kustom (mulai Rp 15.000 / bln)",
+        "Nama Tercantum di Special Thanks Credits",
+        "Director's Audio Commentary Track",
+        "Secret Lore & Mythology Document PDF",
+        "Sesi Diskusi Eksklusif Bersama Creator",
+      ],
+      cta: "Dukung 15k+ (Kustom)",
+      href: "https://wa.me/?text=Halo%20ShirayukinoComp%2C%20saya%20ingin%20berlangganan%20paket%20Collector%20Vault%20(Rp%2015k%20custom/bulan)",
+    },
+  ],
+  en: [
+    {
+      name: "Standard Supporter",
+      tagline: "Basic Backer & Alpha Demo",
+      description: "Entry-level tier to support our creative circle. Access alpha build updates and private discord channels.",
+      currency: "Rp",
+      price: "3k",
+      period: "/month",
+      customNote: null,
+      featured: false,
+      features: [
+        "Story Prologue & Demo Build Access",
+        "Exclusive Discord Circle Backer Role",
+        "Monthly Devlog & Concept Art Sneak Peek",
+        "Priority Closed Beta Invites",
+        "Direct Creator Support on WhatsApp",
+      ],
+      cta: "Support 3k / mo",
+      href: "https://wa.me/?text=Hello%20ShirayukinoComp%2C%20I%20would%20like%20to%20subscribe%20to%20Standard%20Supporter%20(Rp%203k/month)",
+    },
+    {
+      name: "Deluxe Sanctuary Pack",
+      tagline: "Most Popular Backer Pack",
+      description: "Our flagship supporter tier with full rewards, 45-track FLAC OST, and 120-page digital artbook.",
+      currency: "Rp",
+      price: "7k",
+      period: "/month",
+      customNote: null,
+      featured: true,
+      features: [
+        "All Standard Supporter Benefits",
+        "Full Game Access (Visual Novel + JRPG)",
+        "45-Track Original Soundtrack (FLAC/MP3)",
+        "120-Page Digital Artbook HD",
+        "Exclusive Sanctuary Skin & Party Costumes",
+        "Scenario Branching Voting Rights",
+      ],
+      cta: "Support 7k / mo",
+      href: "https://wa.me/?text=Hello%20ShirayukinoComp%2C%20I%20would%20like%20to%20subscribe%20to%20Deluxe%20Sanctuary%20(Rp%207k/month)",
+    },
+    {
+      name: "Collector's Sound Vault",
+      tagline: "Custom Patron Tier",
+      description: "For dedicated patrons wishing to contribute flexible amounts starting from 15k IDR with special credits.",
+      currency: "Rp",
+      price: "15k",
+      period: "/month",
+      customNote: "(custom)",
+      featured: false,
+      features: [
+        "All Deluxe Sanctuary Pack Benefits",
+        "Custom Amount (starts at 15,000 IDR / mo)",
+        "Name in Special Thanks Game Credits",
+        "Director's Audio Commentary Track",
+        "Secret Lore & Mythology Document PDF",
+        "Exclusive Creator Discussion Sessions",
+      ],
+      cta: "Support 15k+ (Custom)",
+      href: "https://wa.me/?text=Hello%20ShirayukinoComp%2C%20I%20would%20like%20to%20subscribe%20to%20Collector%20Vault%20(Rp%2015k%20custom/month)",
+    },
+  ],
+};
 
 export function PricingSection() {
+  const { lang } = useLanguage();
+  const t = translations[lang].pricing;
+  const plans = plansData[lang];
+
   return (
     <section id="editions" data-section="editions" className="w-full border-t border-[#e7e3df] dark:border-[#1a2840] transition-colors duration-300">
       <div className="mx-auto max-w-[1440px] px-[21px] py-16 sm:px-6 lg:px-8">
@@ -71,14 +142,14 @@ export function PricingSection() {
           <div className="border-[#e7e3df] dark:border-[#1a2840] lg:border-r lg:pr-[15px] transition-colors">
             <div className="flex min-h-[255px] flex-col justify-between rounded-[21px] border border-[#e7e3df] dark:border-[#1a2840] bg-white dark:bg-[#0c1524] px-8 py-8 sm:px-10 transition-colors shadow-sm dark:shadow-[0_4px_24px_rgba(0,0,0,0.3)]">
               <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-[#8f8b86] dark:text-[#7f93b0] transition-colors">
-                Paket Langganan & Dukungan Bulanan
+                {t.tag}
               </p>
               <div>
                 <h2 className="max-w-[440px] text-[34px] font-semibold leading-[0.98] tracking-[-0.065em] text-black dark:text-white sm:text-[45px] transition-colors">
-                  Dukung petualangan di Laut Bintang
+                  {t.title}
                 </h2>
                 <p className="mt-5 max-w-[390px] text-[13px] leading-[1.45] text-[#465158] dark:text-[#a0aec0] transition-colors">
-                  Dukungan bulanan terjangkau via IDR. Dapatkan akses demo berkala, rilisan soundtrack lengkap, hingga nama Anda di credits game.
+                  {t.supportDesc}
                 </p>
               </div>
             </div>
@@ -87,17 +158,17 @@ export function PricingSection() {
           <div className="pt-[13px] lg:pl-[14px] lg:pt-0">
             <div className="flex min-h-[255px] flex-col justify-between rounded-[21px] bg-[#f1ece8] dark:bg-[#08101e] border border-transparent dark:border-[#1a2840] px-8 py-8 sm:px-10 transition-colors">
               <p className="max-w-[345px] text-[22px] font-medium leading-[1.05] tracking-[-0.055em] text-black dark:text-white sm:text-[24px] transition-colors">
-                Mulai dari Rp 3k/bulan, dukung circle indie kami dan nikmati reward eksklusif.
+                {t.sub}
               </p>
               <div className="grid gap-3 sm:grid-cols-3">
                 <div className="border-t border-[#ded8d2] dark:border-[#1a2840] pt-3 font-mono text-[10px] uppercase tracking-[0.16em] text-[#6e6963] dark:text-[#7f93b0] transition-colors">
-                  Pembayaran IDR
+                  {lang === "id" ? "Pembayaran IDR" : "IDR & Global Pay"}
                 </div>
                 <div className="border-t border-[#ded8d2] dark:border-[#1a2840] pt-3 font-mono text-[10px] uppercase tracking-[0.16em] text-[#6e6963] dark:text-[#7f93b0] transition-colors">
-                  Akses Build & OST
+                  {lang === "id" ? "Akses Build & OST" : "Build & OST Access"}
                 </div>
                 <div className="border-t border-[#ded8d2] dark:border-[#1a2840] pt-3 font-mono text-[10px] uppercase tracking-[0.16em] text-[#6e6963] dark:text-[#7f93b0] transition-colors">
-                  Bebas Batal Kapan Saja
+                  {lang === "id" ? "Bebas Batal Kapan Saja" : "Cancel Anytime"}
                 </div>
               </div>
             </div>
@@ -121,7 +192,7 @@ export function PricingSection() {
                     plan.featured ? "text-[#E5BA68] font-semibold" : "text-[#8f8b86] dark:text-[#7f93b0]"
                   }`}
                 >
-                  {plan.featured ? "✦ RECOMMENDED TIER" : plan.tagline}
+                  {plan.featured ? (lang === "id" ? "✦ PAKET TERREKOMENDASI" : "✦ RECOMMENDED TIER") : plan.tagline}
                 </p>
                 <h3 className={`mt-2 text-xl font-bold tracking-tight transition-colors ${plan.featured ? "text-white" : "text-black dark:text-white"}`}>
                   {plan.name}

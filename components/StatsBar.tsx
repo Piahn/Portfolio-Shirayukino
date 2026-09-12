@@ -1,10 +1,11 @@
+"use client";
+
+import { useLanguage } from "./LanguageContext";
+import { translations } from "@/lib/translations";
+
 export function StatsBar() {
-  const stats = [
-    { label: "Story Pathways", value: "Branching" },
-    { label: "Playable Party", value: "8 Heroes" },
-    { label: "Original Score", value: "45+ Tracks" },
-    { label: "Campaign Scope", value: "35+ Hours" },
-  ];
+  const { lang } = useLanguage();
+  const stats = translations[lang].stats;
 
   return (
     <section className="w-full border-t border-[#e7e3df] dark:border-[#1a2840] transition-colors duration-300">
