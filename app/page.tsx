@@ -3,7 +3,6 @@ import { StatsBar } from "@/components/StatsBar";
 import { CtaBanner } from "@/components/CtaBanner";
 import { BlogPreview } from "@/components/BlogPreview";
 import { WhySection } from "@/components/WhySection";
-import { ProcessSection } from "@/components/ProcessSection";
 import { StepsSection } from "@/components/StepsSection";
 import { TrustBanner } from "@/components/TrustBanner";
 import { CaseStudies } from "@/components/CaseStudies";
@@ -20,7 +19,6 @@ export default function Home() {
       <CtaBanner />
       <BlogPreview />
       <WhySection />
-      <ProcessSection />
       <StepsSection />
       <TrustBanner />
       <CaseStudies />
