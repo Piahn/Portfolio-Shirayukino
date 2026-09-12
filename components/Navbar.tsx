@@ -9,6 +9,7 @@ import {
 } from "react-icons/io5";
 import { HiArrowRight, HiArrowUpRight } from "react-icons/hi2";
 import { ThemeToggle } from "./ThemeToggle";
+import { LanguageToggle } from "./LanguageToggle";
 import { WHATSAPP_BOT_URL, DASHBOARD_URL } from "./constants";
 
 export function ShirayukinoLogo({
@@ -146,8 +147,11 @@ export function Navbar() {
           </nav>
         </div>
 
-        {/* Right: Wishlist + Portal + Play Demo Button + Mobile Menu Button */}
-        <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+        {/* Right: Language + Wishlist + Portal + Play Demo Button + Mobile Menu Button */}
+        <div className="flex items-center gap-1.5 sm:gap-2.5 md:gap-3 shrink-0">
+          {/* Language Switcher (Desktop & Tablet) */}
+          <LanguageToggle className="hidden md:inline-flex" />
+
           <a
             href="#editions"
             className="hidden xl:inline-flex text-[13px] font-mono text-[#444] dark:text-[#94a3b8] hover:text-[#142d55] dark:hover:text-white px-3 py-1.5 transition-colors whitespace-nowrap"
@@ -175,6 +179,9 @@ export function Navbar() {
             <IoLogoWhatsapp className="text-[#25D366] text-base" />
             <span>Play on WhatsApp</span>
           </a>
+
+          {/* Mobile Language Switcher (compact on mobile < md) */}
+          <LanguageToggle className="md:hidden scale-90 sm:scale-100 origin-right" />
 
           {/* Mobile Portal Icon Link (shown only on mobile < 640px) */}
           <a
@@ -225,9 +232,11 @@ export function Navbar() {
                 : "-translate-y-6 opacity-0 pointer-events-none scale-90 invisible"
             }`}
           >
-            {/* Theme Toggle Pill - perfectly aligned vertically with Close button when Menu is open */}
+            {/* Theme & Language Controls Pill - perfectly aligned vertically with Close button when Menu is open */}
             {isMenuOpen && (
-              <div className="pointer-events-auto flex items-center gap-2 pl-3 sm:pl-3.5 pr-1.5 py-1 sm:py-1.5 rounded-full bg-white/95 dark:bg-[#0c1424]/95 backdrop-blur-xl border border-gray-200/90 dark:border-[#1f304d] shadow-[0_4px_20px_rgba(0,0,0,0.06)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.4)] transition-all animate-in fade-in zoom-in-95 duration-200">
+              <div className="pointer-events-auto flex items-center gap-2 pl-2.5 sm:pl-3 pr-1.5 py-1 sm:py-1.5 rounded-full bg-white/95 dark:bg-[#0c1424]/95 backdrop-blur-xl border border-gray-200/90 dark:border-[#1f304d] shadow-[0_4px_20px_rgba(0,0,0,0.06)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.4)] transition-all animate-in fade-in zoom-in-95 duration-200">
+                <LanguageToggle />
+                <span className="w-[1px] h-3.5 bg-gray-200 dark:bg-[#1f304d]" />
                 <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-wider text-gray-500 dark:text-gray-400 select-none">
                   Theme
                 </span>
@@ -330,6 +339,14 @@ export function Navbar() {
                   ))}
                 </div>
 
+                {/* Quick Language Selection Card in Drawer */}
+                <div className="mt-5 flex items-center justify-between p-3.5 rounded-2xl bg-[#f8f5f2] dark:bg-[#0c1524] border border-[#e7e3df] dark:border-[#1a2840]">
+                  <span className="text-xs font-mono font-semibold uppercase tracking-wider text-[#142d55] dark:text-[#E5BA68] flex items-center gap-1.5">
+                    ✦ Bahasa / Language
+                  </span>
+                  <LanguageToggle />
+                </div>
+
                 {/* Member & Studio Portal Banner inside Drawer */}
                 <div className="mt-6 p-4 sm:p-5 rounded-[20px] bg-gradient-to-br from-[#f8faff] to-[#edf3fc] dark:from-[#0d1728] dark:to-[#08101d] border border-[#cfe0f8] dark:border-[#1e3456] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-sm">
                   <div>
@@ -338,7 +355,7 @@ export function Navbar() {
                       ✦ MEMBER & STUDIO PORTAL
                     </span>
                     <p className="text-xs text-gray-600 dark:text-gray-300 mt-1">
-                      Akses portal dashboard & status closed beta
+                      Portal Login Pengguna
                     </p>
                   </div>
                   <a

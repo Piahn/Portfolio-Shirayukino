@@ -185,6 +185,10 @@ export default function RootLayout({
                 } else {
                   document.documentElement.classList.remove('dark');
                 }
+                const l = localStorage.getItem('shirayukino-lang');
+                if (l === 'en') {
+                  document.cookie = 'googtrans=/id/en; path=/;';
+                }
               } catch (_) {}
             `,
           }}
@@ -195,6 +199,9 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen bg-white dark:bg-[#070b12] px-3 sm:px-4 font-sans antialiased text-black dark:text-[#e6edf8] transition-colors duration-300">
+        {/* Headless Google Translate Mounting Element (Completely hidden from view) */}
+        <div id="google_translate_element" aria-hidden="true" style={{ display: "none" }} />
+
         <ThemeProvider>
           <div className="mx-auto min-h-screen max-w-[1200px] border-x border-[#d9d4cf] dark:border-[#1a2840] bg-white dark:bg-[#070b12] transition-colors duration-300">
             <Navbar />

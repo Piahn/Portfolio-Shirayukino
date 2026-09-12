@@ -1,0 +1,153 @@
+"use client";
+
+import { useState, useEffect, useCallback } from "react";
+import { IoGlobeOutline } from "react-icons/io5";
+
+type Lang = "id" | "en";
+
+declare global {
+  interface Window {
+    google?: {
+      translate?: {
+        TranslateElement: new (
+          options: { pageLanguage: string; includedLanguages: string; autoDisplay: boolean },
+          elementId: string
+        ) => void;
+      };
+    };
+    googleTranslateElementInit?: () => void;
+  }
+}
+
+export function LanguageToggle({ className = "" }: { className?: string }) {
+  const [currentLang, setCurrentLang] = useState<Lang>("id");
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  // Set Google Translate Cookie across domains
+  const setTranslateCookie = useCallback((targetLang: Lang) => {
+    const val = targetLang === "en" ? "/id/en" : "/id/id";
+    const host = window.location.hostname;
+    document.cookie = `googtrans=${val}; path=/;`;
+    document.cookie = `googtrans=${val}; path=/; domain=${host};`;
+    // If hostname has subdomain or is localhost
+    if (host.includes(".")) {
+      const parts = host.split(".");
+      if (parts.length >= 2) {
+        const rootDomain = parts.slice(-2).join(".");
+        document.cookie = `googtrans=${val}; path=/; domain=.${rootDomain};`;
+      }
+    }
+  }, []);
+
+  // Programmatically trigger Google Translate combo box change
+  const triggerGoogleTranslate = useCallback(
+    (targetLang: Lang) => {
+      setTranslateCookie(targetLang);
+      localStorage.setItem("shirayukino-lang", targetLang);
+      setCurrentLang(targetLang);
+
+      const combo = document.querySelector<HTMLSelectElement>(".goog-te-combo");
+      if (combo) {
+        combo.value = targetLang;
+        combo.dispatchEvent(new Event("change"));
+      } else {
+        // Fallback: If combo is not yet in DOM, refresh location to apply cookie
+        window.location.reload();
+      }
+    },
+    [setTranslateCookie]
+  );
+
+  // Initialize Google Translate Script
+  useEffect(() => {
+    // Read saved language preference
+    const saved = localStorage.getItem("shirayukino-lang") as Lang | null;
+    const cookieMatch = document.cookie.match(/googtrans=\/id\/([a-z]{2})/);
+    const initialLang: Lang = saved || (cookieMatch?.[1] as Lang) || "id";
+    setCurrentLang(initialLang);
+
+    // Setup global callback
+    window.googleTranslateElementInit = () => {
+      if (window.google?.translate?.TranslateElement) {
+        new window.google.translate.TranslateElement(
+          {
+            pageLanguage: "id",
+            includedLanguages: "id,en",
+            autoDisplay: false,
+          },
+          "google_translate_element"
+        );
+        setIsLoaded(true);
+
+        // Apply initial language if set to English
+        if (initialLang === "en") {
+          setTimeout(() => {
+            const combo = document.querySelector<HTMLSelectElement>(".goog-te-combo");
+            if (combo && combo.value !== "en") {
+              combo.value = "en";
+              combo.dispatchEvent(new Event("change"));
+            }
+          }, 300);
+        }
+      }
+    };
+
+    // Dynamically inject script if not already present
+    if (!document.getElementById("google-translate-script")) {
+      const script = document.createElement("script");
+      script.id = "google-translate-script";
+      script.src =
+        "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+      script.async = true;
+      document.body.appendChild(script);
+    } else if (window.google?.translate?.TranslateElement) {
+      setIsLoaded(true);
+    }
+  }, []);
+
+  return (
+    <div
+      className={`inline-flex items-center rounded-full bg-[#f1eeea] dark:bg-[#0c1524] p-1 border border-[#e7e3df] dark:border-[#1e3456] transition-colors shadow-sm ${className}`}
+      role="group"
+      aria-label="Language Selector"
+    >
+      <div className="flex items-center pl-1.5 pr-1 text-gray-400 dark:text-gray-500">
+        <IoGlobeOutline size={13} className="text-[#142d55] dark:text-[#E5BA68]" />
+      </div>
+
+      <div className="flex items-center gap-0.5 font-mono text-[11px] font-semibold">
+        {/* Indonesian Button */}
+        <button
+          type="button"
+          onClick={() => triggerGoogleTranslate("id")}
+          className={`px-2 py-0.5 rounded-full transition-all duration-200 uppercase tracking-wider ${
+            currentLang === "id"
+              ? "bg-white dark:bg-[#15233c] text-black dark:text-[#E5BA68] shadow-xs border border-gray-200/80 dark:border-[#223b63]"
+              : "text-gray-400 dark:text-gray-400 hover:text-black dark:hover:text-white"
+          }`}
+          aria-pressed={currentLang === "id"}
+          title="Bahasa Indonesia"
+        >
+          ID
+        </button>
+
+        <span className="text-gray-300 dark:text-gray-600 text-[10px] select-none">/</span>
+
+        {/* English Button */}
+        <button
+          type="button"
+          onClick={() => triggerGoogleTranslate("en")}
+          className={`px-2 py-0.5 rounded-full transition-all duration-200 uppercase tracking-wider ${
+            currentLang === "en"
+              ? "bg-white dark:bg-[#15233c] text-black dark:text-[#E5BA68] shadow-xs border border-gray-200/80 dark:border-[#223b63]"
+              : "text-gray-400 dark:text-gray-400 hover:text-black dark:hover:text-white"
+          }`}
+          aria-pressed={currentLang === "en"}
+          title="English"
+        >
+          EN
+        </button>
+      </div>
+    </div>
+  );
+}
