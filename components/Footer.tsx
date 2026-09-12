@@ -29,7 +29,7 @@ export function Footer() {
                 href="/gameplay"
                 className="inline-flex h-12 w-fit items-center justify-center rounded-full bg-[#142d55] hover:bg-[#0c1e3a] dark:bg-[#1a355d] dark:hover:bg-[#224477] px-7 text-[11px] font-semibold uppercase tracking-[0.18em] text-white font-mono transition-all shadow-sm"
               >
-                {lang === "id" ? "Jelajahi Suaka Azure" : "Explore Azure Sanctuary"}
+                {lang === "id" ? "Jelajahi Elyrith" : "Explore Elyrith"}
               </Link>
             </div>
           </div>

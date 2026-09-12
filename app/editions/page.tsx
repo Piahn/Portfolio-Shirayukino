@@ -16,7 +16,7 @@ import { WHATSAPP_BOT_URL } from "@/components/constants";
 export const metadata: Metadata = {
   title: "Versi Pembaruan & Patch Notes | ShirayukinoComp",
   description:
-    "Ikuti rekam jejak riwayat versi pembaruan (patch notes & release roadmap) untuk 『星海の白雪と蒼穹の聖域』 (The Celestial Snow & the Azure Sanctuary).",
+    "Ikuti rekam jejak riwayat versi pembaruan (patch notes & release roadmap) untuk 『星海の白雪と蒼穹の聖域』 (The Celestial Snow & Elyrith).",
 };
 
 const VERSION_UPDATES = [
@@ -67,7 +67,7 @@ const VERSION_UPDATES = [
   },
   {
     version: "v0.7.0",
-    codename: "Azure Sanctuary & Celestial Haven Prototype",
+    codename: "Elyrith Haven & Celestial Prototype",
     date: "July 2026",
     badge: "Alpha Demo",
     statusColor: "gray",

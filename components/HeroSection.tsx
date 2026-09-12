@@ -26,7 +26,7 @@ export function HeroSection() {
               <h1 className="text-[2.2rem] sm:text-[2.7rem] lg:text-[3rem] leading-[1.08] font-medium text-black dark:text-white tracking-[-0.02em] transition-colors">
                 星海の白雪と蒼穹の聖域
                 <span className="block text-[1.3rem] sm:text-[1.5rem] lg:text-[1.7rem] text-[#142d55] dark:text-[#E5BA68] font-serif italic font-normal mt-2.5 transition-colors">
-                  The Celestial Snow & the Azure Sanctuary
+                  The Celestial Snow & Elyrith
                 </span>
               </h1>
               <div className="flex flex-wrap items-center gap-4 sm:gap-6 mt-8 sm:mt-11 font-mono tracking-tight">

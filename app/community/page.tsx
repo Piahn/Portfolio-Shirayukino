@@ -178,7 +178,7 @@ export default function CommunityPage() {
               Connect with fellow adventurers
             </h1>
             <p className="mt-3 sm:mt-4 text-xs sm:text-sm md:text-base text-gray-600 dark:text-gray-300 leading-relaxed break-words">
-              Step inside the azure sanctuary circle. Join our active community to discuss visual novel lore, test early turn-based combat builds, claim WhatsApp bot secret item codes, and vote on upcoming development directions.
+              Step inside the Elyrith community sanctuary. Join our active community to discuss visual novel lore, test early turn-based combat builds, claim WhatsApp bot secret item codes, and vote on upcoming development directions.
             </p>
           </div>
         </div>

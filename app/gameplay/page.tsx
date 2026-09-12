@@ -15,7 +15,7 @@ import { WHATSAPP_BOT_URL } from "@/components/constants";
 export const metadata: Metadata = {
   title: "Gameplay Overview | ShirayukinoComp",
   description:
-    "Explore the combat systems, visual novel branching narrative, and celestial relic synthesis of 『星海の白雪と蒼穹の聖域』 (The Celestial Snow & the Azure Sanctuary).",
+    "Explore the combat systems, visual novel branching narrative, and celestial relic synthesis of 『星海の白雪と蒼穹の聖域』 (The Celestial Snow & Elyrith).",
 };
 
 const GAMEPLAY_PILLARS = [

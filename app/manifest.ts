@@ -5,7 +5,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: "ShirayukinoComp | 星海の白雪と蒼穹の聖域",
     short_name: "ShirayukinoComp",
     description:
-      "Official website of ShirayukinoComp: The Celestial Snow & the Azure Sanctuary Story RPG.",
+      "Official website of ShirayukinoComp: The Celestial Snow & Elyrith Story RPG.",
     start_url: "/",
     display: "standalone",
     background_color: "#070b12",

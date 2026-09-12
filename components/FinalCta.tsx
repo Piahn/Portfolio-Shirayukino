@@ -27,7 +27,7 @@ export function FinalCta() {
               {lang === "id" ? "Suaka Komunitas" : "Circle Sanctuary"}
             </p>
             <h2 className="text-[2rem] sm:text-[2.5rem] leading-[1.02] tracking-[-0.04em] text-black dark:text-white mt-1">
-              {lang === "id" ? "Masuk ke dalam Suaka Azure" : "Step inside the azure sanctuary"}
+              {lang === "id" ? "Masuk ke dalam Elyrith" : "Step inside Elyrith"}
             </h2>
           </div>
           <Link

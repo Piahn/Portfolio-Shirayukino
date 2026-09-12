@@ -5,14 +5,14 @@ import { IoArrowBackOutline, IoShieldCheckmarkOutline } from "react-icons/io5";
 export const metadata: Metadata = {
   title: "Terms of Use | ShirayukinoComp",
   description:
-    "Official Terms of Use and Fan Creation Guidelines for ShirayukinoComp and 『星海の白雪と蒼穹の聖域』 (The Celestial Snow & the Azure Sanctuary).",
+    "Official Terms of Use and Fan Creation Guidelines for ShirayukinoComp and 『星海の白雪と蒼穹の聖域』 (The Celestial Snow & Elyrith).",
 };
 
 const SECTIONS = [
   {
     title: "1. Acceptance of Terms",
     content:
-      "By accessing the ShirayukinoComp website, playing our interactive WhatsApp Bot prologue, downloading demo builds, or purchasing upcoming game editions of 『星海の白雪と蒼穹の聖域』 (The Celestial Snow & the Azure Sanctuary), you agree to be bound by these Terms of Use and all applicable laws and regulations.",
+      "By accessing the ShirayukinoComp website, playing our interactive WhatsApp Bot prologue, downloading demo builds, or purchasing upcoming game editions of 『星海の白雪と蒼穹の聖域』 (The Celestial Snow & Elyrith), you agree to be bound by these Terms of Use and all applicable laws and regulations.",
   },
   {
     title: "2. Software & Game License",

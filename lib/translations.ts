@@ -39,14 +39,14 @@ export const translations = {
         {
           id: "music-soundscapes",
           category: "Musik & Tata Suara",
-          title: "Menggubah aransemen musik untuk The Celestial Snow & Azure Sanctuary",
+          title: "Menggubah aransemen musik untuk The Celestial Snow & Elyrith",
           description:
             "Di balik layar penciptaan 45+ trek orkestra studio yang memadukan melodi fantasi magis dengan klimaks paduan suara megah.",
         },
         {
           id: "worldbuilding-art",
           category: "Pembangunan Semesta & Seni",
-          title: "Dari sketsa konsep hingga kanvas: Merancang Azure Sanctuary",
+          title: "Dari sketsa konsep hingga kanvas: Merancang Elyrith",
           description:
             "Eksplorasi mendalam ilustrasi latar, atmosfer fantasi langit, dan mekanisme kuil suaka terapung yang terlupakan.",
         },
@@ -59,7 +59,7 @@ export const translations = {
         {
           title: "Narasi Mendalam Multi-Rute",
           description:
-            "Setiap pilihan dialog bergaung ke seluruh alur cerita. Rasakan percabangan akhir cerita, ikatan karakter yang intim, dan ungkap misteri kuno Azure Sanctuary.",
+            "Setiap pilihan dialog bergaung ke seluruh alur cerita. Rasakan percabangan akhir cerita, ikatan karakter yang intim, dan ungkap misteri kuno Elyrith.",
         },
         {
           title: "Pertarungan Taktis Berbasis Giliran",
@@ -96,9 +96,9 @@ export const translations = {
         },
         {
           number: "3",
-          title: "Celestial Forge & Suaka Azure",
+          title: "Celestial Forge & Elyrith",
           description:
-            "Kembali ke suaka langit tersembunyi untuk meracik eliksir tempur, menempa senjata bertuah, dan mengkustomisasi kemampuan pahlawan Anda.",
+            "Kembali ke suaka langit tersembunyi Elyrith untuk meracik eliksir tempur, menempa senjata bertuah, dan mengkustomisasi kemampuan pahlawan Anda.",
         },
         {
           number: "4",
@@ -256,14 +256,14 @@ export const translations = {
         {
           id: "music-soundscapes",
           category: "Music & Soundscapes",
-          title: "Composing the score for The Celestial Snow & the Azure Sanctuary",
+          title: "Composing the score for The Celestial Snow & Elyrith",
           description:
             "Behind the studio composition of 45+ orchestral tracks fusing whimsical fantasy melodies with grand choral climaxes.",
         },
         {
           id: "worldbuilding-art",
           category: "Worldbuilding & Art",
-          title: "From concept sketch to canvas: Designing the Azure Sanctuary",
+          title: "From concept sketch to canvas: Designing Elyrith",
           description:
             "A deep dive into environment illustration, celestial fantasy atmosphere, and the hidden mechanisms of the sky sanctuary.",
         },
@@ -276,7 +276,7 @@ export const translations = {
         {
           title: "Deep Multi-Route Narrative",
           description:
-            "Every dialogue choice echoes through the storyline. Experience branching outcomes, intimate character bonds, and uncover the ancient mysteries of the Azure Sanctuary and the Celestial Sea.",
+            "Every dialogue choice echoes through the storyline. Experience branching outcomes, intimate character bonds, and uncover the ancient mysteries of Elyrith and the Celestial Sea.",
         },
         {
           title: "Tactical Party Combat",
@@ -313,9 +313,9 @@ export const translations = {
         },
         {
           number: "3",
-          title: "Celestial Forge & Azure Sanctuary",
+          title: "Celestial Forge & Elyrith",
           description:
-            "Return to your hidden azure sanctuary to synthesize battle elixirs, craft enchanted weapons, and customize your party's abilities.",
+            "Return to your hidden haven in Elyrith to synthesize battle elixirs, craft enchanted weapons, and customize your party's abilities.",
         },
         {
           number: "4",

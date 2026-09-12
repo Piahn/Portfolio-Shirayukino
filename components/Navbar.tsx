@@ -229,7 +229,7 @@ export function Navbar() {
           >
             {/* Theme & Language Controls Pill - perfectly aligned vertically with Close button when Menu is open */}
             {isMenuOpen && (
-              <div className="pointer-events-auto flex items-center gap-2 pl-2.5 sm:pl-3 pr-1.5 py-1 sm:py-1.5 rounded-full bg-white/95 dark:bg-[#0c1424]/95 backdrop-blur-xl border border-gray-200/90 dark:border-[#1f304d] shadow-[0_4px_20px_rgba(0,0,0,0.06)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.4)] transition-all animate-in fade-in zoom-in-95 duration-200">
+              <div className="pointer-events-auto flex items-center gap-2 pl-2.5 sm:pl-3 pr-1.5 py-1 sm:py-1.5 rounded-full bg-white/95 dark:bg-[#0c1424]/95 backdrop-blur-xl border border-gray-200/90 dark:border-[#1f304d] shadow-[0_4px_20px_rgba(0,0,0,0.06)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.4)] transition-all animate-in fade-in zoom-in-95 duration-200 xl:translate-x-[34px]">
                 <LanguageToggle />
                 <span className="w-[1px] h-3.5 bg-gray-200 dark:bg-[#1f304d]" />
                 <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-wider text-gray-500 dark:text-gray-400 select-none">
@@ -240,9 +240,8 @@ export function Navbar() {
             )}
 
             {/* The Iconic Round Circular Menu Button with Smooth Morphing Bars to X */}
-            {/* When closed: xl:translate-x-1/2 centers on the 1200px architectural line (Gambar 1) */}
-            {/* When open: xl:translate-x-0 adjusts neatly inside the boundary so it never exceeds the line (Gambar 2) */}
-            <div className={`translate-x-0 ${isMenuOpen ? "xl:translate-x-0" : "xl:translate-x-1/2"} transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${isScrolled || isMenuOpen ? "pointer-events-auto" : "pointer-events-none"}`}>
+            {/* Position is permanently locked on the 1200px architectural line (xl:translate-x-1/2) both when closed and open */}
+            <div className={`translate-x-0 xl:translate-x-1/2 ${isScrolled || isMenuOpen ? "pointer-events-auto" : "pointer-events-none"}`}>
               <button
                 type="button"
                 onClick={() => setIsMenuOpen((prev) => !prev)}
@@ -366,7 +365,7 @@ export function Navbar() {
                   <div className="relative h-48 xl:h-52 w-full overflow-hidden">
                     <img
                       src="/secret_hideout.jpg"
-                      alt="Azure Sanctuary Haven"
+                      alt="Elyrith Sanctuary Haven"
                       className="h-full w-full object-cover object-center transition-transform duration-700 hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#f8f5f2] dark:from-[#0c1524] via-transparent to-black/40" />
@@ -382,7 +381,7 @@ export function Navbar() {
                       星海の白雪と蒼穹の聖域
                     </p>
                     <h4 className="text-lg font-semibold text-black dark:text-white mt-1">
-                      The Celestial Snow & the Azure Sanctuary
+                      The Celestial Snow & Elyrith
                     </h4>
                     <p className="text-xs text-gray-600 dark:text-gray-300 mt-2 leading-relaxed">
                       A fantasy narrative JRPG uniting tactical timeline battles, branching visual novel choices, and an original 45-track orchestral score.

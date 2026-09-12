@@ -32,12 +32,12 @@ export const metadata: Metadata = {
     template: "%s | ShirayukinoComp",
   },
   description:
-    "Official website of ShirayukinoComp (シラユキノコンプ). Discover our flagship story RPG & visual novel project '星海の白雪と蒼穹の聖域' (The Celestial Snow & the Azure Sanctuary), tactical combat timeline, 45-track orchestral soundtrack vault, circle devlogs, and community sanctuary.",
+    "Official website of ShirayukinoComp (シラユキノコンプ). Discover our flagship story RPG & visual novel project '星海の白雪と蒼穹の聖域' (The Celestial Snow & Elyrith), tactical combat timeline, 45-track orchestral soundtrack vault, circle devlogs, and community sanctuary.",
   keywords: [
     "ShirayukinoComp",
     "シラユキノコンプ",
     "星海の白雪と蒼穹の聖域",
-    "The Celestial Snow & the Azure Sanctuary",
+    "The Celestial Snow & Elyrith",
     "JRPG",
     "Story RPG",
     "Visual Novel",
@@ -141,7 +141,7 @@ const jsonLd = {
       "@id": "https://shirayukinocomp.com/#game",
       name: "星海の白雪と蒼穹の聖域",
       alternateName: [
-        "The Celestial Snow & the Azure Sanctuary",
+        "The Celestial Snow & Elyrith",
         "Seikai no Shirayuki to Soukyuu no Seiiki",
       ],
       description:

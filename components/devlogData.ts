@@ -35,7 +35,7 @@ export const DEVLOG_ARTICLES: DevlogArticle[] = [
           heading: "1. The Philosophy of the Zero-Barrier Prologue",
           paragraphs: [
             "Almost everyone in our community has WhatsApp installed on their phone. By building an interactive text-based RPG bot, players can start Chapter 1 right from their messaging app within seconds.",
-            "Each choice sent in chat branches into distinct story dialogues, testing player instincts and revealing early clues about the Azure Sanctuary.",
+            "Each choice sent in chat branches into distinct story dialogues, testing player instincts and revealing early clues about Elyrith.",
           ],
           callout:
             "✦ Early Bird Benefit: Players who complete the WhatsApp Prologue receive a secret redemption code to claim an exclusive Celestial Relic when the full game launches on Steam!",
@@ -43,7 +43,7 @@ export const DEVLOG_ARTICLES: DevlogArticle[] = [
         {
           heading: "2. Choice Dynamics & Character Affinity",
           paragraphs: [
-            "The bot features interactive dialogue prompts where players can choose response styles (e.g., Tactical, Empathetic, or Investigative). Responses subtly alter your affinity score with key companions who reside in the azure sanctuary.",
+            "The bot features interactive dialogue prompts where players can choose response styles (e.g., Tactical, Empathetic, or Investigative). Responses subtly alter your affinity score with key companions who reside in the sanctuary of Elyrith.",
           ],
           bulletPoints: [
             "Immediate branching responses with live story flags",
@@ -83,7 +83,7 @@ export const DEVLOG_ARTICLES: DevlogArticle[] = [
           bulletPoints: [
             "Dynamic turn timeline with enemy intention indicators",
             "Elemental resonance chains that reward tactical team composition",
-            "Synthesized combat elixirs brewed back at the azure sanctuary",
+            "Synthesized combat elixirs brewed back at Elyrith",
           ],
         },
         {
@@ -100,7 +100,7 @@ export const DEVLOG_ARTICLES: DevlogArticle[] = [
   {
     id: "music-soundscapes",
     category: "Music & Soundscapes",
-    title: "Composing the score for The Celestial Snow & the Azure Sanctuary",
+    title: "Composing the score for The Celestial Snow & Elyrith",
     date: "Aug 2026",
     readTime: "5 min read",
     author: "Sound Director & Composer",
@@ -130,7 +130,7 @@ export const DEVLOG_ARTICLES: DevlogArticle[] = [
   {
     id: "worldbuilding-art",
     category: "Worldbuilding & Art",
-    title: "From concept sketch to canvas: Designing the Azure Sanctuary",
+    title: "From concept sketch to canvas: Designing Elyrith",
     date: "Jul 2026",
     readTime: "6 min read",
     author: "Art Director",
@@ -138,7 +138,7 @@ export const DEVLOG_ARTICLES: DevlogArticle[] = [
       "A deep dive into environment illustration, celestial fantasy atmosphere, and the hidden mechanisms of the sky sanctuary.",
     content: {
       lead:
-        "Every adventure needs a place to call home. For our protagonists, the 'Azure Sanctuary' (蒼穹の聖域) is both a haven of celestial science and a sanctuary sheltered above the celestial sea.",
+        "Every adventure needs a place to call home. For our protagonists, the celestial sanctuary 'Elyrith' (蒼穹の聖域) is both a haven of celestial science and a sanctuary sheltered above the celestial sea.",
       sections: [
         {
           heading: "1. Architectural Duality: Ancient Stone & Warm Wood",
