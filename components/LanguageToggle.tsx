@@ -98,17 +98,64 @@ export function LanguageToggle({
       }
     };
 
-    // Dynamically inject script if not already present
-    if (!document.getElementById("google-translate-script")) {
-      const script = document.createElement("script");
-      script.id = "google-translate-script";
-      script.src =
-        "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
-      script.async = true;
-      document.body.appendChild(script);
-    } else if (window.google?.translate?.TranslateElement) {
-      setIsLoaded(true);
-    }
+    // Ensure anti-highlight styles are appended at the very end of <head>
+    const ensureAntiHighlightStyle = () => {
+      let styleEl = document.getElementById("anti-google-highlight") as HTMLStyleElement | null;
+      if (!styleEl) {
+        styleEl = document.createElement("style");
+        styleEl.id = "anti-google-highlight";
+        document.head.appendChild(styleEl);
+      }
+      styleEl.innerHTML = `
+        html body font.goog-text-highlight,
+        html body span.goog-text-highlight,
+        html body .goog-text-highlight,
+        html body [class*="goog-text-highlight"],
+        html body font[style*="background-color"],
+        html body span[style*="background-color"],
+        html body font:hover,
+        html body font font:hover,
+        html body span[style*="background-color"]:hover {
+          background: transparent !important;
+          background-color: transparent !important;
+          box-shadow: none !important;
+          border: none !important;
+          color: inherit !important;
+        }
+        #goog-gt-tt, #goog-gt-vt, .goog-te-balloon-frame, .goog-tooltip {
+          display: none !important;
+          visibility: hidden !important;
+          opacity: 0 !important;
+          pointer-events: none !important;
+        }
+      `;
+    };
+    ensureAntiHighlightStyle();
+
+    // Prevent Google Translate hover listener from setting blue box styles on mouseover
+    const onMouseOverCapture = (e: MouseEvent) => {
+      const target = e.target as HTMLElement | null;
+      if (
+        target &&
+        (target.tagName === "FONT" ||
+          target.classList?.contains("goog-text-highlight") ||
+          target.closest?.(".goog-text-highlight"))
+      ) {
+        const el = (target.classList?.contains("goog-text-highlight")
+          ? target
+          : target.closest?.(".goog-text-highlight") || target) as HTMLElement;
+        el.classList.remove("goog-text-highlight");
+        if (el.style) {
+          el.style.backgroundColor = "transparent";
+          el.style.boxShadow = "none";
+        }
+      }
+    };
+    window.addEventListener("mouseover", onMouseOverCapture, true);
+
+    return () => {
+      window.removeEventListener("mouseover", onMouseOverCapture, true);
+    };
   }, []);
 
   const isInline = variant === "inline";

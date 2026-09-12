@@ -85,11 +85,15 @@ body.overflow-hidden::-webkit-scrollbar {
 .goog-te-banner-frame,
 iframe.goog-te-banner-frame,
 #goog-gt-tt,
+#goog-gt-vt,
+#goog-gt-tt *,
 .goog-te-balloon-frame,
 .goog-tooltip,
 .goog-tooltip:hover {
   display: none !important;
   visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
 }
 
 body {
@@ -101,10 +105,21 @@ body {
   display: none !important;
 }
 
-.goog-text-highlight {
+/* High-specificity override to defeat Google Translate's injected runtime stylesheet */
+html body font.goog-text-highlight,
+html body span.goog-text-highlight,
+html body .goog-text-highlight,
+html body [class*="goog-text-highlight"],
+html body font[style*="background-color"],
+html body span[style*="background-color"],
+html body font:hover,
+html body font font:hover,
+html body span[style*="background-color"]:hover {
   background: transparent !important;
   background-color: transparent !important;
   box-shadow: none !important;
+  border: none !important;
+  color: inherit !important;
 }
 
 #google_translate_element {
