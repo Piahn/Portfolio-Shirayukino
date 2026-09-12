@@ -214,19 +214,6 @@ export function Navbar() {
                 : "-translate-y-6 opacity-0 pointer-events-none scale-90 invisible"
             }`}
           >
-            {/* Floating Portal Link when scrolled */}
-            {isScrolled && !isMenuOpen && (
-              <a
-                href={DASHBOARD_URL}
-                className="pointer-events-auto flex items-center gap-1.5 px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-full bg-white/95 dark:bg-[#0c1424]/95 backdrop-blur-xl border border-gray-200/90 dark:border-[#1f304d] text-gray-800 dark:text-gray-200 text-xs font-mono font-semibold shadow-[0_4px_20px_rgba(0,0,0,0.06)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.4)] hover:border-[#142d55] dark:hover:border-[#E5BA68] transition-all group"
-                title="Portal Dashboard"
-                aria-label="Portal Dashboard"
-              >
-                <IoPersonOutline className="text-sm text-[#142d55] dark:text-[#E5BA68] group-hover:scale-110 transition-transform" />
-                <span className="hidden sm:inline text-[11px]">Portal</span>
-              </a>
-            )}
-
             {/* Theme Toggle Pill - perfectly aligned vertically with Close button when Menu is open */}
             {isMenuOpen && (
               <div className="pointer-events-auto flex items-center gap-2 pl-3 sm:pl-3.5 pr-1.5 py-1 sm:py-1.5 rounded-full bg-white/95 dark:bg-[#0c1424]/95 backdrop-blur-xl border border-gray-200/90 dark:border-[#1f304d] shadow-[0_4px_20px_rgba(0,0,0,0.06)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.4)] transition-all animate-in fade-in zoom-in-95 duration-200">
