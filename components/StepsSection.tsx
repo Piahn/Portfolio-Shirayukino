@@ -10,7 +10,7 @@ const steps = [
     number: "01",
     title: "Scenario Writing & Celestial Mythology",
     description:
-      "Crafting multi-layered narrative branches, character lore documents, and the forgotten chronicles of the Queen of Ever Darkness.",
+      "Crafting multi-layered narrative branches, character lore documents, and the forgotten chronicles of the Sovereign of Starlight and the Celestial Sea.",
     icon: IoBookOutline,
     tag: "Script & Lore",
     badge: "4 Story Branches",
@@ -24,7 +24,7 @@ const steps = [
     icon: IoBrushOutline,
     tag: "Art & Sprites",
     badge: "120+ Assets & CGs",
-    highlights: ["Event CGs", "Battle Sprites", "Atelier UI"],
+    highlights: ["Event CGs", "Battle Sprites", "Celestial UI"],
   },
   {
     number: "03",

@@ -5,7 +5,7 @@ import { IoArrowBackOutline, IoLockClosedOutline } from "react-icons/io5";
 export const metadata: Metadata = {
   title: "Privacy Policy | ShirayukinoComp",
   description:
-    "Privacy Policy for ShirayukinoComp and the interactive WhatsApp Bot prelude of 『常闇の女王と秘密の隠れ家』.",
+    "Privacy Policy for ShirayukinoComp and the interactive WhatsApp Bot prelude of 『星海の白雪と蒼穹の聖域』.",
 };
 
 const PRIVACY_SECTIONS = [

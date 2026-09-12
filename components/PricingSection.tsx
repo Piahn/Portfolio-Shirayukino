@@ -21,7 +21,7 @@ const plans = [
     href: "https://wa.me/?text=Halo%20ShirayukinoComp%2C%20saya%20ingin%20berlangganan%20paket%20Standard%20Supporter%20(Rp%203k/bulan)",
   },
   {
-    name: "Deluxe Hideout Pack",
+    name: "Deluxe Sanctuary Pack",
     tagline: "Paket Petualang Terfavorit",
     description: "Paket bulanan terpopuler dengan reward lengkap, soundtrack FLAC 45 lagu, dan artbook digital.",
     currency: "Rp",
@@ -34,11 +34,11 @@ const plans = [
       "Full Game Access (Visual Novel + JRPG)",
       "45-Track Original Soundtrack (FLAC/MP3)",
       "Digital Artbook 120 Halaman HD",
-      "Skin Atelier & Kostum Eksklusif",
+      "Skin Sanctuary & Kostum Eksklusif",
       "Hak Voting Scenario Branching",
     ],
     cta: "Dukung 7k / bln",
-    href: "https://wa.me/?text=Halo%20ShirayukinoComp%2C%20saya%20ingin%20berlangganan%20paket%20Deluxe%20Hideout%20(Rp%207k/bulan)",
+    href: "https://wa.me/?text=Halo%20ShirayukinoComp%2C%20saya%20ingin%20berlangganan%20paket%20Deluxe%20Sanctuary%20(Rp%207k/bulan)",
   },
   {
     name: "Collector's Sound Vault",
@@ -50,7 +50,7 @@ const plans = [
     customNote: "(custom)",
     featured: false,
     features: [
-      "Semua benefit Deluxe Hideout Pack",
+      "Semua benefit Deluxe Sanctuary Pack",
       "Nominal Kustom (mulai Rp 15.000 / bln)",
       "Nama Tercantum di Special Thanks Credits",
       "Director's Audio Commentary Track",
@@ -75,7 +75,7 @@ export function PricingSection() {
               </p>
               <div>
                 <h2 className="max-w-[440px] text-[34px] font-semibold leading-[0.98] tracking-[-0.065em] text-black dark:text-white sm:text-[45px] transition-colors">
-                  Dukung karya kami di Ever Darkness
+                  Dukung petualangan di Laut Bintang
                 </h2>
                 <p className="mt-5 max-w-[390px] text-[13px] leading-[1.45] text-[#465158] dark:text-[#a0aec0] transition-colors">
                   Dukungan bulanan terjangkau via IDR. Dapatkan akses demo berkala, rilisan soundtrack lengkap, hingga nama Anda di credits game.

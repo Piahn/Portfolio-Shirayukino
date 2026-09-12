@@ -3,7 +3,7 @@ const cases = [
     type: "Chapter I: Prologue",
     problem: "Awakening inside the overgrown ancient sanctuary with fragmented memories.",
     solution: "Master the first celestial catalyst relics and assemble your exploration party.",
-    metric: "The Whispering Hideout",
+    metric: "The Whispering Sanctuary",
   },
   {
     type: "Chapter II: Mid-Game",
@@ -13,9 +13,9 @@ const cases = [
   },
   {
     type: "Chapter III: Climax",
-    problem: "The queen's true identity is revealed, requiring pivotal moral choices.",
+    problem: "The sovereign guardian's true identity is revealed, requiring pivotal moral choices.",
     solution: "Unlock multiple narrative routes and true endings depending on companion trust levels.",
-    metric: "Queen of Ever Darkness",
+    metric: "The Sovereign of Starlight",
   },
 ];
 

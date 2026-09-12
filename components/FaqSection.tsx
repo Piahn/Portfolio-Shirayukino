@@ -7,7 +7,7 @@ const faqs = [
   {
     question: "What type of gameplay can I expect?",
     answer:
-      "A seamless fusion of visual novel storytelling and strategic turn-based JRPG combat. You gather celestial materials in wilderness ruins, craft battle relics in your atelier hideout, and battle in tactical party formations.",
+      "A seamless fusion of visual novel storytelling and strategic turn-based JRPG combat. You gather celestial materials in wilderness ruins, craft celestial relics in your sanctuary forge, and battle in tactical party formations.",
   },
   {
     question: "Are there branching story routes and multiple endings?",
@@ -22,7 +22,7 @@ const faqs = [
   {
     question: "How can I obtain the original soundtrack?",
     answer:
-      "All 45+ original tracks are available digitally in FLAC/MP3 format with the Deluxe Hideout Pack, or as a 3-disc physical collector's CD in the Sound Vault edition.",
+      "All 45+ original tracks are available digitally in FLAC/MP3 format with the Deluxe Sanctuary Pack, or as a 3-disc physical collector's CD in the Sound Vault edition.",
   },
   {
     question: "Can content creators stream and monetize gameplay?",

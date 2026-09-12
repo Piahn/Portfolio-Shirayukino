@@ -8,7 +8,7 @@ const testimonials = [
   },
   {
     quote:
-      "常闇の女王と秘密の隠れ家 balances cozy atelier gathering with high-stakes story revelations. The character banter in the hideout is pure gold.",
+      "星海の白雪と蒼穹の聖域 balances cozy sanctuary exploration with high-stakes story revelations. The character banter in the party camp is pure gold.",
     name: "Luna V.",
     role: "Visual Novel & RPG Reviewer",
     avatar: "/sofia.png",

@@ -12,16 +12,16 @@ const posts = [
   {
     id: "music-soundscapes",
     category: "Music & Soundscapes",
-    title: "Composing the score for Queen of Ever Darkness",
+    title: "Composing the score for The Celestial Snow & the Azure Sanctuary",
     description:
       "Behind the studio composition of 45+ orchestral tracks fusing whimsical fantasy melodies with grand choral climaxes.",
   },
   {
     id: "worldbuilding-art",
     category: "Worldbuilding & Art",
-    title: "From concept sketch to canvas: Designing the Secret Hideout",
+    title: "From concept sketch to canvas: Designing the Azure Sanctuary",
     description:
-      "A deep dive into environment illustration, cozy atelier atmosphere, and the hidden mechanisms of the underground sanctuary.",
+      "A deep dive into environment illustration, celestial fantasy atmosphere, and the hidden mechanisms of the sky sanctuary.",
   },
 ];
 

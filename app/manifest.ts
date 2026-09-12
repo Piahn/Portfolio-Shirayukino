@@ -2,10 +2,10 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "ShirayukinoComp | 常闇の女王と秘密の隠れ家",
+    name: "ShirayukinoComp | 星海の白雪と蒼穹の聖域",
     short_name: "ShirayukinoComp",
     description:
-      "Official website of ShirayukinoComp: The Queen of Eternal Darkness and the Secret Hideout Story RPG.",
+      "Official website of ShirayukinoComp: The Celestial Snow & the Azure Sanctuary Story RPG.",
     start_url: "/",
     display: "standalone",
     background_color: "#070b12",

@@ -17,7 +17,7 @@ import { WHATSAPP_BOT_URL } from "@/components/constants";
 export const metadata: Metadata = {
   title: "Game Editions & Version Updates | ShirayukinoComp",
   description:
-    "Discover the official release editions, physical packages, and version update history (versi pembaruan & patch notes) for 『常闇の女王と秘密の隠れ家』 (Queen of Ever Darkness & the Secret Hideout).",
+    "Discover the official release editions, physical packages, and version update history (versi pembaruan & patch notes) for 『星海の白雪と蒼穹の聖域』 (The Celestial Snow & the Azure Sanctuary).",
 };
 
 const EDITIONS = [
@@ -55,27 +55,27 @@ const EDITIONS = [
       "Everything in Standard Digital Edition",
       "Complete 45-Track Original Soundtrack (Lossless FLAC & MP3)",
       "140-Page Digital Artbook & Scenario Commentary",
-      "Exclusive In-Game Celestial Relic: 'Ever Darkness Brooch'",
-      "Special Secret Hideout Custom Atelier Wallpaper Theme",
+      "Exclusive In-Game Celestial Relic: 'Starlight Sovereign Brooch'",
+      "Special Azure Sanctuary Dynamic Wallpaper Suite",
     ],
     ctaLabel: "Coming Soon (In Review)",
     ctaDisabled: true,
   },
   {
     id: "collector",
-    name: "Collector's Physical Hideout Box",
+    name: "Collector's Physical Sanctuary Box",
     tag: "LIMITED CIRCLE RUN",
     price: "$89.99",
     target: "Limited Physical Production",
     badge: "Limited Run",
     featured: false,
     description:
-      "A tangible tribute crafted with love. Features a physical 3-CD digipak OST, acrylic hero standees, and a heavy metal replica of the hideout key.",
+      "A tangible tribute crafted with love. Features a physical 3-CD digipak OST, acrylic hero standees, and a heavy metal replica of the sanctuary celestial key.",
     deliverables: [
       "Everything in Deluxe Fan Pack (Steam Key + Digital OST)",
       "Physical 3-Disc Digipak Soundtrack with Composer Liner Notes",
       "Complete 8-Piece Acrylic Hero Standee Set",
-      "Heavy Zinc-Alloy Replica of the 'Secret Hideout Key'",
+      "Heavy Zinc-Alloy Replica of the 'Sanctuary Celestial Key'",
       "Silk-Finished Fabric Celestial World Map (A2 Size)",
       "Numbered Collector's Box with Gold Foil Embossing",
     ],
@@ -90,17 +90,17 @@ const COMPARISON_ROWS = [
   { feature: "WhatsApp Bot Prologue Code Transfer", standard: true, deluxe: true, collector: true },
   { feature: "45-Track Lossless Digital OST Vault", standard: false, deluxe: true, collector: true },
   { feature: "140-Page Digital Artbook & Scenario Lore", standard: false, deluxe: true, collector: true },
-  { feature: "Exclusive In-Game Relic 'Ever Darkness Brooch'", standard: false, deluxe: true, collector: true },
+  { feature: "Exclusive In-Game Relic 'Starlight Sovereign Brooch'", standard: false, deluxe: true, collector: true },
   { feature: "Physical 3-CD Digipak Soundtrack Box", standard: false, deluxe: false, collector: true },
   { feature: "8-Piece Hero Acrylic Standee Set", standard: false, deluxe: false, collector: true },
-  { feature: "Zinc-Alloy Secret Hideout Key Replica", standard: false, deluxe: false, collector: true },
+  { feature: "Zinc-Alloy Sanctuary Key Replica", standard: false, deluxe: false, collector: true },
   { feature: "Fabric Celestial World Map", standard: false, deluxe: false, collector: true },
 ];
 
 const VERSION_UPDATES = [
   {
     version: "v1.0.0",
-    codename: "Ever Darkness Awakening",
+    codename: "Celestial Sea Awakening",
     date: "Target Q4 2026",
     badge: "Upcoming Launch",
     statusColor: "blue",
@@ -122,7 +122,7 @@ const VERSION_UPDATES = [
     highlights: [
       "Dynamic initiative turn timeline with interrupt actions",
       "Elemental Catalyst chains: Astral, Pyre, Glacial, Zephyr",
-      "Secret Atelier alchemy recipe expansion (+12 items)",
+      "Sanctuary Forge celestial relic recipe expansion (+12 items)",
       "Performance optimization for VFX with silky 60fps frame timing",
     ],
   },
@@ -137,19 +137,19 @@ const VERSION_UPDATES = [
       "Interactive story decision engine over WhatsApp Business Webhooks",
       "Cloud state persistence with unique player phone identifier",
       "Companion trust system debut with dynamic dialogue reactions",
-      "Early-bird exclusive 'Ever Darkness Brooch' item code generation",
+      "Early-bird exclusive 'Starlight Sovereign Brooch' item code generation",
     ],
   },
   {
     version: "v0.7.0",
-    codename: "Secret Atelier & Sanctuary Prototype",
+    codename: "Azure Sanctuary & Celestial Haven Prototype",
     date: "July 2026",
     badge: "Alpha Demo",
     statusColor: "gray",
-    description: "Initial sandbox build introducing the underground hideout, dialogue backlog, and alchemy synthesis.",
+    description: "Initial sandbox build introducing the celestial sanctuary haven, dialogue backlog, and relic synthesis.",
     highlights: [
       "Grid-based synthesis catalyst placement engine",
-      "Atmospheric hideout interior rendering with dynamic lighting",
+      "Atmospheric sanctuary interior rendering with dynamic lighting",
       "Original background music drafts by ShirayukinoComp sound circle",
     ],
   },
@@ -183,7 +183,7 @@ export default function EditionsPage() {
                 Release Editions & Version Roadmap
               </h1>
               <p className="mt-3 sm:mt-4 text-xs sm:text-sm md:text-base text-gray-600 dark:text-gray-300 leading-relaxed break-words">
-                Temukan paket edisi rilis resmi dan log versi pembaruan (patch notes) untuk 『常闇の女王と秘密の隠れ家』. Nikmati petualangan orisinal kami, soundtrack vault, hingga pembaruan sistem berkala.
+                Temukan paket edisi rilis resmi dan log versi pembaruan (patch notes) untuk 『星海の白雪と蒼穹の聖域』. Nikmati petualangan orisinal kami, soundtrack vault, hingga pembaruan sistem berkala.
               </p>
             </div>
 

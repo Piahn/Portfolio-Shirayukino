@@ -14,8 +14,8 @@ export function ThemeToggle({ className = "" }: { className?: string }) {
           ? "border-[#25395c] bg-[#101c30] text-[#E5BA68] hover:bg-[#152542] hover:border-[#385485] shadow-[0_0_12px_rgba(229,186,104,0.18)]"
           : "border-[#d8d3cd] bg-white/90 text-gray-700 hover:bg-gray-50 hover:text-black shadow-sm"
       } ${className}`}
-      aria-label={isDark ? "Switch to light mode" : "Switch to dark mode (Ever Darkness)"}
-      title={isDark ? "Light Mode" : "Dark Mode (常闇)"}
+      aria-label={isDark ? "Switch to light mode" : "Switch to dark mode (Celestial Midnight)"}
+      title={isDark ? "Light Mode" : "Dark Mode (常夜 - Celestial Midnight)"}
     >
       {/* Sun Icon */}
       <span

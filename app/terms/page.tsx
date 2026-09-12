@@ -5,14 +5,14 @@ import { IoArrowBackOutline, IoShieldCheckmarkOutline } from "react-icons/io5";
 export const metadata: Metadata = {
   title: "Terms of Use | ShirayukinoComp",
   description:
-    "Official Terms of Use and Fan Creation Guidelines for ShirayukinoComp and 『常闇の女王と秘密の隠れ家』 (Queen of Ever Darkness & the Secret Hideout).",
+    "Official Terms of Use and Fan Creation Guidelines for ShirayukinoComp and 『星海の白雪と蒼穹の聖域』 (The Celestial Snow & the Azure Sanctuary).",
 };
 
 const SECTIONS = [
   {
     title: "1. Acceptance of Terms",
     content:
-      "By accessing the ShirayukinoComp website, playing our interactive WhatsApp Bot prologue, downloading demo builds, or purchasing upcoming game editions of 『常闇の女王と秘密の隠れ家』 (Queen of Ever Darkness and the Secret Hideout), you agree to be bound by these Terms of Use and all applicable laws and regulations.",
+      "By accessing the ShirayukinoComp website, playing our interactive WhatsApp Bot prologue, downloading demo builds, or purchasing upcoming game editions of 『星海の白雪と蒼穹の聖域』 (The Celestial Snow & the Azure Sanctuary), you agree to be bound by these Terms of Use and all applicable laws and regulations.",
   },
   {
     title: "2. Software & Game License",
@@ -32,12 +32,12 @@ const SECTIONS = [
   {
     title: "5. Fan Art & Derivative Works Policy",
     content:
-      "Non-commercial derivative creations—including fan art, fan fiction, cosplay, and acoustic music covers—are wholeheartedly welcomed and supported. When sharing derivative works online, please tag or credit 『常闇の女王と秘密の隠れ家 / ShirayukinoComp』 so our circle can celebrate your work.",
+      "Non-commercial derivative creations—including fan art, fan fiction, cosplay, and acoustic music covers—are wholeheartedly welcomed and supported. When sharing derivative works online, please tag or credit 『星海の白雪と蒼穹の聖域 / ShirayukinoComp』 so our circle can celebrate your work.",
   },
   {
     title: "6. Intellectual Property Rights",
     content:
-      "All characters, scenarios, orchestral musical compositions, environment background illustrations, and logos associated with 『常闇の女王と秘密の隠れ家』 are proprietary creative works of ShirayukinoComp. Unauthorized commercial exploitation of circle assets is strictly prohibited.",
+      "All characters, scenarios, orchestral musical compositions, environment background illustrations, and logos associated with 『星海の白雪と蒼穹の聖域』 are proprietary creative works of ShirayukinoComp. Unauthorized commercial exploitation of circle assets is strictly prohibited.",
   },
   {
     title: "7. Modifications & Inquiries",

@@ -27,15 +27,16 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://shirayukinocomp.com"),
   title: {
-    default: "ShirayukinoComp | 常闇の女王と秘密の隠れ家 - Story RPG & Studio",
+    default: "ShirayukinoComp | 星海の白雪と蒼穹の聖域 - Story RPG & Studio",
     template: "%s | ShirayukinoComp",
   },
   description:
-    "Official website of ShirayukinoComp (シラユキノコンプ). Discover our flagship story RPG & visual novel project '常闇の女王と秘密の隠れ家' (The Queen of Eternal Darkness and the Secret Hideout), tactical combat timeline, 45-track orchestral soundtrack vault, circle devlogs, and community sanctuary.",
+    "Official website of ShirayukinoComp (シラユキノコンプ). Discover our flagship story RPG & visual novel project '星海の白雪と蒼穹の聖域' (The Celestial Snow & the Azure Sanctuary), tactical combat timeline, 45-track orchestral soundtrack vault, circle devlogs, and community sanctuary.",
   keywords: [
     "ShirayukinoComp",
     "シラユキノコンプ",
-    "常闇の女王と秘密の隠れ家",
+    "星海の白雪と蒼穹の聖域",
+    "The Celestial Snow & the Azure Sanctuary",
     "JRPG",
     "Story RPG",
     "Visual Novel",
@@ -73,7 +74,7 @@ export const metadata: Metadata = {
     alternateLocale: ["en_US", "id_ID"],
     url: "https://shirayukinocomp.com",
     siteName: "ShirayukinoComp",
-    title: "ShirayukinoComp | 常闇の女王と秘密の隠れ家 - Story RPG & Studio",
+    title: "ShirayukinoComp | 星海の白雪と蒼穹の聖域 - Story RPG & Studio",
     description:
       "A narrative-rich JRPG combining visual novel storytelling, tactical timeline battles, 45-track celestial soundtrack, and breathtaking fantasy worldbuilding.",
     images: [
@@ -81,13 +82,13 @@ export const metadata: Metadata = {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "ShirayukinoComp - 常闇の女王と秘密の隠れ家 Official Key Art",
+        alt: "ShirayukinoComp - 星海の白雪と蒼穹の聖域 Official Key Art",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "ShirayukinoComp | 常闇の女王と秘密の隠れ家",
+    title: "ShirayukinoComp | 星海の白雪と蒼穹の聖域",
     description:
       "A narrative-rich JRPG combining visual novel storytelling, tactical timeline battles, and celestial fantasy worldbuilding.",
     images: ["/og-image.jpg"],
@@ -137,13 +138,13 @@ const jsonLd = {
     {
       "@type": "VideoGame",
       "@id": "https://shirayukinocomp.com/#game",
-      name: "常闇の女王と秘密の隠れ家",
+      name: "星海の白雪と蒼穹の聖域",
       alternateName: [
-        "The Queen of Eternal Darkness and the Secret Hideout",
-        "Tokoyami no Joou to Himitsu no Kakurega",
+        "The Celestial Snow & the Azure Sanctuary",
+        "Seikai no Shirayuki to Soukyuu no Seiiki",
       ],
       description:
-        "A narrative-rich JRPG combining visual novel branching storytelling, tactical timeline initiative battles, and celestial alchemy worldbuilding.",
+        "A narrative-rich JRPG combining visual novel branching storytelling, tactical timeline initiative battles, and celestial fantasy worldbuilding.",
       genre: ["Story RPG", "Visual Novel", "Tactical Turn-Based RPG"],
       gamePlatform: ["PC", "Steam", "Steam Deck"],
       applicationCategory: "Game",

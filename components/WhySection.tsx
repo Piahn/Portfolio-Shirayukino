@@ -4,7 +4,7 @@ const items = [
   {
     title: "Deep Multi-Route Narrative",
     description:
-      "Every dialogue choice echoes through the storyline. Experience branching outcomes, intimate character bonds, and uncover the forgotten truth of the Queen of Ever Darkness.",
+      "Every dialogue choice echoes through the storyline. Experience branching outcomes, intimate character bonds, and uncover the ancient mysteries of the Azure Sanctuary and the Celestial Sea.",
   },
   {
     title: "Tactical Party Combat",
@@ -12,9 +12,9 @@ const items = [
       "Master strategic turn-based battles featuring elemental catalysts, party formation bonuses, and celestial awakening ultimate arts.",
   },
   {
-    title: "Relic Synthesis & The Hideout",
+    title: "Relic Synthesis & The Sanctuary",
     description:
-      "Gather rare star crystals and botanical flora across the wilderness to synthesize enchanted gear, battle remedies, and atelier enhancements.",
+      "Gather rare star crystals and botanical flora across the wilderness to synthesize enchanted gear, battle remedies, and sanctuary enhancements.",
   },
   {
     title: "Handcrafted Audio-Visual Harmony",
@@ -70,7 +70,7 @@ export function WhySection() {
               {/* Background Key Visual Artwork */}
               <img
                 src="/celestial_whale.jpg"
-                alt="常闇の女王と秘密の隠れ家 - Celestial Whale & Sky Sanctuary"
+                alt="星海の白雪と蒼穹の聖域 - Celestial Whale & Sky Sanctuary"
                 className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105 select-none"
               />
 
@@ -92,7 +92,7 @@ export function WhySection() {
                     <span className="text-sm text-[#E5BA68]">✦</span>
                   </div>
                   <h4 className="text-xl sm:text-2xl font-serif italic text-white tracking-wide">
-                    常闇の女王と秘密の隠れ家
+                    星海の白雪と蒼穹の聖域
                   </h4>
                 </div>
 
@@ -102,7 +102,7 @@ export function WhySection() {
 
                 <div className="mt-5 pt-4 border-t border-white/10 flex flex-wrap items-center justify-between gap-3">
                   <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#E5BA68]/50 bg-[#E5BA68]/15 text-[10.5px] font-mono text-[#E5BA68] font-semibold">
-                    <span>Atelier & Tactical Battle Demo</span>
+                    <span>Sanctuary & Tactical Battle Demo</span>
                   </div>
                   <span className="text-[11px] font-mono text-gray-300">
                     ShirayukinoComp Studio

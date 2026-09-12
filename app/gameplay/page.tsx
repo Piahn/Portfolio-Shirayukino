@@ -15,7 +15,7 @@ import { WHATSAPP_BOT_URL } from "@/components/constants";
 export const metadata: Metadata = {
   title: "Gameplay Overview | ShirayukinoComp",
   description:
-    "Explore the combat systems, visual novel branching narrative, and alchemy atelier mechanics of 『常闇の女王と秘密の隠れ家』 (Queen of Ever Darkness & the Secret Hideout).",
+    "Explore the combat systems, visual novel branching narrative, and celestial relic synthesis of 『星海の白雪と蒼穹の聖域』 (The Celestial Snow & the Azure Sanctuary).",
 };
 
 const GAMEPLAY_PILLARS = [
@@ -37,25 +37,25 @@ const GAMEPLAY_PILLARS = [
     tag: "STORY & VISUAL NOVEL",
     title: "Branching Scenarios & Multiple Endings",
     description:
-      "Experience high-stakes choices that determine the fate of the Queen of Ever Darkness and your comrades. Every decision subtly influences companion trust levels, unlocking divergent story chapters and 4 distinct canonical endings.",
+      "Experience high-stakes choices that determine the fate of the Sovereign of the Celestial Sea and your comrades. Every decision subtly influences companion trust levels, unlocking divergent story chapters and 4 distinct canonical endings.",
     features: [
       "Over 18 major narrative crossroads affecting entire regions",
-      "Hero bond events and intimate hideout conversations",
+      "Hero bond events and intimate sanctuary conversations",
       "Richly illustrated story CGs with cinematic scene transitions",
       "Integrated scenario log allowing replay of unlocked story branches",
     ],
   },
   {
     icon: IoFlaskOutline,
-    tag: "ALCHEMICAL CRAFTING",
-    title: "The Secret Hideout Atelier",
+    tag: "RELIC SYNTHESIS",
+    title: "The Celestial Forge & Sanctuary",
     description:
-      "Beneath the ancient ruins lies your sanctuary. Gather celestial starlight motes, ancient fossils, and mineral catalysts from expeditions to brew potent combat tonics, forge relic accessories, and customize party gear.",
+      "Beneath the floating islands lies your sanctuary. Gather celestial starlight motes, ancient fossils, and mineral catalysts from expeditions to brew potent combat tonics, forge relic accessories, and customize party gear.",
     features: [
       "Grid-based synthesis grid combining catalyst traits and elemental values",
-      "Hideout upgrades that unlock advanced potion recipes and passive buffs",
+      "Sanctuary upgrades that unlock advanced potion recipes and passive buffs",
       "Custom relic socketing allowing tailored character builds",
-      "Cozy hideout soundtrack and ambient character interactions",
+      "Cozy sanctuary soundtrack and ambient character interactions",
     ],
   },
   {
@@ -100,7 +100,7 @@ export default function GameplayOverviewPage() {
               Tactical JRPG combat meets branching visual novel
             </h1>
             <p className="mt-3 sm:mt-4 text-xs sm:text-sm md:text-base text-gray-600 dark:text-gray-300 leading-relaxed break-words">
-              『常闇の女王と秘密の隠れ家』 fuses turn-based combat depth, cozy atelier crafting, and deep narrative exploration. Experience the opening chapter now on WhatsApp or prepare for the upcoming full Steam release.
+              『星海の白雪と蒼穹の聖域』 fuses turn-based combat depth, cozy sanctuary relic crafting, and deep narrative exploration. Experience the opening chapter now on WhatsApp or prepare for the upcoming full Steam release.
             </p>
           </div>
         </div>

@@ -16,15 +16,15 @@ const steps = [
   },
   {
     number: "3",
-    title: "The Atelier & Secret Sanctuary",
+    title: "Celestial Forge & Azure Sanctuary",
     description:
-      "Return to your underground hideout to synthesize battle elixirs, craft enchanted weapons, and customize your party's abilities.",
+      "Return to your hidden azure sanctuary to synthesize battle elixirs, craft enchanted weapons, and customize your party's abilities.",
   },
   {
     number: "4",
     title: "Character Bonds & Branching Paths",
     description:
-      "Spend tranquil evenings conversing with companions in the hideout, unlocking special dual-tech skills and altering story outcomes.",
+      "Spend tranquil evenings conversing with companions in the sanctuary camp, unlocking special dual-tech skills and altering story outcomes.",
   },
 ];
 

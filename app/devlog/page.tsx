@@ -105,7 +105,7 @@ export default function DevlogArchivePage() {
                 Production notes & circle devlogs
               </h1>
               <p className="mt-3 text-sm sm:text-base text-gray-600 dark:text-gray-300 max-w-2xl leading-relaxed">
-                Explore in-depth technical breakdowns, scenario writing chronicles, orchestral compositions, and dev updates for 『常闇の女王と秘密の隠れ家』.
+                Explore in-depth technical breakdowns, scenario writing chronicles, orchestral compositions, and dev updates for 『星海の白雪と蒼穹の聖域』.
               </p>
             </div>
 

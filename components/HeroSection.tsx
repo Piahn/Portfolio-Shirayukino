@@ -17,9 +17,9 @@ export function HeroSection() {
                 </span>
               </div>
               <h1 className="text-[2.2rem] sm:text-[2.7rem] lg:text-[3rem] leading-[1.08] font-medium text-black dark:text-white tracking-[-0.02em] transition-colors">
-                常闇の女王と秘密の隠れ家
-                <span className="block text-[1.3rem] sm:text-[1.5rem] lg:text-[1.7rem] text-[#142d55] dark:text-[#a0c2f9] font-serif italic font-normal mt-2.5 transition-colors">
-                  Queen of Ever Darkness & the Secret Hideout
+                星海の白雪と蒼穹の聖域
+                <span className="block text-[1.3rem] sm:text-[1.5rem] lg:text-[1.7rem] text-[#142d55] dark:text-[#E5BA68] font-serif italic font-normal mt-2.5 transition-colors">
+                  The Celestial Snow & the Azure Sanctuary
                 </span>
               </h1>
               <div className="flex flex-wrap items-center gap-4 sm:gap-6 mt-8 sm:mt-11 font-mono tracking-tight">
@@ -48,7 +48,7 @@ export function HeroSection() {
             {/* Bottom Left Grid Row */}
             <div className="border-t border-[#e7e3df] dark:border-[#1a2840] min-h-[110px] flex flex-col justify-center py-6 pr-0 lg:pr-14 transition-colors">
               <p className="text-[14px] sm:text-[15px] leading-[1.6] text-gray-700 dark:text-gray-300 transition-colors">
-                Rasakan kisah awal fantasi celestial dan visual novel oleh ShirayukinoComp secara interaktif via WhatsApp Bot sebelum versi penuh rilis di PC/Steam. Tentukan pilihan alur cerita, kumpulkan relic rahasia, dan buka jalan takdir sang Ratu.
+                Rasakan kisah awal fantasi celestial dan visual novel oleh ShirayukinoComp secara interaktif via WhatsApp Bot sebelum versi penuh rilis di PC/Steam. Tentukan pilihan alur cerita, kumpulkan relic rahasia, dan jelajahi misteri Laut Bintang.
               </p>
             </div>
           </div>
@@ -62,8 +62,13 @@ export function HeroSection() {
               <div className="relative z-10 max-w-[580px] p-2 sm:p-4 text-center">
                 <img
                   src="/shirayukino.png"
-                  alt="ShirayukinoComp - 常闇の女王と秘密の隠れ家 Logo"
-                  className="w-full h-auto object-contain drop-shadow-[0_12px_35px_rgba(20,45,85,0.18)] dark:drop-shadow-[0_12px_45px_rgba(100,160,255,0.22)] transition-transform duration-500 hover:scale-[1.02]"
+                  alt="ShirayukinoComp Studio Logo"
+                  className="w-full h-auto object-contain drop-shadow-[0_12px_35px_rgba(20,45,85,0.18)] dark:hidden transition-transform duration-500 hover:scale-[1.02]"
+                />
+                <img
+                  src="/shirayukino-dark.png"
+                  alt="ShirayukinoComp Studio Logo"
+                  className="w-full h-auto object-contain hidden dark:block drop-shadow-[0_12px_45px_rgba(229,186,104,0.3)] transition-transform duration-500 hover:scale-[1.02]"
                 />
                 <div className="mt-6 inline-flex items-center gap-2 text-[11px] font-mono text-[#62728a] dark:text-[#8c9eb8] tracking-wider uppercase transition-colors">
                   <span>✦ Visual Novel</span>

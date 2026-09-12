@@ -7,14 +7,14 @@ const team = [
     name: "Yukino\nShiraishi",
     role: "Creative Director & Scenario",
     image: "/jack.png",
-    bio: "Lead writer and worldbuilder behind '常闇の女王と秘密の隠れ家'. Oversees branching storyline paths and character arcs.",
+    bio: "Lead writer and worldbuilder behind '星海の白雪と蒼穹の聖域'. Oversees branching storyline paths and character arcs.",
     experience: "8+ years in fantasy visual novel writing and narrative design.",
   },
   {
     name: "Ren\nKanzaki",
     role: "Battle & Gameplay Engineer",
     image: "/giovan.png",
-    bio: "Architect of the turn-based tactical combat engine, catalyst elemental systems, and atelier synthesis crafting.",
+    bio: "Architect of the turn-based tactical combat engine, catalyst elemental systems, and celestial relic synthesis crafting.",
     experience: "6+ years in indie JRPG programming and multi-platform engine optimization.",
   },
   {

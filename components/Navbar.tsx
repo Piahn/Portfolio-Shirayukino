@@ -18,8 +18,13 @@ export function ShirayukinoLogo({
     <div className={`flex items-center shrink-0 ${className}`}>
       <img
         src="/shirayukino.png"
-        alt="ShirayukinoComp"
-        className={`${imgClassName} w-auto object-contain transition-transform duration-300 group-hover:scale-105 select-none drop-shadow-sm dark:drop-shadow-[0_2px_10px_rgba(255,255,255,0.18)]`}
+        alt="ShirayukinoComp Studio"
+        className={`${imgClassName} w-auto object-contain transition-all duration-300 group-hover:scale-105 select-none drop-shadow-sm dark:hidden`}
+      />
+      <img
+        src="/shirayukino-dark.png"
+        alt="ShirayukinoComp Studio"
+        className={`${imgClassName} w-auto object-contain transition-all duration-300 group-hover:scale-105 select-none hidden dark:block drop-shadow-[0_2px_12px_rgba(229,186,104,0.2)]`}
       />
     </div>
   );
@@ -55,7 +60,7 @@ const drawerNavItems = [
   {
     num: "04",
     label: "Devlog",
-    desc: "Scenario notes, 45-track OST vault & atelier insights",
+    desc: "Scenario notes, 45-track OST vault & sanctuary insights",
     href: "/devlog",
   },
   {
@@ -291,23 +296,23 @@ export function Navbar() {
                   <div className="relative h-48 xl:h-52 w-full overflow-hidden">
                     <img
                       src="/secret_hideout.jpg"
-                      alt="Secret Hideout Sanctuary"
+                      alt="Azure Sanctuary Haven"
                       className="h-full w-full object-cover object-center transition-transform duration-700 hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#f8f5f2] dark:from-[#0c1524] via-transparent to-black/40" />
                     <div className="absolute top-3.5 left-3.5 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-white font-mono text-[10px] uppercase tracking-wider">
                       <span className="w-1.5 h-1.5 rounded-full bg-[#E5BA68] animate-pulse" />
-                      <span>Atelier Sanctuary</span>
+                      <span>Celestial Sanctuary</span>
                     </div>
                   </div>
 
                   {/* Showcase Details */}
                   <div className="p-6">
                     <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-[#142d55] dark:text-[#E5BA68] font-semibold">
-                      常闇の女王と秘密の隠れ家
+                      星海の白雪と蒼穹の聖域
                     </p>
                     <h4 className="text-lg font-semibold text-black dark:text-white mt-1">
-                      Queen of Ever Darkness & the Secret Hideout
+                      The Celestial Snow & the Azure Sanctuary
                     </h4>
                     <p className="text-xs text-gray-600 dark:text-gray-300 mt-2 leading-relaxed">
                       A fantasy narrative JRPG uniting tactical timeline battles, branching visual novel choices, and an original 45-track orchestral score.
@@ -361,7 +366,7 @@ export function Navbar() {
           {/* Bottom Action in Drawer */}
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-[#e7e3df] dark:border-[#1a2840]">
             <p className="font-mono text-[12px] text-gray-500 dark:text-gray-400">
-              常闇の女王と秘密の隠れ家 Project © 2026 ShirayukinoComp
+              星海の白雪と蒼穹の聖域 Project © 2026 ShirayukinoComp
             </p>
             <a
               href={WHATSAPP_BOT_URL}

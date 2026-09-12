@@ -22,7 +22,7 @@ export function FinalCta() {
               Circle Sanctuary
             </p>
             <h2 className="text-[2rem] sm:text-[2.5rem] leading-[1.02] tracking-[-0.04em] text-black dark:text-white mt-1">
-              Step inside the secret hideout
+              Step inside the azure sanctuary
             </h2>
           </div>
           <Link
