@@ -2,10 +2,16 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { IoMenuOutline, IoCloseOutline, IoLogoWhatsapp } from "react-icons/io5";
+import {
+  IoMenuOutline,
+  IoCloseOutline,
+  IoLogoWhatsapp,
+  IoPersonOutline,
+  IoSparklesOutline,
+} from "react-icons/io5";
 import { HiArrowRight, HiArrowUpRight } from "react-icons/hi2";
 import { ThemeToggle } from "./ThemeToggle";
-import { WHATSAPP_BOT_URL } from "./constants";
+import { WHATSAPP_BOT_URL, DASHBOARD_URL } from "./constants";
 
 export function ShirayukinoLogo({
   className = "",
@@ -142,7 +148,7 @@ export function Navbar() {
           </nav>
         </div>
 
-        {/* Right: Wishlist + Play Demo Button + Mobile Menu Button */}
+        {/* Right: Wishlist + Portal + Play Demo Button + Mobile Menu Button */}
         <div className="flex items-center gap-2 sm:gap-3 shrink-0">
           <a
             href="#editions"
@@ -150,6 +156,18 @@ export function Navbar() {
           >
             Wishlist Steam
           </a>
+
+          {/* Desktop & Tablet Portal Pill Link */}
+          <a
+            href={DASHBOARD_URL}
+            className="hidden sm:inline-flex items-center gap-1.5 font-medium rounded-full px-3.5 sm:px-4 py-[7px] sm:py-2 text-[12px] sm:text-[13px] text-gray-800 dark:text-gray-100 bg-white hover:bg-gray-100 dark:bg-[#0c1524] dark:hover:bg-[#15233c] border border-[#e7e3df] dark:border-[#1e3456] transition-all whitespace-nowrap shadow-sm font-mono group"
+            aria-label="Portal Dashboard"
+            title="Portal Dashboard"
+          >
+            <IoSparklesOutline className="text-[#142d55] dark:text-[#E5BA68] transition-transform group-hover:rotate-12" />
+            <span>Portal</span>
+          </a>
+
           <a
             href={WHATSAPP_BOT_URL}
             target="_blank"
@@ -158,6 +176,16 @@ export function Navbar() {
           >
             <IoLogoWhatsapp className="text-[#25D366] text-base" />
             <span>Play on WhatsApp</span>
+          </a>
+
+          {/* Mobile Portal Icon Link (shown only on mobile < 640px) */}
+          <a
+            href={DASHBOARD_URL}
+            className="sm:hidden flex items-center justify-center w-10 h-10 rounded-full bg-white dark:bg-[#0c1524] border border-[#e8e3dd] dark:border-[#1f304d] hover:bg-gray-100 dark:hover:bg-[#101a2b] text-[#142d55] dark:text-[#E5BA68] transition-colors shrink-0 shadow-sm"
+            aria-label="Portal Dashboard"
+            title="Portal Dashboard"
+          >
+            <IoPersonOutline size={18} />
           </a>
 
           {/* Mobile / Tablet Hamburger Button when at top */}
@@ -186,6 +214,19 @@ export function Navbar() {
                 : "-translate-y-6 opacity-0 pointer-events-none scale-90 invisible"
             }`}
           >
+            {/* Floating Portal Link when scrolled */}
+            {isScrolled && !isMenuOpen && (
+              <a
+                href={DASHBOARD_URL}
+                className="pointer-events-auto flex items-center gap-1.5 px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-full bg-white/95 dark:bg-[#0c1424]/95 backdrop-blur-xl border border-gray-200/90 dark:border-[#1f304d] text-gray-800 dark:text-gray-200 text-xs font-mono font-semibold shadow-[0_4px_20px_rgba(0,0,0,0.06)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.4)] hover:border-[#142d55] dark:hover:border-[#E5BA68] transition-all group"
+                title="Portal Dashboard"
+                aria-label="Portal Dashboard"
+              >
+                <IoPersonOutline className="text-sm text-[#142d55] dark:text-[#E5BA68] group-hover:scale-110 transition-transform" />
+                <span className="hidden sm:inline text-[11px]">Portal</span>
+              </a>
+            )}
+
             {/* Theme Toggle Pill - perfectly aligned vertically with Close button when Menu is open */}
             {isMenuOpen && (
               <div className="pointer-events-auto flex items-center gap-2 pl-3 sm:pl-3.5 pr-1.5 py-1 sm:py-1.5 rounded-full bg-white/95 dark:bg-[#0c1424]/95 backdrop-blur-xl border border-gray-200/90 dark:border-[#1f304d] shadow-[0_4px_20px_rgba(0,0,0,0.06)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.4)] transition-all animate-in fade-in zoom-in-95 duration-200">
@@ -285,6 +326,27 @@ export function Navbar() {
                       {link.label}
                     </Link>
                   ))}
+                </div>
+
+                {/* Member & Studio Portal Banner inside Drawer */}
+                <div className="mt-6 p-4 sm:p-5 rounded-[20px] bg-gradient-to-br from-[#f8faff] to-[#edf3fc] dark:from-[#0d1728] dark:to-[#08101d] border border-[#cfe0f8] dark:border-[#1e3456] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-sm">
+                  <div>
+                    <span className="font-mono text-[9.5px] uppercase tracking-[0.16em] text-[#142d55] dark:text-[#E5BA68] font-semibold flex items-center gap-1.5">
+                      <IoSparklesOutline />
+                      ✦ MEMBER & STUDIO PORTAL
+                    </span>
+                    <p className="text-xs text-gray-600 dark:text-gray-300 mt-1">
+                      Akses portal dashboard & status closed beta
+                    </p>
+                  </div>
+                  <a
+                    href={DASHBOARD_URL}
+                    onClick={closeMenu}
+                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#142d55] dark:bg-[#E5BA68] text-white dark:text-[#08101e] text-[11px] font-mono font-semibold uppercase tracking-wider shadow-sm hover:opacity-90 transition shrink-0"
+                  >
+                    <IoPersonOutline size={13} />
+                    <span>Buka Portal</span>
+                  </a>
                 </div>
               </div>
 
