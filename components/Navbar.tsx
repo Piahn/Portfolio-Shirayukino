@@ -229,7 +229,7 @@ export function Navbar() {
           >
             {/* Theme & Language Controls Pill - perfectly aligned vertically with Close button when Menu is open */}
             {isMenuOpen && (
-              <div className="pointer-events-auto flex items-center gap-2 pl-2.5 sm:pl-3 pr-1.5 py-1 sm:py-1.5 rounded-full bg-white/95 dark:bg-[#0c1424]/95 backdrop-blur-xl border border-gray-200/90 dark:border-[#1f304d] shadow-[0_4px_20px_rgba(0,0,0,0.06)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.4)] transition-all animate-in fade-in zoom-in-95 duration-200">
+              <div className="pointer-events-auto flex items-center gap-2 pl-2.5 sm:pl-3 pr-1.5 py-1 sm:py-1.5 rounded-full bg-white/95 dark:bg-[#0c1424]/95 backdrop-blur-xl border border-gray-200/90 dark:border-[#1f304d] shadow-[0_4px_20px_rgba(0,0,0,0.06)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.4)] transition-all animate-in fade-in zoom-in-95 duration-200 xl:translate-x-[34px]">
                 <LanguageToggle />
                 <span className="w-[1px] h-3.5 bg-gray-200 dark:bg-[#1f304d]" />
                 <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-wider text-gray-500 dark:text-gray-400 select-none">
@@ -240,9 +240,8 @@ export function Navbar() {
             )}
 
             {/* The Iconic Round Circular Menu Button with Smooth Morphing Bars to X */}
-            {/* On mobile & tablet (< 1280px): translate-x-0 stays safely inside screen bounds */}
-            {/* On desktop (xl: >=1280px): when closed, translate-x-1/2 centers on grid; when open, translate-x-0 keeps group neatly aligned */}
-            <div className={`translate-x-0 ${isMenuOpen ? "xl:translate-x-0" : "xl:translate-x-1/2"} ${isScrolled || isMenuOpen ? "pointer-events-auto" : "pointer-events-none"}`}>
+            {/* Position is permanently locked on the 1200px architectural line (xl:translate-x-1/2) both when closed and open */}
+            <div className={`translate-x-0 xl:translate-x-1/2 ${isScrolled || isMenuOpen ? "pointer-events-auto" : "pointer-events-none"}`}>
               <button
                 type="button"
                 onClick={() => setIsMenuOpen((prev) => !prev)}
@@ -335,13 +334,6 @@ export function Navbar() {
                   ))}
                 </div>
 
-                {/* Quick Language Selection Card in Drawer */}
-                <div className="mt-5 flex items-center justify-between p-3.5 rounded-2xl bg-[#f8f5f2] dark:bg-[#0c1524] border border-[#e7e3df] dark:border-[#1a2840]">
-                  <span className="text-xs font-mono font-semibold uppercase tracking-wider text-[#142d55] dark:text-[#E5BA68] flex items-center gap-1.5">
-                    ✦ Bahasa / Language
-                  </span>
-                  <LanguageToggle />
-                </div>
 
                 {/* Member & Studio Portal Banner inside Drawer */}
                 <div className="mt-6 p-4 sm:p-5 rounded-[20px] bg-gradient-to-br from-[#f8faff] to-[#edf3fc] dark:from-[#0d1728] dark:to-[#08101d] border border-[#cfe0f8] dark:border-[#1e3456] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-sm">
