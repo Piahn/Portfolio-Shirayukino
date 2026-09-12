@@ -33,7 +33,7 @@ export function ShirayukinoLogo({
 const navLinks = [
   { label: "Story & RPG", href: "/gameplay" },
   { label: "World", href: "/#world" },
-  { label: "Editions", href: "/editions" },
+  { label: "Patch Notes", href: "/editions" },
   { label: "Devlog", href: "/devlog" },
   { label: "Community", href: "/community" },
 ];
@@ -53,8 +53,8 @@ const drawerNavItems = [
   },
   {
     num: "03",
-    label: "Editions",
-    desc: "Release tiers, package matrix & patch roadmap",
+    label: "Patch Notes",
+    desc: "Versi pembaruan, patch notes & release roadmap",
     href: "/editions",
   },
   {
@@ -74,7 +74,7 @@ const drawerNavItems = [
 const mobileMenuSecondary = [
   { label: "Steam Hub", href: "/community" },
   { label: "Discord Circle", href: "/community" },
-  { label: "Soundtrack Vault", href: "/editions" },
+  { label: "Soundtrack Vault", href: "/devlog/music-soundscapes" },
   { label: "Terms & Privacy", href: "/terms" },
 ];
 

@@ -49,7 +49,7 @@ export function Footer() {
                     World & Lore
                   </Link>
                   <Link
-                    href="/editions"
+                    href="/devlog/music-soundscapes"
                     className="block text-[14px] font-medium leading-none tracking-[-0.02em] text-black dark:text-white transition hover:text-[#142d55] dark:hover:text-[#E5BA68]"
                   >
                     Soundtrack Vault
@@ -63,32 +63,32 @@ export function Footer() {
                 </div>
               </nav>
 
-              {/* Column 2: Editions */}
+              {/* Column 2: Updates & Roadmap */}
               <nav
-                aria-label="Editions"
+                aria-label="Updates & Roadmap"
                 className="px-8 py-8 sm:px-7 border-t border-[#e7e3df] dark:border-[#1a2840] sm:border-l sm:border-t-0 transition-colors"
               >
                 <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-[#8f8b86] dark:text-[#7f93b0] transition-colors">
-                  Editions
+                  Updates & Roadmap
                 </p>
                 <div className="mt-8 space-y-4">
                   <Link
                     href="/editions"
                     className="block text-[14px] font-medium leading-none tracking-[-0.02em] text-black dark:text-white transition hover:text-[#142d55] dark:hover:text-[#E5BA68]"
                   >
-                    Standard Digital
+                    Patch Notes (v0.9.4)
                   </Link>
                   <Link
                     href="/editions"
                     className="block text-[14px] font-medium leading-none tracking-[-0.02em] text-black dark:text-white transition hover:text-[#142d55] dark:hover:text-[#E5BA68]"
                   >
-                    Deluxe Fan Pack
+                    Release Roadmap
                   </Link>
                   <Link
-                    href="/editions"
+                    href="/devlog/music-soundscapes"
                     className="block text-[14px] font-medium leading-none tracking-[-0.02em] text-black dark:text-white transition hover:text-[#142d55] dark:hover:text-[#E5BA68]"
                   >
-                    Soundtrack Disc
+                    Soundtrack Vault
                   </Link>
                   <Link
                     href="/community"
@@ -149,7 +149,7 @@ export function Footer() {
                 Gameplay Overview
               </Link>
               <Link href="/editions" className="transition hover:text-black dark:hover:text-white">
-                Editions
+                Patch Notes
               </Link>
               <Link href="/privacy" className="transition hover:text-black dark:hover:text-white">
                 Privacy Policy
