@@ -159,8 +159,10 @@ export function Navbar() {
           </nav>
         </div>
 
-        {/* Right: Portal + Play Demo Button + Mobile Menu Button */}
+        {/* Right: Language Switcher + Portal + Play Demo Button + Mobile Menu Button */}
         <div translate="no" className="notranslate flex items-center gap-2 sm:gap-3 shrink-0">
+          <LanguageToggle className="hidden sm:inline-flex" />
+
           {/* Desktop & Tablet Portal Pill Link */}
           <a
             href={DASHBOARD_URL}
