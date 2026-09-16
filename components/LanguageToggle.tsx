@@ -2,7 +2,7 @@
 
 import { useLanguage, type Lang } from "./LanguageContext";
 import { IoGlobeOutline } from "react-icons/io5";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 export function LanguageToggle({
   className = "",
@@ -14,7 +14,6 @@ export function LanguageToggle({
   const { lang, setLang } = useLanguage();
   const router = useRouter();
   const pathname = usePathname() || "";
-  const searchParams = useSearchParams();
   const isInline = variant === "inline";
 
   const handleLanguageChange = (targetLang: Lang) => {
@@ -30,9 +29,11 @@ export function LanguageToggle({
       newPath = `/${targetLang}${pathname === "/" ? "" : pathname}`;
     }
 
-    // Preserve search params if any
-    const queryString = searchParams?.toString();
-    const finalUrl = queryString ? `${newPath}?${queryString}` : newPath;
+    // Preserve search params and hash anchor if any
+    const search = typeof window !== "undefined" ? window.location.search : "";
+    const queryString = search && search.startsWith("?") ? search.slice(1) : search;
+    const hash = typeof window !== "undefined" ? window.location.hash : "";
+    const finalUrl = `${newPath}${queryString ? `?${queryString}` : ""}${hash}`;
 
     router.push(finalUrl, { scroll: false });
   };

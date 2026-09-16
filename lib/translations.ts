@@ -633,6 +633,60 @@ export const translations = {
         },
       ],
     },
+
+    creditsPage: {
+      backHome: "Beranda",
+      breadcrumbCurrent: "Staf & Kredit",
+      badge: "KREDIT PRODUKSI & TIM CIRCLE",
+      title: "Kredit Produksi & Tim Kreatif",
+      desc: "Kredit resmi tim inti Shirayukino Software / Comp, pengembang ekosistem Yurizaki, serta apresiasi mendalam untuk komunitas dan penguji coba.",
+      coreTeamTitle: "Tim Inti & Pendiri Circle",
+      coreTeamDesc: "Para kreator di balik pengembangan arsitektur game, naskah cerita, sistem bot interaktif, dan pengujian sistem.",
+      coreMembers: [
+        {
+          name: "Piahn",
+          role: "Lead Developer",
+          subRole: "Founder Shirayukino Software",
+          desc: "Pengembang utama arsitektur sistem, engine web, dan perancang semesta game 『星海の白雪と蒼穹の聖域』.",
+          badge: "Founder",
+        },
+        {
+          name: "Rialya",
+          role: "Community Manager",
+          subRole: "Owner Yurizaki • Co-Founder",
+          desc: "Pengelola komunitas dan ekosistem Yurizaki, mengarahkan komunikasi, manajemen interaksi guild, dan operasional circle.",
+          badge: "Co-Founder",
+        },
+        {
+          name: "Kafka",
+          role: "Core Developer & Tester",
+          subRole: "Battle Mechanics & Systems",
+          desc: "Pengembang logika fitur, pengujian stabilitas performa, dan sinkronisasi battle mechanics di ekosistem bot.",
+          badge: "Core Dev",
+        },
+        {
+          name: "Darren",
+          role: "QA & Story Reviewer",
+          subRole: "Playtest Evaluation & Balancing",
+          desc: "Penguji kualitas alur cerita, evaluasi keseimbangan dinamika pertarungan, dan kurator pengalaman bermain.",
+          badge: "Lead QA",
+        },
+      ],
+      inspirationTitle: "Sumber Inspirasi",
+      inspirationContent:
+        "Fitur-fitur dan perkembangan dalam semesta Shirayukino dan bot Yurizaki terinspirasi langsung dari antusiasme, saran, dan ide-ide kreatif seluruh anggota komunitas. Setiap masukan dan interaksi kalian adalah inspirasi terbesar di balik setiap kemajuan karya ini.",
+      bigThanksTitle: "Ucapan Terima Kasih",
+      bigThanksContent:
+        "Terima kasih sebesar-besarnya kepada seluruh Staff, beta playtester, dan pengguna setia Yurizaki yang senantiasa mendukung perjalanan kami. Kalian adalah alasan utama circle ini terus berkarya dan berkembang.",
+      closingQuote: "Makasih udah jadi bagian dari perjalanan Shirayukino & Yurizaki!",
+      banner: {
+        badge: "KOMUNITAS & CIRCLE",
+        title: "Bergabung Bersama Kami di Sanctuary",
+        desc: "Jelajahi diskusi cerita, ikuti playtest rilisan mendatang, atau berinteraksi langsung melalui Discord dan Bot Yurizaki.",
+        actionDiscord: "Buka Server Discord",
+        actionBot: "Coba Bot Yurizaki",
+      },
+    },
   },
 
   en: {
@@ -1226,6 +1280,60 @@ export const translations = {
             "If you have questions regarding privacy or data handling, please reach out via email at contact@shirayukinocomp.com or connect through our official Discord server.",
         },
       ],
+    },
+
+    creditsPage: {
+      backHome: "Home",
+      breadcrumbCurrent: "Staff & Credits",
+      badge: "PRODUCTION CREDITS & CIRCLE TEAM",
+      title: "Production Credits & Creative Team",
+      desc: "Official credits for the Shirayukino Software / Comp core team, Yurizaki ecosystem developers, and heartfelt acknowledgments to our community.",
+      coreTeamTitle: "Core Team & Circle Founders",
+      coreTeamDesc: "The creators behind the game system architecture, narrative scenario, interactive bot systems, and playtest balance.",
+      coreMembers: [
+        {
+          name: "Piahn",
+          role: "Lead Developer",
+          subRole: "Founder Shirayukino Software",
+          desc: "Lead architect for system design, web engine, and the conceptual universe of 『星海の白雪と蒼穹の聖域』.",
+          badge: "Founder",
+        },
+        {
+          name: "Rialya",
+          role: "Community Manager",
+          subRole: "Owner Yurizaki • Co-Founder",
+          desc: "Community director and owner of the Yurizaki ecosystem, overseeing guild interactions, communications, and circle operations.",
+          badge: "Co-Founder",
+        },
+        {
+          name: "Kafka",
+          role: "Core Developer & Tester",
+          subRole: "Battle Mechanics & Systems",
+          desc: "Developing core feature logic, performance stability testing, and battle mechanics synchronization across the bot ecosystem.",
+          badge: "Core Dev",
+        },
+        {
+          name: "Darren",
+          role: "QA & Story Reviewer",
+          subRole: "Playtest Evaluation & Balancing",
+          desc: "Quality assurance lead for narrative flow, JRPG combat balance evaluation, and player experience curation.",
+          badge: "Lead QA",
+        },
+      ],
+      inspirationTitle: "Source of Inspiration",
+      inspirationContent:
+        "The gameplay features and narrative arcs within the Shirayukino universe and Yurizaki bot are inspired directly by the creativity and enthusiasm of our community members. Your feedback and engagement remain our greatest inspiration.",
+      bigThanksTitle: "Special Thanks",
+      bigThanksContent:
+        "Our deepest gratitude goes to all Circle staff, beta playtesters, and devoted Yurizaki users who continually support our journey. You are the heartbeat behind everything we build.",
+      closingQuote: "Thank you for being part of the Shirayukino & Yurizaki journey!",
+      banner: {
+        badge: "COMMUNITY & CIRCLE",
+        title: "Join Us in the Sanctuary",
+        desc: "Explore story discussions, participate in upcoming playtests, or interact directly via Discord and the Yurizaki Bot.",
+        actionDiscord: "Open Discord Server",
+        actionBot: "Launch Yurizaki Bot",
+      },
     },
   },
 };

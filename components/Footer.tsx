@@ -134,7 +134,7 @@ export function Footer() {
                     Fan Guidelines
                   </Link>
                   <Link
-                    href={getLocalizedHref("/community")}
+                    href={getLocalizedHref("/credits")}
                     className="block text-[14px] font-medium leading-none tracking-[-0.02em] text-black dark:text-white transition hover:text-[#142d55] dark:hover:text-[#E5BA68]"
                   >
                     Staff & Credits

@@ -50,7 +50,7 @@ export function WhySection() {
 
           {/* Right Column with Visual Art */}
           <div className="lg:w-1/2">
-            <div className="group relative overflow-hidden rounded-[1.5rem] aspect-[4/5] sm:aspect-[5/6] lg:aspect-auto lg:h-full lg:min-h-[600px] flex flex-col justify-end p-6 sm:p-9 border border-[#2b4c80] dark:border-[#1e3b68] shadow-md dark:shadow-[0_12px_40px_rgba(0,0,0,0.6)] transition-all">
+            <div className="group relative overflow-hidden rounded-[1.5rem] min-h-[460px] sm:min-h-[520px] lg:min-h-[600px] flex flex-col justify-between p-4 sm:p-7 lg:p-9 border border-[#2b4c80] dark:border-[#1e3b68] shadow-md dark:shadow-[0_12px_40px_rgba(0,0,0,0.6)] transition-all">
               {/* Background Key Visual Artwork */}
               <img
                 src="/celestial_whale.jpg"
@@ -59,36 +59,37 @@ export function WhySection() {
               />
 
               {/* Multi-layered cinematic gradient overlays */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#060c17]/95 via-[#060c17]/40 to-black/15 pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#060c17]/95 via-[#060c17]/35 to-black/20 pointer-events-none" />
 
-              {/* Floating Top Badge */}
-              <div className="absolute top-6 left-6 sm:top-8 sm:left-8 z-10">
-                <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-white text-[10.5px] font-mono uppercase tracking-[0.14em]">
-                  <span className="w-2 h-2 rounded-full bg-[#E5BA68] animate-pulse" />
-                  <span>KEY VISUAL • CELESTIAL SEA & WHALE</span>
+              {/* Floating Top Badge (Compact & Responsive) */}
+              <div className="z-10 self-start">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-black/65 backdrop-blur-md border border-white/20 text-white text-[10px] sm:text-[10.5px] font-mono uppercase tracking-[0.14em]">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#E5BA68] animate-pulse" />
+                  <span className="sm:hidden">KEY VISUAL</span>
+                  <span className="hidden sm:inline">KEY VISUAL • CELESTIAL SEA</span>
                 </span>
               </div>
 
               {/* Bottom Content Card with Glassmorphism */}
-              <div className="relative z-10 rounded-2xl bg-black/50 backdrop-blur-md p-6 sm:p-7 border border-white/15 text-white transition-colors">
-                <div className="flex items-center gap-3 mb-2.5">
-                  <div className="w-8 h-8 rounded-full bg-[#E5BA68]/20 border border-[#E5BA68]/50 flex items-center justify-center shrink-0">
-                    <span className="text-sm text-[#E5BA68]">✦</span>
+              <div className="relative z-10 rounded-2xl bg-black/55 backdrop-blur-md p-4 sm:p-6 md:p-7 border border-white/15 text-white transition-colors">
+                <div className="flex items-center gap-2.5 mb-2">
+                  <div className="w-7 h-7 rounded-full bg-[#E5BA68]/20 border border-[#E5BA68]/50 flex items-center justify-center shrink-0">
+                    <span className="text-xs text-[#E5BA68]">✦</span>
                   </div>
-                  <h4 className="text-xl sm:text-2xl font-serif italic text-white tracking-wide">
+                  <h4 className="text-base sm:text-xl md:text-2xl font-serif italic text-white tracking-wide truncate">
                     星海の白雪と蒼穹の聖域
                   </h4>
                 </div>
 
-                <p className="text-xs sm:text-[13px] font-mono text-gray-200 leading-relaxed italic">
+                <p className="text-[11px] sm:text-xs md:text-[13px] font-mono text-gray-200 leading-relaxed italic line-clamp-2 sm:line-clamp-none">
                   &ldquo;Beyond the clouds where whales drift in the celestial sea, an ancient sanctuary awaits the brave.&rdquo;
                 </p>
 
-                <div className="mt-5 pt-4 border-t border-white/10 flex flex-wrap items-center justify-between gap-3">
-                  <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#E5BA68]/50 bg-[#E5BA68]/15 text-[10.5px] font-mono text-[#E5BA68] font-semibold">
-                    <span>Sanctuary & Tactical Battle Demo</span>
-                  </div>
-                  <span className="text-[11px] font-mono text-gray-300">
+                <div className="mt-3.5 sm:mt-5 pt-3 border-t border-white/10 flex items-center justify-between gap-2 text-[10px] sm:text-[11px] font-mono">
+                  <span className="text-[#E5BA68] font-semibold truncate">
+                    Sanctuary &amp; Battle Demo
+                  </span>
+                  <span className="text-gray-300 shrink-0">
                     ShirayukinoComp Studio
                   </span>
                 </div>

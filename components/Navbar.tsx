@@ -80,6 +80,7 @@ const drawerNavItems = [
 const mobileMenuSecondary = [
   { label: "Steam Hub", href: "/community" },
   { label: "Discord Circle", href: "/community" },
+  { label: "Staff & Credits", href: "/credits" },
   { label: "Soundtrack Vault", href: "/devlog/music-soundscapes" },
   { label: "Terms & Privacy", href: "/terms" },
 ];
@@ -264,9 +265,9 @@ export function Navbar() {
                 : "-translate-y-6 opacity-0 pointer-events-none scale-90 invisible"
             }`}
           >
-            {/* Theme & Language Controls Pill - perfectly aligned vertically with Close button when Menu is open */}
+            {/* Theme & Language Controls Pill - desktop only to prevent collision with mobile logo */}
             {isMenuOpen && (
-              <div className="pointer-events-auto flex items-center gap-2 pl-2.5 sm:pl-3 pr-1.5 py-1 sm:py-1.5 rounded-full bg-white/95 dark:bg-[#0c1424]/95 backdrop-blur-xl border border-gray-200/90 dark:border-[#1f304d] shadow-[0_4px_20px_rgba(0,0,0,0.06)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.4)] transition-all animate-in fade-in zoom-in-95 duration-200 xl:translate-x-[34px]">
+              <div className="hidden sm:flex pointer-events-auto items-center gap-2 pl-2.5 sm:pl-3 pr-1.5 py-1 sm:py-1.5 rounded-full bg-white/95 dark:bg-[#0c1424]/95 backdrop-blur-xl border border-gray-200/90 dark:border-[#1f304d] shadow-[0_4px_20px_rgba(0,0,0,0.06)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.4)] transition-all animate-in fade-in zoom-in-95 duration-200 xl:translate-x-[34px]">
                 <LanguageToggle />
                 <span className="w-[1px] h-3.5 bg-gray-200 dark:bg-[#1f304d]" />
                 <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-wider text-gray-500 dark:text-gray-400 select-none">
@@ -332,6 +333,23 @@ export function Navbar() {
             <div className="grid lg:grid-cols-[1.1fr_0.9fr] lg:gap-14 xl:gap-20 items-center">
               {/* Left Column: Primary Navigation */}
               <div>
+                {/* Mobile Language & Theme Bar */}
+                <div className="sm:hidden flex items-center justify-between px-3.5 py-2 rounded-full bg-[#f4f1ed] dark:bg-[#0d1627] border border-[#e5ded5] dark:border-[#1e304f] mb-6 shadow-xs">
+                  <div className="flex items-center gap-2">
+                    <span className="font-mono text-[9.5px] uppercase tracking-wider text-gray-500 dark:text-gray-400">
+                      Lang:
+                    </span>
+                    <LanguageToggle />
+                  </div>
+                  <span className="w-[1px] h-3.5 bg-gray-300 dark:bg-[#1f304d]" />
+                  <div className="flex items-center gap-2">
+                    <span className="font-mono text-[9.5px] uppercase tracking-wider text-gray-500 dark:text-gray-400">
+                      Theme:
+                    </span>
+                    <ThemeToggle />
+                  </div>
+                </div>
+
                 <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-[#8f8b86] dark:text-[#7f93b0] mb-5 sm:mb-7">
                   Menu Navigation
                 </p>
@@ -359,16 +377,28 @@ export function Navbar() {
                 </nav>
 
                 <div className="mt-8 flex flex-wrap gap-x-6 gap-y-2.5 pt-6 border-t border-[#e7e3df] dark:border-[#1a2840] font-mono text-xs sm:text-sm">
-                  {mobileMenuSecondary.map((link) => (
-                    <Link
-                      key={link.label}
-                      href={getLocalizedHref(link.href)}
-                      onClick={closeMenu}
-                      className="text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors"
-                    >
-                      {link.label}
-                    </Link>
-                  ))}
+                  {mobileMenuSecondary.map((link) => {
+                    const label =
+                      link.href === "/credits"
+                        ? lang === "id"
+                          ? "Staf & Kredit"
+                          : "Staff & Credits"
+                        : link.href === "/terms"
+                        ? lang === "id"
+                          ? "Syarat & Privasi"
+                          : "Terms & Privacy"
+                        : link.label;
+                    return (
+                      <Link
+                        key={link.label}
+                        href={getLocalizedHref(link.href)}
+                        onClick={closeMenu}
+                        className="text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors"
+                      >
+                        {label}
+                      </Link>
+                    );
+                  })}
                 </div>
 
 
