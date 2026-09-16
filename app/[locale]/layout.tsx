@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Playfair_Display, Geist_Mono } from "next/font/google";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
@@ -185,6 +185,10 @@ const jsonLd = {
   ],
 };
 
+export const viewport: Viewport = {
+  themeColor: "#070b12",
+};
+
 export default async function LocaleLayout({
   children,
   params,
@@ -201,32 +205,11 @@ export default async function LocaleLayout({
       suppressHydrationWarning
       className={`${inter.variable} ${playfair.variable} ${geistMono.variable}`}
     >
-      <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" href="/icon-32.png" type="image/png" sizes="32x32" />
-        <link rel="icon" href="/icon-192.png" type="image/png" sizes="192x192" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
-        <meta name="theme-color" content="#070b12" />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              try {
-                const t = localStorage.getItem('shirayukino-theme');
-                if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                  document.documentElement.classList.add('dark');
-                } else {
-                  document.documentElement.classList.remove('dark');
-                }
-              } catch (_) {}
-            `,
-          }}
-        />
+      <body className="min-h-screen bg-white dark:bg-[#070b12] px-3 sm:px-4 font-sans antialiased text-black dark:text-[#e6edf8] transition-colors duration-300">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-      </head>
-      <body className="min-h-screen bg-white dark:bg-[#070b12] px-3 sm:px-4 font-sans antialiased text-black dark:text-[#e6edf8] transition-colors duration-300">
         <LanguageProvider initialLang={lang}>
           <ThemeProvider>
             <div className="mx-auto min-h-screen max-w-[1200px] border-x border-[#d9d4cf] dark:border-[#1a2840] bg-white dark:bg-[#070b12] transition-colors duration-300">
