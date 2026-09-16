@@ -8,3 +8,7 @@ export const WHATSAPP_BOT_URL =
 
 // Portal Dashboard URL (ganti dengan URL dashboard terpisah Anda nantinya)
 export const DASHBOARD_URL = "#";
+
+// Official temporary contact & privacy email addresses
+export const CONTACT_EMAIL = "contact@shirayukino.eu.cc";
+export const PRIVACY_EMAIL = "privacy@shirayukino.eu.cc";

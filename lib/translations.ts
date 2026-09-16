@@ -525,7 +525,7 @@ export const translations = {
             "Penghargaan pengakuan komunitas & drop merchandise fisik",
           ],
           actionLabel: "Kirim Karya Penggemar",
-          actionUrl: "mailto:contact@shirayukinocomp.com",
+          actionUrl: "mailto:contact@shirayukino.eu.cc",
           featured: false,
         },
       ],
@@ -629,7 +629,7 @@ export const translations = {
         {
           title: "4. Hubungi Kami",
           content:
-            "Jika Anda memiliki pertanyaan tentang privasi atau pengelolaan data, silakan hubungi kami melalui surel di contact@shirayukinocomp.com atau melalui server Discord resmi kami.",
+            "Jika Anda memiliki pertanyaan tentang privasi atau pengelolaan data, silakan hubungi kami melalui surel di contact@shirayukino.eu.cc atau melalui server Discord resmi kami.",
         },
       ],
     },
@@ -1173,7 +1173,7 @@ export const translations = {
             "Community recognition rewards & physical merch drops",
           ],
           actionLabel: "Submit Fan Creation",
-          actionUrl: "mailto:contact@shirayukinocomp.com",
+          actionUrl: "mailto:contact@shirayukino.eu.cc",
           featured: false,
         },
       ],
@@ -1277,7 +1277,7 @@ export const translations = {
         {
           title: "4. Contact Us",
           content:
-            "If you have questions regarding privacy or data handling, please reach out via email at contact@shirayukinocomp.com or connect through our official Discord server.",
+            "If you have questions regarding privacy or data handling, please reach out via email at contact@shirayukino.eu.cc or connect through our official Discord server.",
         },
       ],
     },

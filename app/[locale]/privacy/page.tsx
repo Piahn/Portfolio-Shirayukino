@@ -79,7 +79,7 @@ export default function PrivacyPage() {
               </p>
             </div>
             <a
-              href="mailto:privacy@shirayukinocomp.com"
+              href="mailto:privacy@shirayukino.eu.cc"
               className="px-5 py-2.5 rounded-full bg-[#142d55] text-white dark:bg-[#E5BA68] dark:text-[#08101e] font-semibold uppercase tracking-wider text-xs transition hover:opacity-90 shrink-0"
             >
               {lang === "id" ? "Kirim Surel Privasi" : "Email Privacy Team"}
