@@ -34,7 +34,7 @@ export function LanguageToggle({
     const queryString = searchParams?.toString();
     const finalUrl = queryString ? `${newPath}?${queryString}` : newPath;
 
-    router.push(finalUrl);
+    router.push(finalUrl, { scroll: false });
   };
 
   return (

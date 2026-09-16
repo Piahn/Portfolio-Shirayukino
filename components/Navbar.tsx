@@ -84,10 +84,41 @@ const mobileMenuSecondary = [
   { label: "Terms & Privacy", href: "/terms" },
 ];
 
+let cachedMenuOpen = false;
+
 export function Navbar() {
   const { lang } = useLanguage();
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(() => {
+    if (typeof window !== "undefined") {
+      return cachedMenuOpen || sessionStorage.getItem("shirayukino-menu-open") === "true";
+    }
+    return cachedMenuOpen;
+  });
+
+  const toggleMenu = (valOrFn?: boolean | ((prev: boolean) => boolean)) => {
+    setIsMenuOpen((prev) => {
+      const next =
+        typeof valOrFn === "function"
+          ? valOrFn(prev)
+          : typeof valOrFn === "boolean"
+          ? valOrFn
+          : !prev;
+      cachedMenuOpen = next;
+      try {
+        sessionStorage.setItem("shirayukino-menu-open", String(next));
+      } catch {}
+      return next;
+    });
+  };
+
+  const closeMenu = () => {
+    cachedMenuOpen = false;
+    try {
+      sessionStorage.setItem("shirayukino-menu-open", "false");
+    } catch {}
+    setIsMenuOpen(false);
+  };
 
   const getLocalizedHref = (path: string) => {
     if (path.startsWith("http://") || path.startsWith("https://") || path.startsWith("#")) return path;
@@ -118,8 +149,6 @@ export function Navbar() {
       document.body.classList.remove("overflow-hidden");
     };
   }, [isMenuOpen]);
-
-  const closeMenu = () => setIsMenuOpen(false);
 
   return (
     <>
@@ -199,7 +228,7 @@ export function Navbar() {
           <button
             type="button"
             translate="no"
-            onClick={() => setIsMenuOpen((prev) => !prev)}
+            onClick={() => toggleMenu()}
             className="notranslate lg:hidden flex items-center justify-center w-10 h-10 rounded-full bg-white dark:bg-[#0c1524] border border-[#e8e3dd] dark:border-[#1f304d] hover:bg-gray-100 dark:hover:bg-[#101a2b] text-black dark:text-white transition-colors shrink-0 shadow-sm"
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             aria-expanded={isMenuOpen}
@@ -252,7 +281,7 @@ export function Navbar() {
             <div className={`translate-x-0 xl:translate-x-1/2 ${isScrolled || isMenuOpen ? "pointer-events-auto" : "pointer-events-none"}`}>
               <button
                 type="button"
-                onClick={() => setIsMenuOpen((prev) => !prev)}
+                onClick={() => toggleMenu()}
                 disabled={!isScrolled && !isMenuOpen}
                 tabIndex={isScrolled || isMenuOpen ? 0 : -1}
                 aria-hidden={!isScrolled && !isMenuOpen}
