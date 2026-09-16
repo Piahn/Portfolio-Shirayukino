@@ -1,7 +1,8 @@
 "use client";
 
-import { useLanguage } from "./LanguageContext";
+import { useLanguage, type Lang } from "./LanguageContext";
 import { IoGlobeOutline } from "react-icons/io5";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 export function LanguageToggle({
   className = "",
@@ -11,7 +12,30 @@ export function LanguageToggle({
   variant?: "pill" | "inline";
 }) {
   const { lang, setLang } = useLanguage();
+  const router = useRouter();
+  const pathname = usePathname() || "";
+  const searchParams = useSearchParams();
   const isInline = variant === "inline";
+
+  const handleLanguageChange = (targetLang: Lang) => {
+    if (targetLang === lang) return;
+
+    setLang(targetLang);
+
+    // Calculate new path by swapping or prefixing locale
+    let newPath = pathname;
+    if (pathname.startsWith("/id") || pathname.startsWith("/en")) {
+      newPath = pathname.replace(/^\/(id|en)/, `/${targetLang}`);
+    } else {
+      newPath = `/${targetLang}${pathname === "/" ? "" : pathname}`;
+    }
+
+    // Preserve search params if any
+    const queryString = searchParams?.toString();
+    const finalUrl = queryString ? `${newPath}?${queryString}` : newPath;
+
+    router.push(finalUrl);
+  };
 
   return (
     <div
@@ -37,13 +61,13 @@ export function LanguageToggle({
         {/* Indonesian Button */}
         <button
           type="button"
-          onClick={() => setLang("id")}
+          onClick={() => handleLanguageChange("id")}
           className={`px-2 py-0.5 rounded-full transition-all duration-200 uppercase tracking-wider ${
             lang === "id"
               ? isInline
                 ? "bg-white dark:bg-[#1a2840] text-black dark:text-[#E5BA68] shadow-xs border border-gray-200/70 dark:border-[#283d5f]"
                 : "bg-white dark:bg-[#15233c] text-black dark:text-[#E5BA68] shadow-xs border border-gray-200/80 dark:border-[#223b63]"
-              : "text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white"
+              : "text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white cursor-pointer"
           }`}
           aria-pressed={lang === "id"}
           title="Bahasa Indonesia"
@@ -56,13 +80,13 @@ export function LanguageToggle({
         {/* English Button */}
         <button
           type="button"
-          onClick={() => setLang("en")}
+          onClick={() => handleLanguageChange("en")}
           className={`px-2 py-0.5 rounded-full transition-all duration-200 uppercase tracking-wider ${
             lang === "en"
               ? isInline
                 ? "bg-white dark:bg-[#1a2840] text-black dark:text-[#E5BA68] shadow-xs border border-gray-200/70 dark:border-[#283d5f]"
                 : "bg-white dark:bg-[#15233c] text-black dark:text-[#E5BA68] shadow-xs border border-gray-200/80 dark:border-[#223b63]"
-              : "text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white"
+              : "text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white cursor-pointer"
           }`}
           aria-pressed={lang === "en"}
           title="English"

@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "sync-i18n": "bun run scripts/sync-i18n.ts"
   },
   "dependencies": {
     "gsap": "^3.15.0",

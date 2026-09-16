@@ -17,7 +17,7 @@ export interface DevlogArticle {
   };
 }
 
-export const DEVLOG_ARTICLES: DevlogArticle[] = [
+export const DEVLOG_ARTICLES_EN: DevlogArticle[] = [
   {
     id: "whatsapp-prologue",
     category: "WhatsApp Bot & Engine",
@@ -75,7 +75,7 @@ export const DEVLOG_ARTICLES: DevlogArticle[] = [
         "One of the core design pillars of 『星海の白雪と蒼穹の聖域』 is creating seamless harmony between intimate visual novel storytelling and deep, rewarding turn-based tactics.",
       sections: [
         {
-          heading: "1. The Catalyst Action Point (AP) System",
+          heading: "1. The Catalyst Action Point (AP) Economy",
           paragraphs: [
             "Rather than simple attack-defend turns, our battle engine utilizes a shared pool of Catalyst AP. Every movement, elemental stance switch, and item usage draws from this energy.",
             "Players must decide whether to consume AP immediately for aggressive chain attacks or bank it to unleash party-wide Celestial Burst Arts during enemy stagger states.",
@@ -186,3 +186,187 @@ export const DEVLOG_ARTICLES: DevlogArticle[] = [
     },
   },
 ];
+
+export const DEVLOG_ARTICLES_ID: DevlogArticle[] = [
+  {
+    id: "whatsapp-prologue",
+    category: "WhatsApp Bot & Engine",
+    title: "Menghidupkan Prolog: Di Balik Layar Engine RPG Interaktif WhatsApp",
+    date: "Sep 2026",
+    readTime: "4 menit baca",
+    author: "Circle Tech Lead",
+    summary:
+      "Alasan kami memilih Bot WhatsApp interaktif untuk quest prolog pra-rilis, dan bagaimana pilihan pemain terhubung ke rilis game penuh di Steam.",
+    content: {
+      lead:
+        "Mengembangkan JRPG naratif skala penuh membutuhkan waktu ratusan jam untuk menggambar ilustrasi, meracik rumus pertarungan, dan mengatur alur adegan. Sebelum build penuh di Steam/PC hadir, kami ingin pemain dapat langsung menjelajahi semesta 『星海の白雪と蒼穹の聖域』 seketika tanpa perlu mengunduh data bergigabita.",
+      sections: [
+        {
+          heading: "1. Filosofi Prolog Tanpa Hambatan Unduhan",
+          paragraphs: [
+            "Hampir semua orang di komunitas kami memiliki aplikasi WhatsApp. Dengan membangun bot RPG berbasis teks interaktif, pemain dapat memulai Chapter 1 langsung dari ponsel mereka dalam hitungan detik.",
+            "Setiap pilihan di chat bercabang ke dialog cerita unik, menguji insting pemain, dan mengungkap petunjuk awal tentang misteri suaka langit Elyrith.",
+          ],
+          callout:
+            "✦ Keuntungan Awal: Pemain yang menyelesaikan Prolog WhatsApp akan menerima kode redeem rahasia untuk mengklaim Relik Celestial eksklusif saat game rilis di Steam!",
+        },
+        {
+          heading: "2. Dinamika Pilihan & Afinitas Karakter",
+          paragraphs: [
+            "Bot ini menghadirkan prompt dialog responsif di mana pemain dapat memilih gaya kepribadian (Taktis, Empatis, atau Investigatif). Pilihan Anda secara halus memengaruhi skor kepercayaan rekan yang tinggal di Elyrith.",
+          ],
+          bulletPoints: [
+            "Respons bercabang langsung dengan status flag cerita tersimpan",
+            "Pertarungan mini berkala melalui perintah teks yang praktis",
+            "Pratinjau visual CG eksklusif dan kutipan karakter langsung di chat",
+            "Sinkronisasi otomatis dengan daftar tunggu komunitas Discord",
+          ],
+        },
+        {
+          heading: "3. Langkah Berikutnya",
+          paragraphs: [
+            "Umpan balik dari para pemain quest prolog WhatsApp ini secara aktif membantu kami menyempurnakan keseimbangan engine pertarungan taktis berbasis giliran di PC.",
+          ],
+        },
+      ],
+    },
+  },
+  {
+    id: "combat-rpg",
+    category: "Sistem Pertarungan & RPG",
+    title: "Menyeimbangkan pertarungan taktis turn-based dengan eksplorasi cerita",
+    date: "Sep 2026",
+    readTime: "5 menit baca",
+    author: "Lead Battle Designer",
+    summary:
+      "Bagaimana tim kami memadukan percabangan dialog visual novel dengan urutan giliran taktis, sintesis elemen, dan relic celestial.",
+    content: {
+      lead:
+        "Salah satu pilar utama 『星海の白雪と蒼穹の聖域』 adalah menciptakan harmoni yang mulus antara penceritaan visual novel yang intim dan taktik giliran yang mendalam dan memuaskan.",
+      sections: [
+        {
+          heading: "1. Ekonomi Action Point (AP) Katalis",
+          paragraphs: [
+            "Alih-alih giliran serang-tahan biasa, sistem pertarungan kami menggunakan pool AP bersama. Setiap gerakan, pergantian stance elemen, dan penggunaan item memanfaatkan energi ini.",
+            "Pemain harus memutuskan apakah ingin menghabiskan AP seketika untuk kombo beruntun atau menyimpannya guna melepaskan jurus pamungkas Celestial Burst saat musuh dalam kondisi Stagger.",
+          ],
+          bulletPoints: [
+            "Linimasa giliran dinamis dengan indikator niat serangan musuh",
+            "Rantai resonansi elemen yang memberi penghargaan pada komposisi formasi tim",
+            "Ramuan tempur sintetis yang diracik di suaka langit Elyrith",
+          ],
+        },
+        {
+          heading: "2. Taruhan Cerita di Setiap Pertarungan",
+          paragraphs: [
+            "Pertarungan bos menghadirkan percabangan dialog di tengah pertempuran. Keputusan pemain saat jeda konfrontasi dapat memicu buff unik, perubahan moral musuh, atau syarat kemenangan alternatif.",
+          ],
+          callout:
+            "✦ Wawasan Taktis: Memanfaatkan relik celestial yang ditemukan selama eksplorasi dapat mengubah total afinitas elemen pelindung bos.",
+        },
+      ],
+    },
+  },
+  {
+    id: "music-soundscapes",
+    category: "Musik & Tata Suara",
+    title: "Menggubah aransemen musik untuk The Celestial Snow & Elyrith",
+    date: "Agu 2026",
+    readTime: "5 menit baca",
+    author: "Sound Director & Composer",
+    summary:
+      "Di balik layar penciptaan 45+ trek orkestra studio yang memadukan melodi fantasi magis dengan klimaks paduan suara megah.",
+    content: {
+      lead:
+        "Musik dalam proyek kami bukan sekadar latar pengiring; ia adalah detak emosional dari suaka langit. Kami ingin aransemen musik terasa seperti menemukan kotak musik kuno yang terpendam di bawah reruntuhan senja.",
+      sections: [
+        {
+          heading: "1. Kehangatan Akustik Bertemu Melankolia Kosmik",
+          paragraphs: [
+            "Kami memadukan instrumen akustik klasik—harpa celtic, gitar akustik, dan tiup kayu solo—dengan ansambel gesek megah dan paduan suara langit.",
+            "Tema musik suaka utama bergeser secara dinamis tergantung waktu hari dan progres pemain, bertransisi dari petikan lute damai menjadi orkestrasi berlapis yang megah.",
+          ],
+          bulletPoints: [
+            "45+ trek simfoni orisinal yang digubah khusus untuk tiap bab cerita",
+            "Rekaman master FLAC lossless resolusi tinggi 24-bit / 96kHz",
+            "Transisi audio adaptif dinamis antara eksplorasi dan arena tempur",
+          ],
+          callout:
+            "✦ Fitur Audio: Edisi Collector mencakup rekaman komentar penuh sutradara yang menjelaskan motif musikal di balik setiap karakter.",
+        },
+      ],
+    },
+  },
+  {
+    id: "worldbuilding-art",
+    category: "Pembangunan Semesta & Seni",
+    title: "Dari sketsa konsep hingga kanvas: Merancang Elyrith",
+    date: "Jul 2026",
+    readTime: "6 menit baca",
+    author: "Art Director",
+    summary:
+      "Eksplorasi mendalam ilustrasi latar, atmosfer fantasi langit, dan mekanisme kuil suaka terapung yang terlupakan.",
+    content: {
+      lead:
+        "Setiap petualangan membutuhkan tempat untuk beristirahat. Bagi para pahlawan kita, suaka langit 'Elyrith' (蒼穹の聖域) adalah tempat perlindungan ilmu celestial sekaligus rumah yang teduh di atas Laut Bintang.",
+      sections: [
+        {
+          heading: "1. Dualitas Arsitektur: Batu Kuno & Kayu Hangat",
+          paragraphs: [
+            "Suaka ini dibangun di atas reruntuhan pulau langit kuno, diterangi lentera bertenaga kristal dan cahaya bintang yang menembus celah kubah.",
+            "Kami sengaja mengontraskan dinginnya arsitektur peradaban kuno yang mistis dengan kehangatan furnitur kayu buatan tangan, perkakas astronomi, dan deretan buku tua.",
+          ],
+          bulletPoints: [
+            "Lebih dari 120 latar pemandangan lukisan tangan melintasi empat musim",
+            "Detail animasi ambient: partikel debu melayang, kuali mendidih, dan roda jam kuno",
+            "Dekorasi ruangan suaka yang dapat dikustomisasi sesuai pencapaian petualangan",
+          ],
+          callout:
+            "✦ Catatan Lore: Perhatikan peta bintang di dinding suaka—mereka menggambarkan formasi rasi bintang yang diperlukan untuk membuka ruang sang Penguasa.",
+        },
+      ],
+    },
+  },
+  {
+    id: "scenario-lore",
+    category: "Skenario & Mitologi",
+    title: "Babad Laut Bintang: Merajut Mitologi Dunia",
+    date: "Jun 2026",
+    readTime: "4 menit baca",
+    author: "Lead Scenario Writer",
+    summary:
+      "Menulis mitologi penguasa cahaya bintang, dilema moral bercabang, dan misteri yang terhampar di kerajaan langit.",
+    content: {
+      lead:
+        "Siapakah Penguasa Laut Bintang yang sesungguhnya? Apakah ia pelindung yang menjaga keseimbangan dunia yang rapuh, ataukah kekuatan kuno yang terjebak dalam cahaya abadi? Pertanyaan ini menjadi misteri penggerak cerita kami.",
+      sections: [
+        {
+          heading: "1. Tidak Ada Pahlawan atau Penjahat yang Sederhana",
+          paragraphs: [
+            "Dalam tradisi visual novel klasik, pilihan Anda tidak diberi label hitam atau putih. Pilihan tersebut mencerminkan prinsip karakter Anda: menjaga peninggalan masa lampau atau menantang masa depan yang penuh ketidakpastian.",
+            "Masing-masing dari empat cabang skenario utama menyingkap sisi berbeda dari masa lalu sang Penguasa, memberi kepuasan tersendiri bagi pemain yang menyukai multi-rute.",
+          ],
+          bulletPoints: [
+            "4 akhir cerita utama yang berbeda dengan sekuens epilog sinematik",
+            "Event hubungan karakter yang mendalam untuk membuka rahasia masa lalu",
+            "Glosarium ensiklopedia di dalam game yang merinci flora, relik, dan kronologi waktu",
+          ],
+        },
+      ],
+    },
+  },
+];
+
+export const DEVLOG_ARTICLES = DEVLOG_ARTICLES_EN;
+
+export function getDevlogArticles(lang: "id" | "en" = "en"): DevlogArticle[] {
+  return lang === "id" ? DEVLOG_ARTICLES_ID : DEVLOG_ARTICLES_EN;
+}
+
+export function getDevlogArticle(
+  slug: string,
+  lang: "id" | "en" = "en"
+): DevlogArticle | undefined {
+  const list = getDevlogArticles(lang);
+  return list.find((a) => a.id === slug) || DEVLOG_ARTICLES_EN.find((a) => a.id === slug);
+}

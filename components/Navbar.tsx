@@ -10,6 +10,7 @@ import {
 import { HiArrowRight, HiArrowUpRight } from "react-icons/hi2";
 import { ThemeToggle } from "./ThemeToggle";
 import { LanguageToggle } from "./LanguageToggle";
+import { useLanguage } from "./LanguageContext";
 import { WHATSAPP_BOT_URL, DASHBOARD_URL } from "./constants";
 
 export function ShirayukinoLogo({
@@ -84,8 +85,15 @@ const mobileMenuSecondary = [
 ];
 
 export function Navbar() {
+  const { lang } = useLanguage();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const getLocalizedHref = (path: string) => {
+    if (path.startsWith("http://") || path.startsWith("https://") || path.startsWith("#")) return path;
+    if (path.startsWith("/#")) return `/${lang}${path.slice(1)}`;
+    return `/${lang}${path === "/" ? "" : path}`;
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -124,7 +132,7 @@ export function Navbar() {
         {/* Left: Logo & Desktop Links */}
         <div className="flex items-center gap-4 sm:gap-6 shrink-0">
           <Link
-            href="/"
+            href={getLocalizedHref("/")}
             translate="no"
             className="notranslate flex items-center shrink-0 group focus:outline-none"
             aria-label="ShirayukinoComp Home"
@@ -139,14 +147,14 @@ export function Navbar() {
             aria-label="Desktop navigation"
           >
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.label}
-                href={link.href}
+                href={getLocalizedHref(link.href)}
                 translate="no"
                 className="notranslate px-3.5 py-[6px] text-[13px] font-mono text-[#444] dark:text-[#94a3b8] hover:text-black dark:hover:text-white rounded-full hover:bg-white dark:hover:bg-[#1a2840] transition-all whitespace-nowrap"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </nav>
         </div>
@@ -302,7 +310,7 @@ export function Navbar() {
                   {drawerNavItems.map((item) => (
                     <Link
                       key={item.label}
-                      href={item.href}
+                      href={getLocalizedHref(item.href)}
                       onClick={closeMenu}
                       className="group flex flex-col py-1 transition-all"
                     >
@@ -325,7 +333,7 @@ export function Navbar() {
                   {mobileMenuSecondary.map((link) => (
                     <Link
                       key={link.label}
-                      href={link.href}
+                      href={getLocalizedHref(link.href)}
                       onClick={closeMenu}
                       className="text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors"
                     >

@@ -14,19 +14,27 @@ const LanguageContext = createContext<LanguageContextType>({
   setLang: () => {},
 });
 
-export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [lang, setLangState] = useState<Lang>("id");
+export function LanguageProvider({
+  children,
+  initialLang = "id",
+}: {
+  children: React.ReactNode;
+  initialLang?: Lang;
+}) {
+  const [lang, setLangState] = useState<Lang>(initialLang);
 
   useEffect(() => {
-    const saved = localStorage.getItem("shirayukino-lang") as Lang | null;
-    if (saved === "id" || saved === "en") {
-      setLangState(saved);
+    if (initialLang === "id" || initialLang === "en") {
+      setLangState(initialLang);
     }
-  }, []);
+  }, [initialLang]);
 
   const setLang = (newLang: Lang) => {
     setLangState(newLang);
-    localStorage.setItem("shirayukino-lang", newLang);
+    if (typeof window !== "undefined") {
+      localStorage.setItem("shirayukino-lang", newLang);
+      document.cookie = `NEXT_LOCALE=${newLang}; path=/; max-age=31536000; SameSite=Lax`;
+    }
   };
 
   return (

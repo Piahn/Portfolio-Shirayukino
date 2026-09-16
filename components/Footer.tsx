@@ -7,6 +7,12 @@ import { useLanguage } from "./LanguageContext";
 export function Footer() {
   const { lang } = useLanguage();
 
+  const getLocalizedHref = (path: string) => {
+    if (path.startsWith("http://") || path.startsWith("https://") || path.startsWith("#")) return path;
+    if (path.startsWith("/#")) return `/${lang}${path.slice(1)}`;
+    return `/${lang}${path === "/" ? "" : path}`;
+  };
+
   return (
     <footer className="w-full border-t border-b border-[#e7e3df] dark:border-[#1a2840] px-[21px] py-10 sm:py-12 transition-colors duration-300">
       <div>
@@ -26,7 +32,7 @@ export function Footer() {
                 </p>
               </div>
               <Link
-                href="/gameplay"
+                href={getLocalizedHref("/gameplay")}
                 className="inline-flex h-12 w-fit items-center justify-center rounded-full bg-[#142d55] hover:bg-[#0c1e3a] dark:bg-[#1a355d] dark:hover:bg-[#224477] px-7 text-[11px] font-semibold uppercase tracking-[0.18em] text-white font-mono transition-all shadow-sm"
               >
                 {lang === "id" ? "Jelajahi Elyrith" : "Explore Elyrith"}
@@ -44,25 +50,25 @@ export function Footer() {
                 </p>
                 <div className="mt-8 space-y-4">
                   <Link
-                    href="/gameplay"
+                    href={getLocalizedHref("/gameplay")}
                     className="block text-[14px] font-medium leading-none tracking-[-0.02em] text-black dark:text-white transition hover:text-[#142d55] dark:hover:text-[#E5BA68]"
                   >
                     {lang === "id" ? "Kisah & JRPG" : "Story & JRPG"}
                   </Link>
                   <Link
-                    href="/#world"
+                    href={getLocalizedHref("/#world")}
                     className="block text-[14px] font-medium leading-none tracking-[-0.02em] text-black dark:text-white transition hover:text-[#142d55] dark:hover:text-[#E5BA68]"
                   >
                     {lang === "id" ? "Semesta & Lore" : "World & Lore"}
                   </Link>
                   <Link
-                    href="/devlog/music-soundscapes"
+                    href={getLocalizedHref("/devlog/music-soundscapes")}
                     className="block text-[14px] font-medium leading-none tracking-[-0.02em] text-black dark:text-white transition hover:text-[#142d55] dark:hover:text-[#E5BA68]"
                   >
                     Soundtrack Vault
                   </Link>
                   <Link
-                    href="/devlog"
+                    href={getLocalizedHref("/devlog")}
                     className="block text-[14px] font-medium leading-none tracking-[-0.02em] text-black dark:text-white transition hover:text-[#142d55] dark:hover:text-[#E5BA68]"
                   >
                     {lang === "id" ? "Catatan Devlog" : "Devlog Notes"}
@@ -80,25 +86,25 @@ export function Footer() {
                 </p>
                 <div className="mt-8 space-y-4">
                   <Link
-                    href="/editions"
+                    href={getLocalizedHref("/editions")}
                     className="block text-[14px] font-medium leading-none tracking-[-0.02em] text-black dark:text-white transition hover:text-[#142d55] dark:hover:text-[#E5BA68]"
                   >
                     Patch Notes (v0.9.4)
                   </Link>
                   <Link
-                    href="/editions"
+                    href={getLocalizedHref("/editions")}
                     className="block text-[14px] font-medium leading-none tracking-[-0.02em] text-black dark:text-white transition hover:text-[#142d55] dark:hover:text-[#E5BA68]"
                   >
                     {lang === "id" ? "Peta Rilis" : "Release Roadmap"}
                   </Link>
                   <Link
-                    href="/devlog/music-soundscapes"
+                    href={getLocalizedHref("/devlog/music-soundscapes")}
                     className="block text-[14px] font-medium leading-none tracking-[-0.02em] text-black dark:text-white transition hover:text-[#142d55] dark:hover:text-[#E5BA68]"
                   >
                     Soundtrack Vault
                   </Link>
                   <Link
-                    href="/community"
+                    href={getLocalizedHref("/community")}
                     className="block text-[14px] font-medium leading-none tracking-[-0.02em] text-black dark:text-white transition hover:text-[#142d55] dark:hover:text-[#E5BA68]"
                   >
                     Steam Store
@@ -116,25 +122,25 @@ export function Footer() {
                 </p>
                 <div className="mt-8 space-y-4">
                   <Link
-                    href="/community"
+                    href={getLocalizedHref("/community")}
                     className="block text-[14px] font-medium leading-none tracking-[-0.02em] text-black dark:text-white transition hover:text-[#142d55] dark:hover:text-[#E5BA68]"
                   >
                     Discord Circle
                   </Link>
                   <Link
-                    href="/terms"
+                    href={getLocalizedHref("/terms")}
                     className="block text-[14px] font-medium leading-none tracking-[-0.02em] text-black dark:text-white transition hover:text-[#142d55] dark:hover:text-[#E5BA68]"
                   >
                     Fan Guidelines
                   </Link>
                   <Link
-                    href="/community"
+                    href={getLocalizedHref("/community")}
                     className="block text-[14px] font-medium leading-none tracking-[-0.02em] text-black dark:text-white transition hover:text-[#142d55] dark:hover:text-[#E5BA68]"
                   >
                     Staff & Credits
                   </Link>
                   <Link
-                    href="/community"
+                    href={getLocalizedHref("/community")}
                     className="block text-[14px] font-medium leading-none tracking-[-0.02em] text-black dark:text-white transition hover:text-[#142d55] dark:hover:text-[#E5BA68]"
                   >
                     Contact / Mail
@@ -154,17 +160,17 @@ export function Footer() {
           </p>
           <div className="flex flex-col gap-3 lg:items-end">
             <div className="flex flex-wrap items-center gap-x-5 gap-y-2 font-mono">
-              <Link href="/gameplay" className="transition hover:text-black dark:hover:text-white">
+              <Link href={getLocalizedHref("/gameplay")} className="transition hover:text-black dark:hover:text-white">
                 {lang === "id" ? "Ringkasan Gameplay" : "Gameplay Overview"}
               </Link>
-              <Link href="/editions" className="transition hover:text-black dark:hover:text-white">
+              <Link href={getLocalizedHref("/editions")} className="transition hover:text-black dark:hover:text-white">
                 Patch Notes
               </Link>
-              <Link href="/privacy" className="transition hover:text-black dark:hover:text-white">
+              <Link href={getLocalizedHref("/privacy")} className="transition hover:text-black dark:hover:text-white">
                 Privacy Policy
               </Link>
               <Link
-                href="/terms"
+                href={getLocalizedHref("/terms")}
                 className="rounded-md border border-[#8f8b86] dark:border-[#7f93b0] px-2.5 py-0.5 text-black dark:text-white transition hover:border-black dark:hover:border-white"
               >
                 Terms of Use
